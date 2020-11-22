@@ -15,10 +15,10 @@ RUN service postgresql start \
 USER root
 
 WORKDIR /app
-COPY ./app ./
+COPY ./ ./
 RUN yes | pip install faker numpy pandas psycopg2 sqlalchemy
 RUN service postgresql start \
-  && python ./dummy_data/main.py \
+  && python ./main.py \
   && service postgresql stop
 
 CMD ["sh", "./start.sh"]
