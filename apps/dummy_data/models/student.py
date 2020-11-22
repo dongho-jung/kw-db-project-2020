@@ -23,8 +23,7 @@ class StudentModel:
         return self._fake.name()
 
     def _get_random_major_id(self):
-        id_ = random.sample(self._major_ids, 1)[0]
-        return f"{id_:04}"
+        return random.sample(self._major_ids, 1)[0]
 
     def _get_random_year(self):
         return random.randint(1990, 2021)
