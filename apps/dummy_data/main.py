@@ -23,7 +23,7 @@ try:
 except psycopg2.ProgrammingError:
     major_model = MajorModel()
     major_rows = list(itertools.islice(major_model, 30))
-    df_major = pd.DataFrame(major_rows, columns=["major_id", "name"])
+    df_major = pd.DataFrame(major_rows, columns=["id", "name"])
     db.execute("DROP TABLE IF EXISTS major")
     db.insert(df_major, "major")
 
@@ -42,7 +42,7 @@ except psycopg2.ProgrammingError:
     professor_model = ProfessorModel(fake, db.fetch("SELECT id FROM department"))
     professor_rows = list(itertools.islice(professor_model, 30))
     df_professor = pd.DataFrame(
-        professor_rows, columns=["professor_id", "name", "department"]
+        professor_rows, columns=["id", "name", "department"]
     )
     db.execute("DROP TABLE IF EXISTS professor")
     db.insert(df_professor, "professor")
@@ -53,7 +53,7 @@ except psycopg2.ProgrammingError:
     class_model = ClassModel(
         fake,
         db.fetch("SELECT id FROM department"),
-        db.fetch("SELECT professor_id FROM professor"),
+        db.fetch("SELECT id FROM professor"),
     )
     class_rows = list(
         itertools.islice(class_model, 30 * 4 * 100)
@@ -61,14 +61,14 @@ except psycopg2.ProgrammingError:
     df_class = pd.DataFrame(
         class_rows,
         columns=[
-            "class_id",
+            "id",
             "year",
             "quarter",
             "is_completed",
             "name",
             "place",
             "period",
-            "class_professor",
+            "professor",
             "credit",
             "capacity",
             "is_pass",
@@ -84,8 +84,8 @@ try:
 except psycopg2.ProgrammingError:
     student_model = StudentModel(
         fake,
-        db.fetch("SELECT major_id FROM major"),
-        db.fetch("SELECT professor_id FROM professor"),
+        db.fetch("SELECT id FROM major"),
+        db.fetch("SELECT id FROM professor"),
     )
     student_rows = list(
         itertools.islice(student_model, 30 * 30 * 50)
@@ -93,7 +93,7 @@ except psycopg2.ProgrammingError:
     df_student = pd.DataFrame(
         student_rows,
         columns=[
-            "student_id",
+            "id",
             "name",
             "major_id",
             "year",
@@ -112,8 +112,8 @@ try:
 except psycopg2.ProgrammingError:
     post_model = PostModel(
         fake,
-        db.fetch("SELECT class_id, year, quarter FROM class"),
-        db.fetch("SELECT student_id FROM student"),
+        db.fetch("SELECT id, year, quarter FROM class"),
+        db.fetch("SELECT id FROM student"),
     )
     post_rows = list(
         itertools.islice(post_model, 30 * 365 * 5)
@@ -121,7 +121,7 @@ except psycopg2.ProgrammingError:
     df_post = pd.DataFrame(
         post_rows,
         columns=[
-            "board_id",
+            "id",
             "title",
             "content",
             "like_",
@@ -143,8 +143,8 @@ try:
 except psycopg2.ProgrammingError:
     comment_model = CommentModel(
         fake,
-        db.fetch("SELECT board_id, created_time FROM post"),
-        db.fetch("SELECT student_id FROM student"),
+        db.fetch("SELECT id, created_time FROM post"),
+        db.fetch("SELECT id FROM student"),
     )
     comment_rows = list(
         itertools.islice(comment_model, 30 * 365 * 10)
@@ -153,8 +153,8 @@ except psycopg2.ProgrammingError:
         comment_rows,
         columns=[
             "id",
-            "comment",
-            "board",
+            "comment_id",
+            "post_id",
             "content",
             "like_",
             "hate",
@@ -170,8 +170,8 @@ try:
 except psycopg2.ProgrammingError:
     grade_model = GradeModel(
         fake,
-        db.fetch("SELECT class_id, year, quarter FROM class"),
-        db.fetch("SELECT student_id FROM student"),
+        db.fetch("SELECT id, year, quarter FROM class"),
+        db.fetch("SELECT id FROM student"),
     )
     grade_rows = list(
         itertools.islice(grade_model, 3 * len(df_student))
@@ -187,11 +187,11 @@ except psycopg2.ProgrammingError:
 try:
     db.execute('SELECT 1 FROM prerequisite_class')
 except psycopg2.ProgrammingError:
-    preclass_model = PreclassModel(db.fetch("SELECT class_id FROM class WHERE year=2020 AND quarter=2"))
+    preclass_model = PreclassModel(db.fetch("SELECT id FROM class WHERE year=2020 AND quarter=2"))
     preclass_rows = list(preclass_model)
     df_preclass = pd.DataFrame(
         preclass_rows,
-        columns=["prerequisite_class_id", "class_id"],
+        columns=["pre_class_id", "class_id"],
     )
     db.execute("DROP TABLE IF EXISTS prerequisite_class")
     db.insert(df_preclass, "prerequisite_class")
