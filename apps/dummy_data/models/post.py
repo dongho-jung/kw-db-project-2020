@@ -1,5 +1,6 @@
-from datetime import datetime
 import random
+from datetime import datetime
+
 
 class PostModel:
     def __init__(self, fake, class_ids, student_ids):
@@ -16,7 +17,7 @@ class PostModel:
     def _get_random_created_time(self, year, quarter):
         return datetime(
             year,
-            random.randint(1, 3) + (3 * (quarter-1)),
+            random.randint(1, 3) + (3 * (quarter - 1)),
             random.randint(1, 28),
             random.randint(0, 23),
             random.randint(0, 59),

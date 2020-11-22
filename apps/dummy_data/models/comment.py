@@ -1,5 +1,5 @@
-from datetime import timedelta
 import random
+from datetime import timedelta
 
 
 class CommentModel:
@@ -17,7 +17,7 @@ class CommentModel:
         return self._id
 
     def _get_random_created_time(self, created_time):
-        return created_time + timedelta(seconds=random.randint(1, 3600*24*90))
+        return created_time + timedelta(seconds=random.randint(1, 3600 * 24 * 90))
 
     def __iter__(self):
         return self

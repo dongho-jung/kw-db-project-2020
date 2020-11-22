@@ -1,6 +1,7 @@
 import itertools
 import random
 
+
 class PreclassModel:
     def __init__(self, class_ids):
         self._class_ids = set(class_ids)
@@ -27,6 +28,8 @@ class PreclassModel:
             level = random.choices([0, 1, 2, 3], map(len, self._levels), k=1)[0]
             _class = random.sample(self._levels[level], 1)[0]
             self._levels[level] -= {_class}
-            return (None if level == 0 else random.sample(set(itertools.chain.from_iterable(self._levels[:level])), 1)[0], _class)
+            return (
+            "_" if level == 0 else random.sample(set(itertools.chain.from_iterable(self._levels[:level])), 1)[0],
+            _class)
         except ValueError:
             raise StopIteration from None

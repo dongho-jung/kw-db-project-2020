@@ -1,6 +1,6 @@
+import random
 from collections import Counter
 from hashlib import sha256
-import random
 
 
 class StudentModel:

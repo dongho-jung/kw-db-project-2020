@@ -1,5 +1,6 @@
 import random
 
+
 class DepartmentModel:
     def __init__(self, fake):
         self._fake = fake

@@ -1,5 +1,6 @@
 import random
 
+
 class ScholarshipModel:
     def __init__(self):
         self._added_scholarship = set()
