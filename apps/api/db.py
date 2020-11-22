@@ -24,7 +24,8 @@ def insert(df, table_name):
     with engine.begin() as conn:
         df.to_sql(table_name, conn, if_exists='append', method='multi', chunksize=5000, index=False)
 
-def join_params_for_where(predicates, delim='OR'):
+
+def join_params_for_where(predicates, delim='AND'):
     res = ''
     for pred in predicates:
         res += f'{pred} {delim} '
