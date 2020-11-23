@@ -8,11 +8,6 @@ class PostModel:
 
         self._class_ids = set(class_ids)
         self._student_ids = set(student_ids)
-        self._id = -1
-
-    def _get_board_id(self):
-        self._id += 1
-        return self._id
 
     def _get_random_created_time(self, year, quarter):
         return datetime(
@@ -29,7 +24,6 @@ class PostModel:
 
     def __next__(self):
         try:
-            board_id = self._get_board_id()
             title = self._fake.sentence()
             content = "\n".join(self._fake.sentences(random.randint(1, 10)))
             like_, hate = random.randint(0, 1000), random.randint(0, 1000)
@@ -41,7 +35,6 @@ class PostModel:
             created_time = self._get_random_created_time(year, quarter)
 
             return (
-                board_id,
                 title,
                 content,
                 like_,
