@@ -17,7 +17,7 @@ class Login(Resource):
     def post(self):
         params = login_post_parser.parse_args()
 
-        expected_pw = db.fetch(f"SELECT pw FROM student WHERE id = '{params['student_id']}'")
+        expected_pw = db.fetch(f"SELECT pw FROM student WHERE id = '{params['student_id']}'")[0]
         if params['hashed_pw'] != expected_pw:
             return '잘못된 비밀번호 입니다.', 401
 
