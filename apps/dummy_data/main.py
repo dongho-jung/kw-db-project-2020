@@ -1,4 +1,5 @@
 import itertools
+import random
 
 import pandas as pd
 from faker import Faker
@@ -16,6 +17,9 @@ from models.scholarship import ScholarshipModel
 from models.student import StudentModel
 
 fake = Faker()
+
+fake.seed(42)
+random.seed(42)
 
 db.execute("DROP TABLE IF EXISTS major")
 db.execute(
