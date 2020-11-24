@@ -18,8 +18,6 @@ def fetch(cmd):
             result = cur.fetchall()
             if len(result) > 0 and len(result[0]) == 1:
                 result = list(itertools.chain.from_iterable(result))
-            if len(result) == 1:
-                return result[0]
             return result
 
 
