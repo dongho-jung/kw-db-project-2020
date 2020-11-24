@@ -21,6 +21,14 @@ post_get_parser.add_argument('class_id', type=str)
 post_get_parser.add_argument('year', type=int)
 post_get_parser.add_argument('quarter', type=int)
 
+post_put_parser = reqparse.RequestParser()
+post_put_parser.add_argument('post_id', type=str, required=True)
+post_put_parser.add_argument('title', type=str)
+post_put_parser.add_argument('content', type=str)
+
+post_delete_parser = reqparse.RequestParser()
+post_delete_parser.add_argument('post_id', type=str, required=True)
+
 
 @api.route('/')
 class Post(Resource):
@@ -55,6 +63,33 @@ class Post(Resource):
             SELECT id
             FROM post
             WHERE {db.join_params_for_where(predicates)}
+        ''')
+
+        return res
+
+    @api.expect(post_put_parser)
+    def put(self):
+        params = post_put_parser.parse_args()
+
+        post_id, title, content = params.values()
+
+        res = db.execute(f'''
+            UPDATE id
+            SET (title, content) = ('{title}', '{content}')
+            WHERE id = '{post_id}'
+        ''')
+
+        return res
+
+    @api.expect(post_delete_parser)
+    def delete(self):
+        params = post_delete_parser.parse_args()
+
+        post_id = params['post_id']
+
+        res = db.execute(f'''
+            DELETE FROM post
+            WHERE id = '{post_id}'
         ''')
 
         return res
