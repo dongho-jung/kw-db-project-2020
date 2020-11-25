@@ -16,10 +16,10 @@ from models.professor import ProfessorModel
 from models.scholarship import ScholarshipModel
 from models.student import StudentModel
 
-fake = Faker()
-
-fake.seed(42)
+Faker.seed(42)
 random.seed(42)
+
+fake = Faker()
 
 db.execute("DROP TABLE IF EXISTS major")
 db.execute(
