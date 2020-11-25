@@ -1,6 +1,7 @@
 import pathlib
 import random
 
+
 class MajorModel:
     _majors = open(pathlib.Path(__file__).parent / 'majors.txt').read().splitlines()
 

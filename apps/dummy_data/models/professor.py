@@ -1,5 +1,6 @@
 import random
 
+
 class ProfessorModel:
     def __init__(self, fake, department_ids):
         self._fake = fake

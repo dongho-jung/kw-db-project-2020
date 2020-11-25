@@ -1,12 +1,14 @@
 import itertools
 
-import sqlalchemy
 import psycopg2
+import sqlalchemy
+
 
 def execute(cmd):
     with psycopg2.connect(user='postgres', database='kw_db') as conn:
         with conn.cursor() as cur:
             cur.execute(cmd)
+
 
 def fetch(cmd):
     with psycopg2.connect(user='postgres', database='kw_db') as conn:
@@ -17,6 +19,7 @@ def fetch(cmd):
                 return list(itertools.chain.from_iterable(result))
             else:
                 return result
+
 
 def insert(df, table_name):
     engine = sqlalchemy.create_engine('postgresql+psycopg2://postgres@/kw_db')
