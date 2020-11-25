@@ -6,16 +6,16 @@ class PreclassModel:
     def __init__(self, class_ids):
         self._class_ids = set(class_ids)
 
-        _l0 = set(random.sample(self._class_ids, 5))
+        _l0 = set(random.sample(self._class_ids, 2))
         self._class_ids -= _l0
 
-        _l1 = set(random.sample(self._class_ids, 10))
+        _l1 = set(random.sample(self._class_ids, 2))
         self._class_ids -= _l1
 
-        _l2 = set(random.sample(self._class_ids, 10))
+        _l2 = set(random.sample(self._class_ids, 3))
         self._class_ids -= _l2
 
-        _l3 = set(random.sample(self._class_ids, 15))
+        _l3 = set(random.sample(self._class_ids, 2))
         self._class_ids -= _l3
 
         self._levels = [_l0, _l1, _l2, _l3]

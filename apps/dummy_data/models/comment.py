@@ -9,7 +9,7 @@ class CommentModel:
         self._post_ids = set(post_ids)
         self._student_ids = set(student_ids)
 
-        self._number_of_comments = 0
+        self._number_of_comments = 1
         self._added_comment = dict()  # comment_id: created_time
 
     def _get_random_created_time(self, created_time):

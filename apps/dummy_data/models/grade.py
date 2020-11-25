@@ -1,7 +1,6 @@
 import random
 
 
-
 class GradeModel:
     def __init__(self, fake, class_ids, student_ids):
         self._fake = fake

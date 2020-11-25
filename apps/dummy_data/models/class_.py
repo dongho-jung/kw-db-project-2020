@@ -14,7 +14,7 @@ class ClassModel:
         return self._fake.numerify("####-##")
 
     def _get_random_year(self):
-        return random.randint(1990, 2021)
+        return random.randint(2005, 2021)
 
     def _get_random_quarter(self):
         return random.randint(1, 4)

@@ -32,7 +32,7 @@ db.execute(
 """
 )
 major_model = MajorModel()
-major_rows = list(itertools.islice(major_model, 30))
+major_rows = list(itertools.islice(major_model, 15))
 df_major = pd.DataFrame(major_rows, columns=["id", "name"])
 db.insert(df_major, "major")
 
@@ -49,8 +49,8 @@ db.execute(
 )
 
 department_model = DepartmentModel(fake)
-department_rows = list(itertools.islice(department_model, 30))
-df_department = pd.DataFrame(department_rows, columns=["id", "name", "place"])
+department_rows = list(itertools.islice(department_model, 10))
+df_department = pd.DataFrame(department_rows, columns=["name", "place"])
 db.insert(df_department, "department")
 
 db.execute("DROP TABLE IF EXISTS professor")
@@ -66,7 +66,7 @@ db.execute(
 """
 )
 professor_model = ProfessorModel(fake, db.fetch("SELECT id FROM department"))
-professor_rows = list(itertools.islice(professor_model, 30))
+professor_rows = list(itertools.islice(professor_model, 15))
 df_professor = pd.DataFrame(professor_rows, columns=["id", "name", "department_id"])
 db.insert(df_professor, "professor")
 
@@ -99,8 +99,8 @@ class_model = ClassModel(
     db.fetch("SELECT id FROM professor"),
 )
 class_rows = list(
-    itertools.islice(class_model, 30 * 4 * 100)
-)  # 30 years, 100 classes per quarter
+    itertools.islice(class_model, 15 * 4 * 30)
+)  # 15 years, 30 classes per quarter
 df_class = pd.DataFrame(
     class_rows,
     columns=[
@@ -145,9 +145,9 @@ student_model = StudentModel(
     db.fetch("SELECT id FROM major"),
     db.fetch("SELECT id FROM professor"),
 )
-student_rows = list(
-    itertools.islice(student_model, 30 * 30 * 50)
-)  # 30 years, 50 students per major
+student_rows = list(itertools.islice(student_model, 15 * 15 * 30))  # 15 years, 30 students per major
+student_rows += [('2016207742', 'JohnDoe', db.fetch(f"SELECT id FROM major LIMIT 1")[0], 2016, 2,
+                  '01012345678', 'johndoe@nowhere.com', '7', 'p455w0rd')]  # dummy user
 df_student = pd.DataFrame(
     student_rows,
     columns=[
@@ -191,8 +191,8 @@ post_model = PostModel(
     db.fetch("SELECT id FROM student"),
 )
 post_rows = list(
-    itertools.islice(post_model, 30 * 365 * 5)
-)  # 30 years, 5 posts per day
+    itertools.islice(post_model, 15 * 365 * 5)
+)  # 15 years, 5 posts per day
 df_post = pd.DataFrame(
     post_rows,
     columns=[
@@ -235,12 +235,11 @@ comment_model = CommentModel(
     db.fetch("SELECT id FROM student"),
 )
 comment_rows = list(
-    itertools.islice(comment_model, 30 * 365 * 10)
-)  # 30 years, 10 comments per day
+    itertools.islice(comment_model, 15 * 365 * 10)
+)  # 15 years, 10 comments per day
 df_comment = pd.DataFrame(
     comment_rows,
     columns=[
-        "id",
         "comment_id",
         "post_id",
         "content",
@@ -274,9 +273,8 @@ grade_model = GradeModel(
     db.fetch("SELECT id FROM student"),
 )
 grade_rows = list(
-    itertools.islice(grade_model, 3 * len(df_student))
-)  # 4 years, 15 courses per quarter for each student,
-# but it would be too large so only 3 courses per student
+    itertools.islice(grade_model, 150 * len(df_student))
+)
 df_grade = pd.DataFrame(
     grade_rows,
     columns=["student_id", "class_id", "year", "quarter", "retake", "grade"],
@@ -315,7 +313,7 @@ db.execute(
 """
 )
 scholarship_model = ScholarshipModel()
-scholarship_rows = list(itertools.islice(scholarship_model, 30))
+scholarship_rows = list(itertools.islice(scholarship_model, 10))
 df_scholarship = pd.DataFrame(
     scholarship_rows,
     columns=["year", "semester", "won"],
