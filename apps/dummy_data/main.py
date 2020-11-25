@@ -260,7 +260,7 @@ db.execute(
         year                    SMALLINT      NOT NULL, -- 수강 연도
         quarter                 SMALLINT      NOT NULL, -- 수강 학기
         retake                  BOOLEAN,                -- 재수강여부
-        grade                   VARCHAR(15),            -- 받게된 성적
+        grade                   NUMERIC(2, 1),          -- 받게된 성적
         PRIMARY KEY (student_id, class_id, year, quarter),
         FOREIGN KEY (class_id, year, quarter) REFERENCES class(id, year, quarter),
         FOREIGN KEY (student_id)   REFERENCES student(id)

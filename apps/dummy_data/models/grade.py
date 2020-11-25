@@ -20,7 +20,7 @@ class GradeModel:
         return self._fake.boolean()
 
     def _get_random_grade(self):
-        return random.choice(["F", "D", "D+", "C", "C+", "B", "B+", "A", "A+"])
+        return random.choice([4.5, 4.0, 3.5, 3.0, 2.5, 2.0, 1.5, 1.0, 0.0])
 
     def __iter__(self):
         return self
