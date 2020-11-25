@@ -31,3 +31,6 @@ def join_params_for_where(predicates, delim='OR'):
     
     res = res.rsplit(delim, 1)[0]
     return res
+
+if __name__ == '__main__':
+    print(fetch('SELECT 1'))
