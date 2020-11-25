@@ -8,6 +8,7 @@ from resources.login import api as login_api
 from resources.logout import api as logout_api
 from resources.post import api as post_api
 from resources.scholarship import api as scholarship_api
+from resources.enroll import api as enroll_api
 
 app = Flask(__name__)
 app.secret_key = os.environ['KW_APP_SECRET']
@@ -22,6 +23,7 @@ api.add_namespace(post_api)
 api.add_namespace(login_api)
 api.add_namespace(logout_api)
 api.add_namespace(scholarship_api)
+api.add_namespace(enroll_api)
 
 if __name__ == '__main__':
     app.run(debug=True)
