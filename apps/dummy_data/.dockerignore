@@ -1,0 +1,6 @@
+LICENSE
+README.me
+.gitignore
+__pycache__
+*.log
+.idea/
