@@ -107,3 +107,63 @@ class Post(Resource):
             DELETE FROM post
             WHERE id = '{post_id}'
         ''')
+
+
+post_like_or_hate_put_parser = reqparse.RequestParser()
+post_like_or_hate_put_parser.add_argument('post_id', type=int, required=True)
+
+
+@api.route('/like')
+class PostLike(Resource):
+    @api.expect(post_like_or_hate_put_parser)
+    @login_required
+    def put(self):
+        params = post_like_or_hate_put_parser.parse_args()
+
+        student_id = current_user.id
+        post_id = params['post_id']
+
+        if db.fetch(
+                f"SELECT * FROM post_vote WHERE student_id='{student_id}' AND post_id={post_id} AND like_or_hate=TRUE"):
+            return "이미 좋아요를 하셨습니다.", 400
+
+        db.execute(f'''
+            INSERT INTO post_vote
+            VALUES ('{student_id}', {post_id}, TRUE)
+        ''')
+
+        db.execute(f'''
+            UPDATE post
+            SET like_ = like_+1
+            WHERE id = {post_id}
+        ''')
+
+        return
+
+
+@api.route('/hate')
+class PostHate(Resource):
+    @api.expect(post_like_or_hate_put_parser)
+    @login_required
+    def put(self):
+        params = post_like_or_hate_put_parser.parse_args()
+
+        student_id = current_user.id
+        post_id = params['post_id']
+
+        if db.fetch(
+                f"SELECT * FROM post_vote WHERE student_id='{student_id}' AND post_id={post_id} AND like_or_hate=FALSE"):
+            return "이미 싫어요를 하셨습니다.", 400
+
+        db.execute(f'''
+            INSERT INTO post_vote
+            VALUES ('{student_id}', {post_id}, TRUE)
+        ''')
+
+        db.execute(f'''
+            UPDATE post
+            SET hate = hate+1
+            WHERE id = {post_id}
+        ''')
+
+        return
