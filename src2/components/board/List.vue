@@ -11,7 +11,7 @@
       <div class="Abox12">
         <div class="Abox121">
           <div class="AboxPad">
-            <img alt="DB1" src="../../assets/pencil.png" height = "30" width="30">
+            <img alt="DB1" src="../../assets/Search.png" height = "30" width="30">
           </div>
           <div class="AboxPad">
             <input type="text" name="Search" style = "width:360pt;height:20pt;text-align:center;">
@@ -23,7 +23,7 @@
         </div>
         <div class="Abox12n">
           <div class="Abox" align="left">
-            <a href="http://localhost:8080/#/board/hotlist">
+            <a href="/board/hotlist">
             <font size="5em">법과권리</font>
             </a>
           </div>
@@ -37,7 +37,7 @@
         </div>
         <div class="Abox12n">
           <div class="Abox" align="left">
-            <a href="http://localhost:8080/#/board/hotlist">
+            <a href="/board/hotlist">
             <font size="5em">미개봉 중고 팔아요</font>
             </a>
           </div>
@@ -51,7 +51,7 @@
         </div>
         <div class="Abox12n">
           <div class="Abox" align="left">
-            <a href="http://localhost:8080/#/board/hotlist">
+            <a href="/board/hotlist">
             <font size="5em">아 티모 마렵다</font>
             </a>
           </div>
@@ -70,14 +70,37 @@
             <font size="4em">1</font>
           </div>
           <div class="AboxPad15" align="center">
-            <a href="http://localhost:8080/#/board/hotlist">
+            <a href="/board/hotlist">
             <font size="3em">◀</font>
             </a>
           </div>
           <div class="AboxPad15" align="center">
-            <a href="http://localhost:8080/#/board/hotlist">
+            <a href="/board/hotlist">
             <font size="3em">▶</font>
             </a>
+          </div>
+        </div>
+		<div class="Abox121">
+          <div class="AboxPad">
+            <img alt="DB1" src="../../assets/pencil.png" height = "30" width="30">
+          </div>
+          <div class="Abox1211">
+			<div class="AboxPad">
+				<font size="3em">Title</font>
+			</div>
+			<div class="AboxPad">
+				<input type="text" name="Title" style = "width:360pt;height:20pt;text-align:left;">
+			</div>
+			<div class="AboxPad">
+				<font size="3em">Content</font>
+			</div>
+			<div class="AboxPad">
+				<input type="text" name="Contents" style = "width:360pt;height:60pt;text-align:left;">
+			</div>
+          </div>
+          <div class="AboxPad">
+            <input type="button" name="Search" value="Search" style = "width:60pt;height:24pt;text-align:center;">
+
           </div>
         </div>
 
@@ -90,7 +113,7 @@
       </div>
       <div class="Abox2n">
         <div class="AboxPad15" align="left">
-          <a href="http://localhost:8080/#/board/hotlist">
+          <a href="/board/hotlist">
           <font size="2.8em">진짜 너무 한거 아니냐...</font>
           </a>
         </div>
@@ -100,7 +123,7 @@
       </div>
       <div class="Abox2n">
         <div class="AboxPad15" align="left">
-          <a href="http://localhost:8080/#/board/hotlist">
+          <a href="/board/hotlist">
           <font size="2.8em">송라이팅1 수강생 여러분</font>
           </a>
         </div>
@@ -110,7 +133,7 @@
       </div>
       <div class="Abox2n">
         <div class="AboxPad15" align="left">
-          <a href="http://localhost:8080/#/board/hotlist">
+          <a href="/board/hotlist">
           <font size="2.8em">오늘은 연평도 포격사건 10주기</font>
           </a>
         </div>
@@ -120,7 +143,7 @@
       </div>
       <div class="Abox2n">
         <div class="AboxPad15" align="left">
-          <a href="http://localhost:8080/#/board/hotlist">
+          <a href="/board/hotlist">
           <font size="2.8em">짜잔</font>
           </a>
         </div>
@@ -169,7 +192,7 @@ a{text-decoration:none; color:black}
 .Notice_part{
   display: grid;
   grid-template-columns: 2fr 4fr 2fr 2fr;
-  grid-template-rows: 800px;
+  grid-template-rows: 900px;
   grid-gap: 10px;
 }
 
@@ -219,6 +242,13 @@ a{text-decoration:none; color:black}
   grid-template-columns: 2fr 12fr 3fr;
   grid-gap: 0px;
   border: 1px solid;
+}
+
+.Abox1211{
+  display: grid;
+  grid-template-rows: 1fr 3fr;
+  grid-template-columns: 1fr 10fr;
+  grid-gap: 0px;
 }
 .Abox125{
   display: grid;
