@@ -26,7 +26,7 @@ class StudentModel:
         return random.sample(self._major_ids, 1)[0]
 
     def _get_random_year(self):
-        return random.randint(2005, 2021)
+        return random.randint(2005, 2020)
 
     def _get_random_semester(self):
         return random.randint(0, 1)
