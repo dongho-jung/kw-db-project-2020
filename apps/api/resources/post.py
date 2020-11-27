@@ -30,7 +30,7 @@ post_delete_parser = reqparse.RequestParser()
 post_delete_parser.add_argument('post_id', type=str, required=True)
 
 
-@api.route('/')
+@api.route('')
 class Post(Resource):
     @api.expect(post_post_parser)
     @login_required
