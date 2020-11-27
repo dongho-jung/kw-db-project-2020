@@ -22,12 +22,12 @@ post_get_parser.add_argument('year', type=int)
 post_get_parser.add_argument('quarter', type=int)
 
 post_put_parser = reqparse.RequestParser()
-post_put_parser.add_argument('post_id', type=str, required=True)
-post_put_parser.add_argument('title', type=str)
-post_put_parser.add_argument('content', type=str)
+post_put_parser.add_argument('post_id', type=str, required=True, location='form')
+post_put_parser.add_argument('title', type=str, location='form')
+post_put_parser.add_argument('content', type=str, location='form')
 
 post_delete_parser = reqparse.RequestParser()
-post_delete_parser.add_argument('post_id', type=str, required=True)
+post_delete_parser.add_argument('post_id', type=str, required=True, location='form')
 
 
 @api.route('')
