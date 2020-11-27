@@ -76,9 +76,10 @@ class Post(Resource):
     def put(self):
         params = post_put_parser.parse_args()
 
+        author = current_user.id
         post_id, title, content = params.values()
-        
-        expected_post_id = db.fetch(f"SELECT post_id FROM post WHERE author = '{current_user.id}'")[0]
+
+        expected_post_id = db.fetch(f"SELECT post_id FROM post WHERE author = '{author}'")[0]
 
         if post_id != expected_post_id:
             return '게시글 갱신은 본인만 가능합니다.', 403
@@ -94,9 +95,10 @@ class Post(Resource):
     def delete(self):
         params = post_delete_parser.parse_args()
 
+        author = current_user.id
         post_id = params['post_id']
 
-        expected_post_id = db.fetch(f"SELECT post_id FROM post WHERE author = '{current_user.id}'")[0]
+        expected_post_id = db.fetch(f"SELECT post_id FROM post WHERE author = '{author}'")[0]
 
         if post_id != expected_post_id:
             return '게시글 삭제는 본인만 가능합니다.', 403
