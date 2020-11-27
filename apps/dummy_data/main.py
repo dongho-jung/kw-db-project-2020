@@ -328,3 +328,33 @@ df_scholarship = pd.DataFrame(
     columns=["year", "semester", "won"],
 )
 db.insert(df_scholarship, "scholarship")
+
+print('create vote tables', flush=True)
+db.execute("DROP TABLE IF EXISTS post_vote")
+db.execute(
+    """
+    CREATE TABLE post_vote (
+        student_id TEXT,
+        post_id INT,
+        like_or_hate BOOLEAN,  -- like:T, hate:F
+        
+        PRIMARY KEY (student_id, post_id),
+        FOREIGN KEY (student_id) REFERENCES student(id),
+        FOREIGN KEY (post_id) REFERENCES post(id)
+    );
+"""
+)
+db.execute("DROP TABLE IF EXISTS comment_vote")
+db.execute(
+    """
+    CREATE TABLE comment_vote (
+        student_id TEXT,
+        comment_id INT,
+        like_or_hate BOOLEAN,  -- like:T, hate:F
+
+        PRIMARY KEY (student_id, comment_id),
+        FOREIGN KEY (student_id) REFERENCES student(id),
+        FOREIGN KEY (comment_id) REFERENCES comment(id)
+    );
+"""
+)
