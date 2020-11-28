@@ -1,6 +1,6 @@
-import random
 from collections import Counter
 from hashlib import sha256
+import random
 
 
 class StudentModel:
@@ -23,10 +23,11 @@ class StudentModel:
         return self._fake.name()
 
     def _get_random_major_id(self):
-        return random.sample(self._major_ids, 1)[0]
+        id_ = random.sample(self._major_ids, 1)[0]
+        return f"{id_:04}"
 
     def _get_random_year(self):
-        return random.randint(2005, 2020)
+        return random.randint(1990, 2021)
 
     def _get_random_semester(self):
         return random.randint(0, 1)

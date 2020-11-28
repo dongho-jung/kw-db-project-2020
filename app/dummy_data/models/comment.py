@@ -1,5 +1,5 @@
-import random
 from datetime import timedelta
+import random
 
 
 class CommentModel:
@@ -9,19 +9,25 @@ class CommentModel:
         self._post_ids = set(post_ids)
         self._student_ids = set(student_ids)
 
-        self._number_of_comments = 1
+        self._id = -1
         self._added_comment = dict()  # comment_id: created_time
 
+    def _get_id(self):
+        self._id += 1
+        return self._id
+
     def _get_random_created_time(self, created_time):
-        return created_time + timedelta(seconds=random.randint(1, 3600 * 24 * 90))
+        return created_time + timedelta(seconds=random.randint(1, 3600*24*90))
 
     def __iter__(self):
         return self
 
     def __next__(self):
         try:
-            if self._fake.boolean() and self._number_of_comments > 5:
-                comment = random.randint(0, self._number_of_comments - 1)
+            id_ = self._get_id()
+
+            if self._fake.boolean() and id_ > 5:
+                comment = random.randint(0, id_ - 1)
                 board = None
                 created_time = self._added_comment[comment]
             else:
@@ -32,10 +38,8 @@ class CommentModel:
 
             author = random.sample(self._student_ids, 1)[0]
             created_time = self._get_random_created_time(created_time)
-            self._added_comment[self._number_of_comments] = created_time
+            self._added_comment[id_] = created_time
 
-            self._number_of_comments += 1
-
-            return (comment, board, content, like_, hate, author, created_time)
+            return (id_, comment, board, content, like_, hate, author, created_time)
         except KeyError:
             raise StopIteration from None
