@@ -69,7 +69,7 @@ class Comment(Resource):
         author = current_user.id
         comment_id, content = params.values()
 
-        expected_comment_id = db.fetch(f"SELECT comment_id FROM post WHERE author = '{author}'")[0]
+        expected_comment_id = db.fetch(f"SELECT comment_id FROM comment WHERE author = '{author}'")[0]
 
         if comment_id != expected_comment_id:
             return '게시글 갱신은 본인만 가능합니다.', 403
