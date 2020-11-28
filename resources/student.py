@@ -50,8 +50,8 @@ class Student(Resource):
     @login_required
     def put(self):
         params = student_put_parser.parse_args()
-
-        student_id, name, major_id, year, semester, phone, email, professor_id = params.values()
+        student_id = current_user.id
+        name, major_id, year, semester, phone, email, professor_id = params.values()
         db.execute(f'''
             UPDATE student_id
             SET (name, major_id, year, semester, phone, email, professor_id) = ('{name}', '{major_id}', '{year}', '{semester}', '{phone}', '{email}', '{professor_id}')
