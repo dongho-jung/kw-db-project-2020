@@ -225,8 +225,8 @@ db.execute(
     comment_id                INT,                 -- 댓글 id
     post_id                   INT,                 -- 게시글 id
     content                   TEXT       NOT NULL, -- 내용
-    like_                     INT        NOT NULL, -- 좋아요
-    hate                      INT        NOT NULL, -- 싫어요
+    like_                     INT        NOT NULL DEFAULT 0, -- 좋아요
+    hate                      INT        NOT NULL DEFAULT 0, -- 싫어요
     author                    TEXT       NOT NULL,
     created_time              TIMESTAMP  NOT NULL,
     PRIMARY KEY (id),
