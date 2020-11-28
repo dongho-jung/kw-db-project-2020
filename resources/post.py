@@ -72,34 +72,22 @@ class Post(Resource):
         return res
 
     @api.expect(post_put_parser)
-    @login_required
     def put(self):
         params = post_put_parser.parse_args()
 
         post_id, title, content = params.values()
-        
-        expected_post_id = db.fetch(f"SELECT post_id FROM post WHERE author = '{current_user.id}'")[0]
-
-        if post_id != expected_post_id:
-            return '게시글 갱신은 본인만 가능합니다.', 403
 
         db.execute(f'''
-            UPDATE post
+            UPDATE id
             SET (title, content) = ('{title}', '{content}')
             WHERE id = '{post_id}'
         ''')
 
     @api.expect(post_delete_parser)
-    @login_required
     def delete(self):
         params = post_delete_parser.parse_args()
 
         post_id = params['post_id']
-
-        expected_post_id = db.fetch(f"SELECT post_id FROM post WHERE author = '{current_user.id}'")[0]
-
-        if post_id != expected_post_id:
-            return '게시글 삭제는 본인만 가능합니다.', 403
 
         db.execute(f'''
             DELETE FROM post

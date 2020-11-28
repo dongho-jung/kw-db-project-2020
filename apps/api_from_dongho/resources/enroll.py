@@ -10,7 +10,7 @@ enroll_post_parser = reqparse.RequestParser()
 enroll_post_parser.add_argument('class_ids', required=True, location='form', action='split')
 
 
-@api.route('/')
+@api.route('')
 class Enroll(Resource):
     @api.expect(enroll_post_parser)
     @login_required
