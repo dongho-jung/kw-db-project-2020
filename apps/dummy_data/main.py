@@ -84,15 +84,15 @@ db.execute(
         name            TEXT          NOT NULL,     -- 이름(과목명)
         place           TEXT          NOT NULL,     -- 장소
         period          TEXT          NOT NULL,     -- 시간
-        professor       TEXT,                       -- 담당 교수
+        professor_id    TEXT,                       -- 담당 교수
         credit          SMALLINT      NOT NULL,     -- 학점
         capacity        SMALLINT,                   -- 최대 인원
         is_pass         BOOLEAN       NOT NULL,     -- pass/nonpass 구분
         classification  TEXT          NOT NULL,     -- 이수구분(일선/…)
         department      INT           NOT NULL,     -- 개설학과(소프트웨어학과..)
         PRIMARY KEY (id, year, quarter),
-        FOREIGN KEY (professor) REFERENCES professor (id),
-        FOREIGN KEY (department) REFERENCES department (id)
+        FOREIGN KEY (professor_id) REFERENCES professor(id),
+        FOREIGN KEY (department) REFERENCES department(id)
     );
 """
 )
@@ -114,7 +114,7 @@ df_class = pd.DataFrame(
         "name",
         "place",
         "period",
-        "professor",
+        "professor_id",
         "credit",
         "capacity",
         "is_pass",
