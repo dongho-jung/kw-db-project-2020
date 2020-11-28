@@ -21,7 +21,6 @@ random.seed(42)
 
 fake = Faker()
 
-print('create major table', flush=True)
 db.execute("DROP TABLE IF EXISTS major")
 db.execute(
     """
@@ -37,7 +36,6 @@ major_rows = list(itertools.islice(major_model, 15))
 df_major = pd.DataFrame(major_rows, columns=["id", "name"])
 db.insert(df_major, "major")
 
-print('create department table', flush=True)
 db.execute("DROP TABLE IF EXISTS department")
 db.execute(
     """
@@ -49,12 +47,12 @@ db.execute(
     );
 """
 )
+
 department_model = DepartmentModel(fake)
 department_rows = list(itertools.islice(department_model, 10))
 df_department = pd.DataFrame(department_rows, columns=["name", "place"])
 db.insert(df_department, "department")
 
-print('create professor table', flush=True)
 db.execute("DROP TABLE IF EXISTS professor")
 db.execute(
     """
@@ -72,7 +70,6 @@ professor_rows = list(itertools.islice(professor_model, 15))
 df_professor = pd.DataFrame(professor_rows, columns=["id", "name", "department_id"])
 db.insert(df_professor, "professor")
 
-print('create class table', flush=True)
 db.execute("DROP TABLE IF EXISTS class")
 db.execute(
     """
@@ -124,7 +121,6 @@ df_class = pd.DataFrame(
 )
 db.insert(df_class, "class")
 
-print('create student table', flush=True)
 db.execute("DROP TABLE IF EXISTS student")
 db.execute(
     """
@@ -168,7 +164,6 @@ df_student = pd.DataFrame(
 )
 db.insert(df_student, "student")
 
-print('create post table', flush=True)
 db.execute("DROP TABLE IF EXISTS post")
 db.execute(
     """
@@ -216,7 +211,6 @@ df_post = pd.DataFrame(
 )
 db.insert(df_post, "post")
 
-print('create comment table', flush=True)
 db.execute("DROP TABLE IF EXISTS comment")
 db.execute(
     """
@@ -257,7 +251,6 @@ df_comment = pd.DataFrame(
 )
 db.insert(df_comment, "comment")
 
-print('create grade table', flush=True)
 db.execute("DROP TABLE IF EXISTS grade")
 db.execute(
     """
@@ -280,15 +273,14 @@ grade_model = GradeModel(
     db.fetch("SELECT id FROM student"),
 )
 grade_rows = list(
-    itertools.islice(grade_model, 48 * len(df_student))
+    itertools.islice(grade_model, 150 * len(df_student))
 )
 df_grade = pd.DataFrame(
     grade_rows,
-    columns=["student_id", "year", "class_id", "quarter", "retake", "grade"],
+    columns=["student_id", "class_id", "year", "quarter", "retake", "grade"],
 )
 db.insert(df_grade, "grade")
 
-print('create prerequisite_class table', flush=True)
 db.execute("DROP TABLE IF EXISTS prerequisite_class")
 db.execute(
     """
@@ -309,7 +301,6 @@ df_preclass = pd.DataFrame(
 )
 db.insert(df_preclass, "prerequisite_class")
 
-print('create scholarship table', flush=True)
 db.execute("DROP TABLE IF EXISTS scholarship")
 db.execute(
     """
@@ -328,33 +319,3 @@ df_scholarship = pd.DataFrame(
     columns=["year", "semester", "won"],
 )
 db.insert(df_scholarship, "scholarship")
-
-print('create vote tables', flush=True)
-db.execute("DROP TABLE IF EXISTS post_vote")
-db.execute(
-    """
-    CREATE TABLE post_vote (
-        student_id TEXT,
-        post_id INT,
-        like_or_hate BOOLEAN,  -- like:T, hate:F
-        
-        PRIMARY KEY (student_id, post_id),
-        FOREIGN KEY (student_id) REFERENCES student(id),
-        FOREIGN KEY (post_id) REFERENCES post(id)
-    );
-"""
-)
-db.execute("DROP TABLE IF EXISTS comment_vote")
-db.execute(
-    """
-    CREATE TABLE comment_vote (
-        student_id TEXT,
-        comment_id INT,
-        like_or_hate BOOLEAN,  -- like:T, hate:F
-
-        PRIMARY KEY (student_id, comment_id),
-        FOREIGN KEY (student_id) REFERENCES student(id),
-        FOREIGN KEY (comment_id) REFERENCES comment(id)
-    );
-"""
-)

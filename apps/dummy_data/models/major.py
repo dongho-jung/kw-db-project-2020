@@ -20,6 +20,6 @@ class MajorModel:
             major = random.sample(self._remain_majors, 1)[0]
             self._remain_majors -= {major}
 
-            return (f'{id_:04}', major)
+            return (id_, major)
         except KeyError:
             raise StopIteration from None
