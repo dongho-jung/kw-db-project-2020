@@ -79,9 +79,7 @@ class Post(Resource):
         author = current_user.id
         post_id, title, content = params.values()
 
-        expected_post_id = db.fetch(f"SELECT post_id FROM post WHERE author = '{author}'")[0]
-
-        if post_id != expected_post_id:
+        if not db.fetch(f"SELECT * FROM post WHERE author = '{author}' AND id = '{post_id}'"):
             return '게시글 갱신은 본인만 가능합니다.', 403
 
         db.execute(f'''
