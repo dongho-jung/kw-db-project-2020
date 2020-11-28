@@ -1,8 +1,8 @@
 from flask_login import login_user
 from flask_restx import Namespace, Resource, reqparse
 
-import db
 from kw_sis_session import User
+import db
 
 api = Namespace('login', description='Login related operations')
 
@@ -11,7 +11,7 @@ login_post_parser.add_argument('student_id', type=str, required=True, location='
 login_post_parser.add_argument('hashed_pw', type=str, required=True, location='form')
 
 
-@api.route('')
+@api.route('/')
 class Login(Resource):
     @api.expect(login_post_parser)
     def post(self):

@@ -1,12 +1,6 @@
 # kw-db-project-2020
 광운대 디비만만팀 데이터베이스및응용 프로젝트 
 
-<<<<<<< HEAD
-# kakao login with flask and pyqt
-
-https://github.com/leesk212/kakao_login_api_by_python
-=======
->>>>>>> origin/dongho
 ## Dummy Data Server 구축
 1. apps/dummy_data 경로에서 `docker build -t kw_db .`. 최종 이미지 사이즈는 1.5GB
 2. `docker run -d -p 5432:5432 --name kw_db kw_db`로 컨테이너 생성
@@ -28,13 +22,9 @@ https://github.com/leesk212/kakao_login_api_by_python
 4. 콘솔에 나온 주소에서 swagger로 테스트 가능. 
 
 ### NOTE:
-<<<<<<< HEAD
-- 테스트가 많아지면 postman 권장
-=======
 - 테스트가 많아지면 postman 권장
 
 
 ## kakao login with flask and pyqt
 
 https://github.com/leesk212/kakao_login_api_by_python
->>>>>>> origin/dongho

@@ -4,7 +4,7 @@ from flask_restx import Namespace, Resource
 api = Namespace('logout', description='Logout related operations')
 
 
-@api.route('')
+@api.route('/')
 class Logout(Resource):
     @login_required
     def post(self):

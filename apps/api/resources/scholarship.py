@@ -10,7 +10,7 @@ scholarship_get_parser = reqparse.RequestParser()
 scholarship_get_parser.add_argument('start_year', type=str)
 
 
-@api.route('')
+@api.route('/')
 class Scholarship(Resource):
     @api.expect(scholarship_get_parser)
     @login_required
