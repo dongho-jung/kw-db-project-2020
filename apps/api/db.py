@@ -33,4 +33,4 @@ def join_params_for_where(predicates, delim='AND'):
         res += f'{pred} {delim} '
 
     res = res.rsplit(delim, 1)[0]
-    return res
+    return res if res else 'TRUE'
