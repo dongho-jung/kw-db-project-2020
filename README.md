@@ -2,6 +2,15 @@
 광운대 디비만만팀 데이터베이스및응용 프로젝트 
 
 
+
+
+# Front end 공동작업
+
+
+
+
+
+
 ## Dummy Data Server 구축
 1. apps/dummy_data 경로에서 `docker build -t kw_db .`. 최종 이미지 사이즈는 1.5GB
 2. `docker run -d -p 5432:5432 --name kw_db kw_db`로 컨테이너 생성
