@@ -48,7 +48,7 @@
         <input type="button" value="Log In" size=50 style = "width:160pt;height:47pt;text-align:center;">
       </div>
       <div class="Bbox42"><!-- >버튼< -->
-        <a href="https://kauth.kakao.com/oauth/authorize?client_id=8d323fc0c13720cda59983912f875316&redirect_uri=http://localhost:5000/oauth&response_type=code"><img src="../../assets/kakao.png"></a>
+        <a href="http://localhost:8080/NewAccount"><img src="../../assets/kakao.png"></a>
       </div>
       <div class="BPad">
       </div>
@@ -59,7 +59,7 @@
 <script>
 export default {
   name: 'Bbox33',
-//메소드는 methods 객체 안에 정의
+  //메소드는 methods 객체 안에 정의
   methods : {
     btn_NewAccount : function (){
       this.$router.push('/NewAccount')
@@ -158,9 +158,9 @@ a{text-decoration:none; color:black}
   box-shadow: 27px 43px 43px -26px rgba(89,89,89,0.39);
 }/*
 .shadow-light{
--webkit-box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
--moz-box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
-box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
+    -webkit-box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
+    -moz-box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
+    box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
 
 }*/
 .login-form-container{
@@ -224,7 +224,7 @@ box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
 }
 .login-form-left-side .login-top-wrap .create-account-btn {
   background: white;
-  border: 0;
+  border:  0;
   width:85px;
   height: 35px;
   font-size: 11px;
