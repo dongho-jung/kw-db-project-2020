@@ -1,4 +1,4 @@
-from flask_login import current_user
+from flask_login import current_user, login_required
 from flask_restx import Namespace, Resource, reqparse
 
 import db
@@ -14,6 +14,8 @@ grade_get_parser.add_argument('grade', type=str)
 
 @api.route('')
 class Grade(Resource):
+    @api.expect(grade_get_parser)
+    @login_required
     def get(self):
         params = grade_get_parser.parse_args()
 
