@@ -27,15 +27,56 @@
       </div>
 
       <div class='Zbox22'>
-        <table border="1" bordercolor="black" width='460' height='580' align="center" font size="1em">
-          <th></th>
-          <th>Mon</th><th>Tue</th><th>Wed</th><th>Thr</th><th>Fri</th>
-          <tr><td>1</td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr><td>2</td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr><td>3</td><td>Data<br>Structure</td><td></td><td>Algorithm</td><td></td><td>Understanding<br>of music</td></tr>
-          <tr><td>4</td><td></td><td>Data<br>Structure</td><td></td><td>Algorithm</td><td>Understanding<br>of music</td></tr>
-          <tr><td>5</td><td></td><td></td><td></td><td>Understanding<br>of movie</td><td></td></tr>
-          <tr><td>6</td><td></td><td></td><td>Understanding<br>of movie</td><td></td><td></td></tr>
+        <table border="1" bordercolor="black" width="540" align="center" font size="1em">
+          <th width="40"></th><th width="100">Mon</th><th width="100">Tue</th><th width="100">Wed</th><th width="100">Thr</th><th width="100">Fri</th>
+          <tr>
+            <td width="40">1</td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all"></td>
+          </tr>
+          <tr>
+            <td width="40">2</td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all"></td>
+          </tr>
+          <tr>
+            <td width="40">3</td>
+            <td width="100" style="word-break:break-all">Data Structure</td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all">Algorithm</td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all">Understanding<br>of music</td>
+          </tr>
+          <tr>
+            <td width="40">4</td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all">Data<br>Structure</td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all">Algorithm</td>
+            <td width="100" style="word-break:break-all">Understanding<br>of music</td>
+          </tr>
+          <tr>
+            <td width="40">5</td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all">Understanding<br>of movie</td>
+            <td width="100" style="word-break:break-all"></td>
+            </tr>
+          <tr>
+            <td width="40">6</td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all">Understanding<br>of movie</td>
+            <td width="100" style="word-break:break-all"></td>
+            <td width="100" style="word-break:break-all"></td>
+          </tr>
         </table>
 
       </div>
@@ -49,7 +90,7 @@
 
       <div class='Zbox32'>
         <div class ='Zbox321'>
-          <a href="http://localhost:8080/#/board/list/1">
+          <a href="/board/list/1">
            <p style="font-size:1em;  font-weight:bold; text-align:left; ">도서관</p>
            <p style="font-size:0.8em; text-align:left;">자료실은 언제 열고 닫나요?</p>
            <p style="font-size:0.8em; text-align:left;">2020/11/22/13:11</p>
@@ -58,7 +99,7 @@
         </div>
 
         <div class ='Zbox322'>
-          <a href="http://localhost:8080/#/board/list/2">
+          <a href="/board/list/2">
             <p style="font-size:1em; font-weight:bold; text-align:left; ">다음주가 몇주차인지 아시는 분?</p>
             <p style="font-size:0.8em; text-align:left;">ㅈㄱㄴ</p>
             <p style="font-size:0.8em; text-align:left;">2020/11/22/15:27</p>
@@ -67,7 +108,7 @@
         </div>
 
         <div class ='Zbox323'>
-          <a href="http://localhost:8080/#/board/list/3">
+          <a href="/board/list/3">
             <p style="font-size:1em; font-weight:bold; text-align:left; ">민초</p>
             <p style="font-size:0.8em; text-align:left;">민초 좋아하면 좋아요 눌러라</p>
             <p style="font-size:0.8em; text-align:left;">2020/11/22/15:54</p>
@@ -76,7 +117,7 @@
         </div>
 
         <div class ='Zbox324'>
-          <a href="http://localhost:8080/#/board/list/4">
+          <a href="/board/list/4">
             <p style="font-size:1em; font-weight:bold; text-align:left; ">컴공 이기훈 교수님</p>
             <p style="font-size:0.8em; text-align:left;">이기훈 교수님 강의 잘하시더라. 조교님들도 좋으시고</p>
             <p style="font-size:0.8em; text-align:left;">2020/11/22/17:24</p>
@@ -155,7 +196,7 @@ a{text-decoration:none; color:black}
 
 .Main_part{
   display: grid;
-  grid-template-columns: 2fr 4fr 8fr 8fr 6fr 2fr;
+  grid-template-columns: 2fr 4fr 560px 8fr 6fr 2fr;
   grid-template-rows: 700px;
   grid-gap: 10px;
 }
@@ -195,7 +236,7 @@ a{text-decoration:none; color:black}
 .Zbox2{
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 60px 580px;
+  grid-template-rows: 60px 1fr;
   grid-gap: 20px;
 }
 
