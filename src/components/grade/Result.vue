@@ -26,7 +26,6 @@
                 </div>
             </section>
         </div>
-
         <div class="Dbox3">
             <div class="DboxBorder">
                 <a href="http://localhost:8080/grade/result">
@@ -46,24 +45,20 @@
                                         <br></div>
                                     </div>
                                 </div>
-
-                                <section class="container">
-                                    <div class="columns">
-                                        <div class="column">
-                                            <radar-chart></radar-chart>
-                                            <!--RadarChart example-->
-                                        </div>
+                                
+                                <div class="columns">
+                                    <div class="column">
+                                        <radar-chart></radar-chart>
+                                        <!--RadarChart example-->
                                     </div>
-                                </section>
+                                </div>
+                                
+                                <div class="columns">
+                                    <div class="column">
+                                        <polar-area-chart></polar-area-chart>
 
-                                <section class="container">
-                                    <div class="columns">
-                                        <div class="column">
-                                            <bubble-chart></bubble-chart>
-                                            <!--BubbleChart example-->
-                                        </div>
                                     </div>
-                                </section>
+                                </div>
 
                             </div>
                         </template>
@@ -71,7 +66,7 @@
                             import BarChart from '@/components/BarChart'
                             import LineChart from '@/components/LineChart'
                             import RadarChart from '@/components/RadarChart'
-                            import BubbleChart from '@/components/BubbleChart'
+                            import PolarAreaChart from '@/components/PolarAreaChart'
 
                             export default {
                                 name: 'VueChartJS',
@@ -79,7 +74,7 @@
                                     BarChart,
                                     LineChart,
                                     RadarChart,
-                                    BubbleChart
+                                    PolarAreaChart
                                 }
                             }
                         </script>

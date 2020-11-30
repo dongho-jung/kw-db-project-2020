@@ -8,47 +8,24 @@
       return {
         datacollection: {
           //Data to be represented on x-axis
-          labels: ['Data'],
+          labels: ['2016.1', '2016.2', '2019.1', '2019.2', '2020.1', '2020.2'],
           datasets: [
+             {
+              label: '2016,1',
+              backgroundColor: '#f87979',
+              pointBackgroundColor: 'white',
+              borderWidth: 1,
+              pointBorderColor: '#249EBF',
+              data: [ {x: 100, y: 0, r: 10}]
+            },
             {
-              label: 'Data One',
+              label: '2016.2',
               backgroundColor: '#f87979',
               pointBackgroundColor: 'white',
               borderWidth: 1,
               pointBorderColor: '#249EBF',
               //Data to be represented on y-axis
-              data: [
-                {
-                  x: 100,
-                  y: 0,
-                  r: 10
-                },
-                {
-                  x: 60,
-                  y: 30,
-                  r: 20
-                },
-                {
-                  x: 40,
-                  y: 60,
-                  r: 25
-                },
-                {
-                  x: 80,
-                  y: 80,
-                  r: 50
-                },
-                {
-                  x: 20,
-                  y: 30,
-                  r: 25
-                },
-                {
-                  x: 0,
-                  y: 100,
-                  r: 5
-                }
-              ]
+              data: [{x: 100, y: 1, r: 10}]
             }
           ]
         },

@@ -11,7 +11,7 @@ export default {
         labels: ['A+','A0','B+','B0','C+','C0','D+','D0','F'],
         datasets: [
           {
-            label: '전필 전선 교양 취득학점',
+            label: '단계별 학점 개수',
             backgroundColor: 'rgba(179, 181, 198, 0.2)',
             borderColor: 'rgba(179,181,198,1)',
             pointBackgroundColor: 'white',

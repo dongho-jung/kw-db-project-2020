@@ -1,14 +1,14 @@
-// routers 속에 있음. 다른 페이지 연결
+ // routers 속에 있음. 다른 페이지 연결
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import Content from '@/components/common/Content'; 
+import Content from '@/components/common/Content';
 import List from '@/components/board/List';
 import List2 from '@/components/board/List2';
 import Hotlist from '@/components/board/Hotlist';
 import Login from '@/components/login/Login';
 import NewAccount from '@/components/login/NewAccount';
-import Findpw from '@/components/login/Findpw'; 
-import Notice from '@/components/board/Notice'; 
+import Findpw from '@/components/login/Findpw';
+import Notice from '@/components/board/Notice';
 import Result from '@/components/grade/Result';
 import Scholarship from '@/components/grade/Scholarship';
 import Prereq from '@/components/timetable/Prereq';

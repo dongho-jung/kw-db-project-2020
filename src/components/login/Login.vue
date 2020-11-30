@@ -48,7 +48,7 @@
         <input type="button" value="Log In" size=50 style = "width:160pt;height:47pt;text-align:center;">
       </div>
       <div class="Bbox42"><!-- >버튼< -->
-        <a href="http://localhost:8080/NewAccount"><img src="../../assets/kakao.png"></a>
+        <a href="http://localhost:8080/login"><img src="../../assets/kakao.png"></a>
       </div>
       <div class="BPad">
       </div>
