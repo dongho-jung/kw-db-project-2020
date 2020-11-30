@@ -14,6 +14,8 @@ import Prereq from '@/components/timetable/Prereq';
 import Magic from '@/components/timetable/Magic';
 import Enrollment from '@/components/timetable/Enrollment';
 import Webtoon from "@/components/MyTest/webtoon";
+import NewAccount from "@/components/login/NewAccount"
+import Findpw from "@/components/login/Findpw"
 
 Vue.use(VueRouter); //vue 라우터
 
@@ -79,6 +81,17 @@ var routes = [
 		,name: Enrollment
 		,component:Enrollment
 	}
+	,{
+		path:"/Findpw"
+		,name: Findpw
+		,component:Findpw
+	}
+	,{
+		path:"/NewAccount"
+		,name: NewAccount
+		,component:NewAccount
+	}
+
 ]
 
 const router = new VueRouter({

@@ -167,7 +167,7 @@ export default {
 
       // My Class List
       My_class_list: [
-        {index: '',mon:'Mon',tue:'Tue',wed:'Wed',thr:'Thr',fri:'Fri'},
+        {index: '     ',MON:'Mon',TUE:'Tue',WED:'Wed',THU:'Thr',FRI:'Fri'},
         {index: 1,MON:'',TUE:'',WED:'',THU:'',FRI:''},
         {index: 2,MON:'',TUE:'',WED:'',THU:'',FRI:''},
         {index: 3,MON:'',TUE:'',WED:'',THU:'',FRI:''},
@@ -177,7 +177,7 @@ export default {
       ]
     };
   },
-  methods: { //지역 변수 + 함수들 선언 공간
+  methods: { //지역 변수 + 함수들 {{선언 공간
     // Server time
     time: function(){
       let date = new Date();
@@ -185,10 +185,6 @@ export default {
       this.now = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
 
     },
-
-
-
-
     // 1. All class 를 보여줄 때 전체 ==> 전체 수강 시간표를 좌측 상단 Table에 가져오는 것
     //     api = http://0.0.0.0/timetable?get
     Set_all_class_list() {
@@ -196,6 +192,7 @@ export default {
         .get("http://localhost:5000/class")
             .then(res => {
               this.all_data = res.data;
+              console.log(this.all_data)
               for (let i =0 ; i<this.all_data.length; i++){
                 if (this.all_data[i].year == '2020' && this.all_data[i].quarter=='2'){
                   this.class_list.push(this.all_data[i]);
@@ -305,7 +302,12 @@ export default {
           if(this.My_class_list[class_time][date] !=''){
             this.My_class_list[class_time][date] = want_to_add_list[i].name;
           }
+          else{
+            alert('Already full in your time' + want_to_add_list[i].name)
+            return
+          }
         }
+        alert('Success to erollment your favorite list \n Check your main menu')
       }
     }
   },
@@ -313,24 +315,6 @@ export default {
     this.Set_all_class_list();
   }
 };
-
-
-
-
-// 5. 수강신청 이라는 button ==> index 차례대로 되어있는 값이
-//      예외처리 : if 기존 database에 class_id가 중복 되는지 확인
-//                  if 중복:
-//                    if 학점이 C+이 이상일 경우:
-//                          수강 가능
-//                    else 수강 불가능
-//                  else:
-//                     database frontent에 삽입
-//                특정 서버시간이 완료될때 버튼 활성화 (x)
-//                선후수 과목 중 a를 들어야만 a'을 들을 수 있는 기능
-//                21학점이 넘는지안넘는
-//
-// api = http://0.0.0.0/timetable?get
-
 
 </script>
 
