@@ -27,19 +27,18 @@
       </div>
 
       <div class='Zbox22'>
-          <div v-for = "(my_list,idx) in My_class_list" :key="idx">
-            <table border="1" bordercolor="black" width='460' height='580' align="center" font size="1em">
-              <tr>
-                <td width="100" style="word-break: break-all">aaa</td>
-                <td width="100" style="word-break: break-all">aaaaaaaa</td>
-                <td width="100" style="word-break: break-all">aaaaaa</td>
-                <td width="100" style="word-break: break-all">aaaaaa</td>
-                <td width="100" style="word-break: break-all">aaaaa</td>
-                <td width="100" style="word-break: break-all">aaaaaaa</td>
-              </tr>
-            </table>
-          </div>
-
+        <div v-for = "(my_list,idx) in My_class_list" :key="idx">
+          <table border="1" bordercolor="black" width='460' height='580' align="center" font size="1em">
+            <tr>
+              <td width="100" style="word-break: break-all">{{my_list.index}}</td>
+              <td width="100" style="word-break: break-all">{{ my_list.MON }}</td>
+              <td width="100" style="word-break: break-all">{{my_list.TUE}}</td>
+              <td width="100" style="word-break: break-all">{{my_list.WED}}</td>
+              <td width="100" style="word-break: break-all">{{my_list.THU}}</td>
+              <td width="100" style="word-break: break-all">{{my_list.FRI}}</td>
+            </tr>
+          </table>
+        </div>
       </div>
 
     </div>
@@ -117,7 +116,6 @@
 <script>
 
 import axios from "axios";
-
 export default{
   data(){
     return{
@@ -137,20 +135,21 @@ export default{
       axios.get("http://localhost:5000/timetable")
            .then(res=>{
              let all_data = res.data
-
-             console.log('start')
-
+             console.log(all_data)
              for (let i = 0 ; i<all_data.length; i++){
                let name = all_data[i].name;
-               for (let j= 0; j<all_data[i].period; j++){
+               console.log(name)
+               for (let j= 0; j<all_data[i].period.length; j++){
                  let period = all_data[i].period[j];
-                 let date = period.slice(3)
-                 let time = period.slice(-1)
+                 let date = period.slice(0,3)
+                 let time = period.slice(3,4)
+                 console.log(date,time)
                  this.My_class_list[time][date] = name;
                }
              }
-
            })
+      let a = this.$cookies.isKey('SuccessLogin')
+      console.log(a)
     }
   },
   created() {
