@@ -1,9 +1,8 @@
 import os
 
 from flask import Flask
+from flask_cors import CORS
 from flask_restx import Api
-from flask_cors import CORS, cross_origin
-
 
 from kw_sis_session import login_manager
 from resources.class_ import api as class_api
@@ -12,15 +11,15 @@ from resources.enroll import api as enroll_api
 from resources.grade import api as grade_api
 from resources.login import api as login_api
 from resources.logout import api as logout_api
+from resources.oauth import api as ouath_api
 from resources.post import api as post_api
 from resources.prereq import api as prereq_api
 from resources.scholarship import api as scholarship_api
 from resources.student import api as student_api
 from resources.timetable import api as timetable_api
-from resources.oauth import api as ouath_api
 
 app = Flask(__name__)
-cors = CORS(app)
+cors = CORS(app, supports_credentials=True)
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.secret_key = os.environ['KW_APP_SECRET']
 
