@@ -1,28 +1,38 @@
+
 <template>
   <div class="Enrollment_part">
-   <div class="Fbox1">
-    <div class="Fbox11" align="center"> Class List " 2020 - 2 "
-      <div class="Fbox111">
-        <table border="1" bordercolor="black" width='560' height='580' align="center" font size="1em">
-          <th width="220">Name</th><th width="120">Class Id</th><th width="160">Class Professor</th><th width="100">Period</th><th width="100">Place</th><th>Credit</th>
-        </table>
-      </div>
-      <div class="Fbox112">
-        <div style="overflow-x:auto; overflow-y:auto; height:280px;">
-          <div v-for="(class_,idx) in class_list" :key="idx">
-            <table border="1" bordercolor="black" width='560' height='580' text-align="center" font size="1em">
-              <tr><td width="220">{{class_.class_name}}</td>
-                <td width="120">{{class_.class_id}}</td>
-                <td width="160">{{class_.professor_id}}</td>
-                <td width="100">{{class_.period}}</td>
-                <td width="100">{{class_.place}}</td>
-                <td>{{class_.credit}}</td>
-              </tr>
-             </table>
+    <div class="Fbox1">
+      <div class="Fbox11" align="center">All class
+        <div class="Fbox111">
+          <table border="1" bordercolor="black" width='560' height='580' align="center">
+            <tr>
+              <td width="25%" style="word-break:break-all">Name</td>
+              <td width="20%" style="word-break:break-all">Class Id</td>
+              <td width="20%" style="word-break:break-all">Professor</td>
+              <td width="15%" style="word-break:break-all">Period</td>
+              <td width="15%" style="word-break:break-all">Place</td>
+              <td width="5%" style="word-break:break-all">C</td>
+              <td width="5%" style="word-break:break-all">●</td>
+            </tr>
+          </table>
+        </div>
+        <div class="Fbox112">
+          <div style="overflow-x:auto; overflow-y:auto; height:280px;">
+            <div v-for="(class_,idx) in class_list" :key="idx">
+              <table border="1" bordercolor="black" width='560' height='580' text-align="center" font size="1em">
+                <tr>
+                  <td width="25%" style="word-break:break-all">{{class_.class_name}}</td>
+                  <td width="20%" style="word-break:break-all">{{class_.class_id}}</td>
+                  <td width="20%" style="word-break:break-all">{{class_.professor_name}}</td>
+                  <td width="15%" style="word-break:break-all">{{class_.period}}</td>
+                  <td width="15%" style="word-break:break-all">{{class_.place}}</td>
+                  <td width="5%" style="word-break:break-all">{{class_.credit}}</td>
+                </tr>
+              </table>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
     <div class="Fbox12">
       <img src="https://www.kw.ac.kr/ko/img/symbol02_08.jpg" style="width: auto; height: 130px">
@@ -204,7 +214,7 @@ export default {
         if (this.class_list[i].class_id == want_value) {
           this.res_search_name = this.class_list[i].class_name;
           this.res_search_class_id = this.class_list[i].class_id;
-          this.res_search_class_professor = this.class_list[i].professor_id;
+          this.res_search_class_professor = this.class_list[i].professor_name;
           this.res_search_period = this.class_list[i].period;
           this.res_search_place = this.class_list[i].place;
           this.res_search_credit = this.class_list[i].credit;
