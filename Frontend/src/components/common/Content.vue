@@ -30,12 +30,12 @@
           <div v-for = "(my_list,idx) in My_class_list" :key="idx">
             <table border="1" bordercolor="black" width='460' height='580' align="center" font size="1em">
               <tr>
-                <th>{{ my_list.index}}</th>
-                <th>{{ my_list.MON }}</th>
-                <th>{{my_list.TUE}}</th>
-                <th>{{ my_list.WED }}</th>
-                <th>{{ my_list.THU }}</th>
-                <th>{{ my_list.FRI }}</th>
+                <td width="100" style="word-break: break-all">aaa</td>
+                <td width="100" style="word-break: break-all">aaaaaaaa</td>
+                <td width="100" style="word-break: break-all">aaaaaa</td>
+                <td width="100" style="word-break: break-all">aaaaaa</td>
+                <td width="100" style="word-break: break-all">aaaaa</td>
+                <td width="100" style="word-break: break-all">aaaaaaa</td>
               </tr>
             </table>
           </div>
@@ -134,7 +134,7 @@ export default{
   },
   methods:{
     Make_2D_list() {
-      axios.get("http://localhost:5000/timetable", {withCredentials: true})
+      axios.get("http://127.0.0.1:5000/timetable", {withCredentials: true})
            .then(res=>{
              let all_data = res.data
 

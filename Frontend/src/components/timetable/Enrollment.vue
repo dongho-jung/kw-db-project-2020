@@ -240,7 +240,7 @@ export default {
       }
 
       for(let i=0; i<this.favorite_table.length;i++) {
-        if (this.favorite_table[i].class_id == this.res_search_id) {
+        if (this.favorite_table[i].class_id == this.search_class_id) {
           alert('class_id "' + this.favorite_table[i].class_id + '" is already pushed in your Favorite!!')
           break;
         }
