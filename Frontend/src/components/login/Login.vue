@@ -14,7 +14,7 @@
         <font size="2em" face="bold">ID : </font>
       </div>
       <div class="Bbox22">
-        <input type="text" name="ID" size=50 style = "text-align:center;">
+        <input id="username" type="text" v-model="username" size=50 style = "text-align:center;"/>
       </div>
       <div class="Bbox23"><!-- >버튼< -->
         <button id = "New Account" style = "width:80pt" v-on:click="btn_NewAccount">New Account</button>
@@ -31,7 +31,7 @@
         <font size="2em" face="bold">PW : </font>
       </div>
       <div class="Bbox32">
-        <input type="text" name="ID" size=50 style = "text-align:center;">
+        <input id="password" type="psassword" v-model="password" name="ID" size=50 style = "text-align:center;">
       </div>
       <div class="Bbox33"><!-- >버튼< -->
         <button id = "Find PW" style = "width:80pt" v-on:click="btn_FindPW">Find PW</button>
@@ -45,10 +45,10 @@
       <div class="BPad">
       </div>
       <div class="Bbox41"><!-- >버튼< -->
-        <input type="button" value="Log In" size=50 style = "width:160pt;height:47pt;text-align:center;">
+        <input type="button" v-on:click="btn_Login" value="Log In" size=50 style = "width:160pt;height:47pt;text-align:center;">
       </div>
       <div class="Bbox42"><!-- >버튼< -->
-        <a href="http://localhost:8080/NewAccount"><img src="../../assets/kakao.png"></a>
+        <a href="http://localhost:3000/NewAccount"><img src="../../assets/kakao.png"></a>
       </div>
       <div class="BPad">
       </div>
@@ -57,14 +57,45 @@
 </template>
 
 <script>
+
+import axios from "axios";
+
 export default {
+  data(){
+    return{
+      username : '',
+      password : '',
+      response_ : ''
+    }
+  },
   name: 'Bbox33',
   //메소드는 methods 객체 안에 정의
   methods : {
+    btn_Login : function() {
+      let bodyFormdata = new FormData();
+      bodyFormdata.append('student_id',this.username)
+      bodyFormdata.append('hashed_pw',this.password)
+      console.log(this.username, this.password)
+      axios({
+        method: 'post',
+        baseURL: 'http://localhost:5000',
+        url: '/login',
+        data: bodyFormdata,
+        headers: {'Content-Type': 'multipart/form-data' }
+      })
+          .then(res=> {
+            console.log(res);
+            this.$router.push("/");
+          }, async function (error) {
+              console.log('에러일 경우', error.config);
+              alert('Worng ID or PW');
+          })
+    },
+
     btn_NewAccount : function (){
       this.$router.push('/NewAccount')
-    }
-    ,btn_FindPW : function (){
+    },
+    btn_FindPW : function (){
       this.$router.push('/Findpw')
     }
   }

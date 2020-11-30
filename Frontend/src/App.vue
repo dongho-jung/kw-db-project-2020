@@ -3,7 +3,6 @@
     <Header />
     <router-view></router-view>
     <Footer />
-    <Webtoon :items="webtoons"/>
 
   </div>
 

@@ -27,7 +27,7 @@
       </div>
 
       <div class='Zbox22'>
-          <div v-for = "(my_list,idx) in show_my_class_list_2D" :key="idx">
+          <div v-for = "(my_list,idx) in My_class_list" :key="idx">
             <table border="1" bordercolor="black" width='460' height='580' align="center" font size="1em">
               <tr>
                 <th>{{ my_list.index}}</th>
@@ -115,17 +115,46 @@
 </template>
 
 <script>
-import Enrollment from "@/components/timetable/Enrollment";
+
+import axios from "axios";
+
 export default{
   data(){
     return{
-      show_my_class_list_2D: Enrollment.data().My_class_list
+      My_class_list: [
+        {index: '',MON:'Mon',TUE:'Tue',WED:'Wed',THU:'Thr',FRI:'Fri'},
+        {index: 1,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 2,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 3,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 4,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 5,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 6,MON:'',TUE:'',WED:'',THU:'',FRI:''}
+      ]
     }
   },
   methods:{
     Make_2D_list() {
-      console.log(this.show_my_class_list_2D)
+      axios.get("http://localhost:5000/timetable", {withCredentials: true})
+           .then(res=>{
+             let all_data = res.data
+
+             console.log('start')
+
+             for (let i = 0 ; i<all_data.length; i++){
+               let name = all_data[i].name;
+               for (let j= 0; j<all_data[i].period; j++){
+                 let period = all_data[i].period[j];
+                 let date = period.slice(3)
+                 let time = period.slice(-1)
+                 this.My_class_list[time][date] = name;
+               }
+             }
+
+           })
     }
+  },
+  created() {
+    this.Make_2D_list();
   }
 }
 

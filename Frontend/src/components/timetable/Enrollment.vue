@@ -166,15 +166,6 @@ export default {
       now : "00:00:00",
 
       // My Class List
-      My_class_list: [
-        {index: '',MON:'Mon',TUE:'Tue',WED:'Wed',THU:'Thr',FRI:'Fri'},
-        {index: 1,MON:'',TUE:'',WED:'',THU:'',FRI:''},
-        {index: 2,MON:'',TUE:'',WED:'',THU:'',FRI:''},
-        {index: 3,MON:'',TUE:'',WED:'',THU:'',FRI:''},
-        {index: 4,MON:'',TUE:'',WED:'',THU:'',FRI:''},
-        {index: 5,MON:'',TUE:'',WED:'',THU:'',FRI:''},
-        {index: 6,MON:'',TUE:'',WED:'',THU:'',FRI:''}
-      ]
     };
   },
 
@@ -292,23 +283,18 @@ export default {
     //                21학점이 넘는지안넘는
     //
     Enrollment: function (){
-      let want_to_add_list = this.favorite_table;
-      for (let i=0; i<want_to_add_list.length;i++ ){
-        let want_period = want_to_add_list[i].period
-        want_period = want_period.split(' ')
-        // split date and class time
-        for (let j=0; j<want_period.length; j++){
-          let date = want_period[j].slice(3)
-          let class_time = want_period[j].slice(-1)
-          if(this.My_class_list[class_time][date] !=''){
-            this.My_class_list[class_time][date] = want_to_add_list[i].name;
-          }
-          else{
-            alert('Already full in your time' + want_to_add_list[i].name)
-            return
-          }
+      for (let i=1; i<this.favorite_table.length; i++){
+        if (this.favorite_table[i].class_id!=''){
+          let favorite_class_id = this.favorite_table[i].class_id
+          axios({
+            method: 'post',
+            url: '/enroll',
+            data:{
+              class_ids: favorite_class_id
+            }
+          })
+          alert('Success to enrollment' + favorite_class_id)
         }
-        alert('Success to erollment your favorite list \n Check your main menu')
       }
     }
   },
