@@ -19,7 +19,7 @@ class Login(Resource):
 
         expected_pw = db.fetch(f"SELECT pw FROM student WHERE id = '{params['student_id']}'")[0]
         if params['hashed_pw'] != expected_pw:
-            return '잘못된 비밀번호 입니다.', 401
+            return {'msg': '잘못된 비밀번호 입니다.'}, 401
 
         user = User(params['student_id'])
         login_user(user)
