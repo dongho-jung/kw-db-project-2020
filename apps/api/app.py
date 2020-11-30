@@ -20,10 +20,9 @@ from resources.timetable import api as timetable_api
 
 app = Flask(__name__)
 cors = CORS(app, supports_credentials=True)
+app.config['SESSION_COOKIE_SAMESITE'] = 'Lax';
 app.config['CORS_HEADERS'] = 'Content-Type'
 app.secret_key = os.environ['KW_APP_SECRET']
-
-
 
 login_manager.init_app(app)
 
