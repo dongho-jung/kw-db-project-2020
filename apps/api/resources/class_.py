@@ -26,14 +26,14 @@ class Class_(Resource):
         if params['professor_id']: predicates += [f"professor.id = '{params['professor_id']}'"]
 
         rows = db.fetch(f'''
-            SELECT class.name class_name, class.id class_id, professor.id professor_id, period, place, credit,
+            SELECT class.name class_name, class.id class_id, professor.name professor_name, period, place, credit,
                    class.year year_, class.quarter quarter, capacity, classification
             FROM class JOIN professor ON class.professor_id = professor.id
             WHERE {db.join_params_for_where(predicates)}
         ''')
 
         return [{k: v for k, v in
-                 zip(['class_name', 'class_id', 'professor_id', 'period',
+                 zip(['class_name', 'class_id', 'professor_name', 'period',
                       'place', 'credit', 'year', 'quarter', 'capacity', 'classification'], row)}
                 for
                 row in rows]
