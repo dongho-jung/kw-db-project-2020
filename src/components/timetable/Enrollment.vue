@@ -1,44 +1,41 @@
-<!-- 상단에 있는 수강 신청 누르면 나오는 페이지 -->
-
-<template>
+ <template>
   <div class="Enrollment_part">
    <div class="Fbox1">
     <div class="Fbox11" align="center">All class
       <div class="Fbox111">
-        <table border="1" bordercolor="black" width='560' height='580' align="center" font size="1em">
-          <th width="220">Name</th><th width="120">Class Id</th><th width="160">Class Professor</th><th width="100">Period</th><th width="100">Place</th><th>Credit</th>
+        <table border="1" bordercolor="black" width='560' height='580' align="center">
+          <tr>
+            <td width="25%" style="word-break:break-all">Name</td>
+            <td width="20%" style="word-break:break-all">Class Id</td>
+            <td width="20%" style="word-break:break-all">Professor</td>
+            <td width="15%" style="word-break:break-all">Period</td>
+            <td width="15%" style="word-break:break-all">Place</td>
+            <td width="5%" style="word-break:break-all">C</td>
+            <td width="5%" style="word-break:break-all">●</td>
+          </tr>
         </table>
       </div>
-
       <div class="Fbox112">
         <div style="overflow-x:auto; overflow-y:auto; height:280px;">
-          <table border="1" bordercolor="black" width='560' height='580' text-align="center" font size="1em">
-            <tr><td width="220">Data Structure</td><td width="120">H020-2-4181</td><td width="160">Lee Ki Hoon</td><td width="100">Mon1Tue2</td><td width="100">Sabit304</td><td>3</td></tr>
-            <tr><td>Operation System</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>Understanding of Music</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>Understanding of Movie</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>Algorithm</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>DanceSport</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>Read & Write</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>Swimming</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>DanceSport</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>DanceSport</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>DanceSport</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>DanceSport</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>DanceSport</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>DanceSport</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>DanceSport</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>DanceSport</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>DanceSport</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>DanceSport</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>DanceSport</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-            <tr><td>DanceSport</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-          </table>
+          <div v-for="(class_,idx) in class_list" :key="idx">
+            <table border="1" bordercolor="black" width='560' height='580' text-align="center" font size="1em">
+              <tr>
+                <td width="25%" style="word-break:break-all">{{class_.class_name}}</td>
+                <td width="20%" style="word-break:break-all">{{class_.class_id}}</td>
+                <td width="20%" style="word-break:break-all">{{class_.professor_id}}</td>
+                <td width="15%" style="word-break:break-all">{{class_.period}}</td>
+                <td width="15%" style="word-break:break-all">{{class_.place}}</td>
+                <td width="5%" style="word-break:break-all">{{class_.credit}}</td>
+              </tr>
+             </table>
+          </div>
         </div>
       </div>
     </div>
 
     <div class="Fbox12">
+      <img src="https://www.kw.ac.kr/ko/img/symbol02_08.jpg" style="width: auto; height: 130px">
+
     </div>
 
     <div class="Fbox13">
@@ -46,86 +43,89 @@
         <div class="Fbox1311">
           <font size="3em" face="bold"><p>Class ID : </p></font>
         </div>
+
         <div class="Fbox1312">
-          <p><input type="text" name="Class ID" size=50 style = "text-align:center;"></p>
+          <p><input v-model="search_class_id" placeholder="Class ID를 입력하시오" size=50 style = "text-align:center;"></p>
         </div>
+
         <div class="Fbox1313">
-          <p><input type="button" value="Search" size=70 style = "width:60pt;height:16pt;text-align:center;"></p>
+          <p><input type="button" v-on:click="search_class" value="Search" size=70 style = "width:60pt;height:16pt;text-align:center;"></p>
         </div>
       </div>
+
       <div class="Fbox132" align="center">
         <font size="3em" face="bold"><p>Search Result</p></font>
       </div>
+
       <div class="Fbox133">
         <table border="1" bordercolor="black" width='560' height='580' align="center" font size="1em">
           <th width="220" height="30">Name</th><th width="120">Class Id</th><th width="160">Class Professor</th><th width="100">Period</th><th width="100">Place</th><th>Credit</th>
-          <tr><td width="220">Data Structure</td><td width="120">H020-2-4181</td><td width="160">Lee Ki Hoon</td><td width="100">Mon1Tue2</td><td width="100">Sabit304</td><td>3</td></tr>
-          
+            <tr>
+              <td width="220">{{res_search_email}}</td>
+              <td width="120">{{res_search_id}}</td>
+              <td width="160">{{ res_search_first_name }}</td>
+              <td width="100">{{ res_search_last_name }}</td>
+              <td width="100">Sabit304</td>
+              <td>3</td>
+            </tr>
         </table>
       </div>
+
       <div class="Fbox134">
-        <p><input type="button" value="Push" width=70 style = "width:260pt;height:20pt;text-align:center;"></p>
+        <p><input type="button"  v-on:click="Push_to_Favorite" value="Push to Favorite" width=70 style = "width:260pt;height:20pt;text-align:center;"></p>
       </div>
+
     </div>
    </div>
 
    <div class="Fbox2">
      <div class="Fbox21">
         <div class="Fbox211">
-          <div class="Pad">삭제
-          </div>
-          <div class="Fbox2111">
-            <input type="button" value="Push" width=70 style = "text-align:center;">
-          </div>
-          <div class="Fbox2112">
-            <input type="button" value="Push" width=70 style = "text-align:center;">
-          </div>
-          <div class="Fbox2113">
-            <input type="button" value="Push" width=70 style = "text-align:center;">
-          </div>
-          <div class="Fbox2114">
-            <input type="button" value="Push" width=70 style = "text-align:center;">
-          </div>
-          <div class="Fbox2115">
-            <input type="button" value="Push" width=70 style = "text-align:center;">
-          </div>
-          <div class="Fbox2116">
-            <input type="button" value="Push" width=70 style = "text-align:center;">
-          </div>
-          <div class="Fbox2117">
-            <input type="button" value="Push" width=70 style = "text-align:center;">
-          </div>
-          <div class="Fbox2118">
-            <input type="button" value="Push" width=70 style = "text-align:center;">
-          </div>
+          <hn>Select index number</hn>
+          <hn>that you want to Earse</hn>
+          <select @change="Remove_Favorite" v-model="selected_index">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+          </select>
+          <p></p>
+          <span>Your selected number: </span>
+          <hn> {{ selected_index }}</hn>
         </div>
         <div class="Fbox212">
           <table border="1" bordercolor="black" width='560' height='580' align="center" font size="1em">
-          <th width="100">Index</th><th width="260">Name</th><th width="160">Class Id</th><th width="160">Class Professor</th><th width="100">Period</th><th width="100">Place</th><th>Credit</th>
-          <tr><td>1</td><td width="260">Data Structure</td><td width="160">H020-2-4181</td><td width="160">Lee Ki Hoon</td><td width="100">Mon1Tue2</td><td width="100">Sabit304</td><td>3</td></tr>
-          <tr><td>2</td><td>Operation System</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-          <tr><td>3</td><td>Understanding of Music</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-          <tr><td>4</td><td>Understanding of Movie</td><td>H020-2-4181</td><td>Lee Ki Hoon</td><td>Mon1Tue2</td><td>Sabit304</td><td>3</td></tr>
-          <tr><td>5</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr><td>6</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr><td>7</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr><td>8</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            
-        </table>
+            <div v-for="(item,idx) in favorite_table" :key="idx">
+                <tr>
+                    <td width="100" height='30'>{{ item.index }}</td>
+                    <td width="400" height='30'>{{ item.name }}</td>
+                    <td width="160" height='30'>{{ item.class_id }}</td>
+                    <td width="160" height='30'>{{ item.class_professor }}</td>
+                    <td width="100" height='30'>{{ item.period }}</td>
+                    <td width="100" height='30'>{{ item.place }}</td>
+                    <td width="100" height='30'>{{ item.credit }}</td>
+                </tr>
+            </div>
+          </table>
         </div>
      </div>
 
      <div class="Fbox22">
-       <div class="Fbox221">
+       <div class="Pad">
+         <font size="5em" face="bold"><p>Course registration time: 10:00:00</p></font>
        </div>
        <div class="Fbox221">
-         <font size="5em" face="bold"><p>Server Time : 09:59:58</p></font>
+         <font size="5em" face="bold"><p>Current Server Time: {{now}}</p></font>
        </div>
-       <div class="Fbox221">
-         <input type="button" value="Enrollment all" width=70 style = "width:280pt; height:30pt; text-align:center;">
+       <div class="Pad">
+         <p><input type="button" v-on:click="time" value="Update current server time" width="70" style = "width:280pt; height:30pt; text-align:center;"></p>
        </div>
        <div class="Fbox222">
-         <input type="button" value="Go Back" width=70 style = "width:280pt; height:30pt; text-align:center;">
+         <p><input type="button" value="Enrollment all" width=70 style = "width:280pt; height:30pt; text-align:center;"></p>
        </div>
      </div>
    </div>
@@ -133,6 +133,157 @@
 </template>
 
 <script>
+import axios from "axios";
+export default {
+  data() { //전역변수라고 생각하면 편해 그리고 method에서 쓰일 수 있는 변수들을 선언할 수 있
+    return {
+      // for first_api
+      class_list: null,
+      // value_of_class_id_that_user_want_to_search
+      search_class_id: null,
+      // after searching_class_id
+      res_search_id: null,
+      res_search_email: null,
+      res_search_first_name: null,
+      res_search_last_name: null,
+      res_search_avator: null,
+      // for making favorite table
+      favorite_table: [
+        {index: 'Index',name:'Name',class_id: 'Class Id',class_professor: 'Class Professor',period: 'Period',place: 'Place',credit: 'Credit'},
+        {index: 1, name: '',class_id:'',class_professor:'',period:'',place:'',credit:''},
+        {index: 2, name: '',class_id:'',class_professor:'',period:'',place:'',credit:''},
+        {index: 3, name: '',class_id:'',class_professor:'',period:'',place:'',credit:''},
+        {index: 4, name: '',class_id:'',class_professor:'',period:'',place:'',credit:''},
+        {index: 5, name: '',class_id:'',class_professor:'',period:'',place:'',credit:''},
+        {index: 6, name: '',class_id:'',class_professor:'',period:'',place:'',credit:''},
+        {index: 7, name: '',class_id:'',class_professor:'',period:'',place:'',credit:''},
+        {index: 8, name: '',class_id:'',class_professor:'',period:'',place:'',credit:''}
+      ],
+      // selected number for earasing
+      selected_index: '',
+      // for server time(current time)
+      now : "00:00:00"
+    };
+  },
+  methods: { //지역 변수 + 함수들 선언 공간
+    // Server time
+    time: function(){
+      let date = new Date();
+      this.now = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    },
+    // 1. All class 를 보여줄 때 전체 ==> 전체 수강 시간표를 좌측 상단 Table에 가져오는 것
+    //     api = http://0.0.0.0/timetable?get
+    Set_all_class_list() {
+      axios
+          .get("http://localhost:5000/class")
+          .then(res => {
+            this.class_list = res.data;
+            console.log(res);
+          })
+          .catch(err => {
+            console.log(err);
+          });
+    },
+    // 2. 우측 상단 Search button ==> 학정번호 일치하는 것을 찾는 것
+    search_class: function(){
+      let want_value = this.search_class_id;
+      for (let i = 0; i<this.users_1.length; i++) {
+        if (this.users_1[i].id == want_value) {
+          console.log('success')
+          this.res_search_id = this.users_1[i].id;
+          this.res_search_email = this.users_1[i].email;
+          this.res_search_first_name = this.users_1[i].first_name;
+          this.res_search_last_name = this.users_1[i].last_name;
+          this.res_search_avator = this.users_1[i].avator;
+          return
+        }
+      }
+      for (let i = 0; i<this.users_2.length; i++){
+        if (this.users_2[i].id == want_value){
+          this.res_search_id = this.users_2[i].id;
+          this.res_search_email = this.users_2[i].email;
+          this.res_search_first_name = this.users_2[i].first_name;
+          this.res_search_last_name = this.users_2[i].last_name;
+          this.res_search_avator =  this.users_2[i].avator;
+          return
+        }
+      }
+      alert('Fail to find')
+    },
+    // 3. Push 버튼을 누르면 좌측 하단 Table에 마지막 index에 추가시키기
+    // api = x / front 자체처리 / Table값이 다 채워져 있으면 예외처리 ( Max index : 8 )
+    Push_to_Favorite: function () {
+      let check_count = 1;
+      let check_full = 1;
+      for(let i=0; i<this.favorite_table.length;i++){
+        if(this.favorite_table[i].class_id!=''){
+           check_full = check_full+1;
+        }
+      }12
+      if (check_full == 9){
+        alert('FULL')
+        return
+      }
+      for(let i=0; i<this.favorite_table.length;i++){
+        if(this.favorite_table[i].class_id==this.res_search_id){
+          alert('class_id "' +this.favorite_table[i].class_id + '" is already pushed in your Favorite!!')
+          break;
+        }
+        if(this.favorite_table[i].class_id==''){
+          check_count = check_count+1;
+          this.favorite_table[i].name = this.res_search_email;
+          this.favorite_table[i].class_id = this.res_search_id;
+          this.favorite_table[i].class_professor = this.res_search_first_name;
+          this.favorite_table[i].period = this.res_search_last_name;
+          this.favorite_table[i].place = 'KW';
+          this.favorite_table[i].credit = 3;
+          alert('Success to push in "'+i+'" index');
+          break;
+        }
+      }
+    },
+    Remove_Favorite() {
+      for (let i = 0; i < this.favorite_table.length; i++) {
+        if (this.favorite_table[i].index == this.selected_index) {
+          if (this.favorite_table[i].class_id == '' ){
+            alert('Fail to erase: already empty')
+            return
+          }
+          else
+          {
+            this.favorite_table[i].name = '';
+            this.favorite_table[i].class_id = '';
+            this.favorite_table[i].class_professor = '';
+            this.favorite_table[i].period = '';
+            this.favorite_table[i].place = '';
+            this.favorite_table[i].credit = '';
+          }
+          alert('Success to erase index '+ this.selected_index)
+          return
+        }
+      }
+    }
+  },
+  created() {
+    this.Set_all_class_list();
+  }
+};
+// 4. 삭제 버튼을 누르면 해당 index에 있는 data 삭제
+//     밀지말자 / 채우고 / 기존 배열 값에 값이 있으면 들어가지 않도록 예외처리
+//
+// 5. (현재 미구현) 수강신청 이라는 button ==> index 차례대로 되어있는 값이
+//      예외처리 : if 기존 database에 class_id가 중복 되는지 확인
+//                  if 중복:
+//                    if 학점이 C+이 이상일 경우:
+//                          수강 가능
+//                    else 수강 불가능
+//                  else:
+//                     database에 삽입
+//                특정 서버시간이 완료될때 버튼 활성화 (x)
+//                선후수 과목 중 a를 들어야만 a'을 들을 수 있는 기능
+//                21학점이 넘는지안넘는
+//
+// api = http://0.0.0.0/timetable?get
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -190,7 +341,7 @@ a{text-decoration:none; color:black}
   display: grid;
   grid-template-rows: 2fr 1fr 1fr 2fr;
   grid-gap: 20px;
-  border: 1px solid;
+  border: 1px none;
 }
 .Fbox13{
   display: grid;
@@ -205,7 +356,7 @@ a{text-decoration:none; color:black}
   border: 1px solid;
 }
 .Fbox1311{
-border: 1px solid;
+  border: 1px solid;
 }
 .Fbox1312{
   border: 1px solid;
@@ -242,7 +393,6 @@ border: 1px solid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-gap: 1px;
   border: 1px solid;
-  
 }
 .Fbox2111{
   border: 1px solid;
@@ -312,7 +462,6 @@ border: 1px solid;
 }
 .Fbox221{
   border: 1px solid;
-  
 }
 .Fbox222{
   border: 1px solid;
@@ -329,3 +478,4 @@ border: 1px solid;
   justify-content: center;
 }
 </style>
+
