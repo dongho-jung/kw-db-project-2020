@@ -5,30 +5,70 @@
       <h1>New Account</h1>
     </a>
     <tr>
+      <img v-bind:src="kakao_profile_image">
+
       <div class="box21">
-        Student ID : <input type="text" name="student_id" size = 48 style = "text-align:center;"><br><br><br>
+        * Student ID : <input type="text" name="student_id" size = 48 style = "text-align:center;"><br><br><br>
       </div>
-      <div class="Bbox42"><!-- >버튼< -->
-        <a href="https://kauth.kakao.com/oauth/authorize?client_id=8d323fc0c13720cda59983912f875316&redirect_uri=http://localhost:5000/oauth&response_type=code"><img src="../../assets/kakao.png"></a>
-      </div>
+
       <div class="box21">
-        Name : <input type="text" name="name" size = 53 style = "text-align:center;"><br><br><br>
+        * Name : <input v-model="kakao_name" type="text" name="name" size = 53 style = "text-align:center;"><br><br><br>
       </div>
       Phone : <input type="text" name="phone" size = 53 style = "text-align:center;"><br><br><br>
-      Email : <input type="text" name="email" size = 38 style = "text-align:center;">
+      Gender : <input v-model="kakao_gender" type="text" name="gender" size = 53 style = "text-align:center;"><br><br><br>
+      * Email : <input v-model="kakao_email" type="text" name="email" size = 38 style = "text-align:center;"><br><br><br>
       <input type="button" value="중복체크" size = 50 style = "width:80pt;height:16pt;text-align:center;"><br><br><br>
-
-      PW :    <input type="text" name="PW" size = 56 maxlength=10><br><br><br>
+      Birth(Month,Date) : <input type="text" v-model="kakao_birth" name="birth" size = 53 style = "text-align:center;"><br><br><br>
+      * PW :    <input type="text" name="PW" size = 56 maxlength=10><br><br><br>
+      <div class="Bbox42"><!-- >버튼< -->
+        <p v-on:click="KakaoLogin" ><a href="https://kauth.kakao.com/oauth/authorize?client_id=8d323fc0c13720cda59983912f875316&redirect_uri=http://localhost:5000/oauth&response_type=code"><img src="../../assets/kakaoNewAccount.png"></a></p>
+      </div>
       <input type="button" value="OK" size=70 style = "width:100pt;height:20pt;text-align:center;">
       <input type="button" value="Cancel" size=70 style = "width:100pt;height:20pt;text-align:center;">
-
       <div class="Apad"><!-- >버튼< --></div>
-      <div class="Bbox42"><!-- >버튼< -->
-        <a href="http://localhost:3000/NewAccount"><img src="../../assets/kakaoNewAccount.png"></a>
-      </div>
+
     </tr>
   </div>
 </template>
+<script>
+export default {
+  data(){
+    return {
+      kakao_name:'',
+      kakao_email:'',
+      kakao_profile_image:'',
+      kakao_gender:'',
+      kakao_birth:''
+    }
+  },
+  methods:{
+    default_(){
+      if (this.$cookies.isKey('kakaoURL')==true){
+        let URL = decodeURIComponent(this.$cookies.get('kakaoURL'))
+        let URL_ = URL.split('&')
+        this.kakao_name=URL_[1].split('=')[1]
+        console.log(this.kakao_name)
+        console.log('http:'+URL_[5].split(':')[1])
+        this.kakao_profile_image = 'http:'+URL_[5].split(':')[1]
+        this.kakao_email=URL_[2].split('=')[1]
+        this.kakao_gender=URL_[3].split('=')[1]
+        this.kakao_birth=URL_[4].split('=')[1]
+      }
+    },
+    KakaoLogin:function () {
+      let URL = window.location.href
+      this.$cookies.set('kakaoURL',URL)
+      console.log(URL)
+      this.$router.go()
+    }
+  },
+  created() {
+    this.$router.go(1)
+    this.default_()
+  }
+}
+
+</script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
