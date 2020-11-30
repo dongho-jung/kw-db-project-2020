@@ -27,16 +27,18 @@
       </div>
 
       <div class='Zbox22'>
-        <table border="1" bordercolor="black" width='460' height='580' align="center" font size="1em">
-          <th></th>
-          <th>Mon</th><th>Tue</th><th>Wed</th><th>Thr</th><th>Fri</th>
-          <tr><td>1</td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr><td>2</td><td></td><td></td><td></td><td></td><td></td></tr>
-          <tr><td>3</td><td>Data<br>Structure</td><td></td><td>Algorithm</td><td></td><td>Understanding<br>of music</td></tr>
-          <tr><td>4</td><td></td><td>Data<br>Structure</td><td></td><td>Algorithm</td><td>Understanding<br>of music</td></tr>
-          <tr><td>5</td><td></td><td></td><td></td><td>Understanding<br>of movie</td><td></td></tr>
-          <tr><td>6</td><td></td><td></td><td>Understanding<br>of movie</td><td></td><td></td></tr>
-        </table>
+          <div v-for = "(my_list,idx) in show_my_class_list_2D" :key="idx">
+            <table border="1" bordercolor="black" width='460' height='580' align="center" font size="1em">
+              <tr>
+                <th>{{ my_list.index}}</th>
+                <th>{{ my_list.MON }}</th>
+                <th>{{my_list.TUE}}</th>
+                <th>{{ my_list.WED }}</th>
+                <th>{{ my_list.THU }}</th>
+                <th>{{ my_list.FRI }}</th>
+              </tr>
+            </table>
+          </div>
 
       </div>
 
@@ -121,7 +123,9 @@ export default{
     }
   },
   methods:{
-
+    Make_2D_list() {
+      console.log(this.show_my_class_list_2D)
+    }
   }
 }
 
