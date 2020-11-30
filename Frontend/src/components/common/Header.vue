@@ -15,7 +15,7 @@
           <li><router-link to="/timetable/prereq">Prereq</router-link></li>
           <li><router-link to="/timetable/magic">Magic</router-link></li>
           <li><router-link to="/timetable/enrollment">Enrollment</router-link></li>
-          <li><router-link to="/login">Log Out</router-link></li>
+          <li v-on:click="logout"><router-link to="/login">Log Out</router-link></li>
         </ul>
         <u1 v-else>
         </u1>
@@ -32,6 +32,14 @@ export default {
     }
   },
   methods:{
+    deleteCookie: function(name) {
+      var date = new Date();
+      document.cookie = name + "= " + "; expires=" + date.toUTCString() + "; path=/";
+    },
+    logout: function (){
+      this.deleteCookie('SuccessLogin')
+      this.$router.go()
+    },
     A() {
       let a = this.$cookies.isKey('SuccessLogin')
       if (a == true){

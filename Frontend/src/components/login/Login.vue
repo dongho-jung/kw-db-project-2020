@@ -68,8 +68,9 @@ export default {
       })
           .then(res=> {
             console.log(res);
-            this.$router.push("/");
             this.$cookies.set("SuccessLogin")
+            this.$router.push("/");
+            this.$router.go()
           }, async function (error) {
               console.log('에러일 경우', error.config);
               alert('Worng ID or PW');

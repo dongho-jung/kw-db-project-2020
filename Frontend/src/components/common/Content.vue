@@ -132,6 +132,8 @@ export default{
   },
   methods:{
     Make_2D_list() {
+      let a = this.$cookies.isKey('SuccessLogin')
+      console.log('Session ' + a)
       axios.get("http://localhost:5000/timetable")
            .then(res=>{
              let all_data = res.data
@@ -148,8 +150,6 @@ export default{
                }
              }
            })
-      let a = this.$cookies.isKey('SuccessLogin')
-      console.log(a)
     }
   },
   created() {
