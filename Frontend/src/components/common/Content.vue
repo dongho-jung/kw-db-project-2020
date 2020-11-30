@@ -134,7 +134,7 @@ export default{
   },
   methods:{
     Make_2D_list() {
-      axios.get("http://127.0.0.1:5000/timetable", {withCredentials: true})
+      axios.get("http://localhost:5000/timetable")
            .then(res=>{
              let all_data = res.data
 
