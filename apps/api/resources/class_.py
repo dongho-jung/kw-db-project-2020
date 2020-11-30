@@ -27,12 +27,13 @@ class Class_(Resource):
 
         rows = db.fetch(f'''
             SELECT class.name class_name, class.id class_id, professor.id professor_id, period, place, credit,
-                   class.year year_, class.quarter quarter
+                   class.year year_, class.quarter quarter, capacity, classification
             FROM class JOIN professor ON class.professor_id = professor.id
             WHERE {db.join_params_for_where(predicates)}
         ''')
 
         return [{k: v for k, v in
-                 zip(['class_name', 'class_id', 'professor_id', 'period', 'place', 'credit', 'year', 'quarter'], row)}
+                 zip(['class_name', 'class_id', 'professor_id', 'period',
+                      'place', 'credit', 'year', 'quarter', 'capacity', 'classification'], row)}
                 for
                 row in rows]
