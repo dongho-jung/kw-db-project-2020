@@ -167,7 +167,7 @@ export default {
 
       // My Class List
       My_class_list: [
-        {index: '     ',MON:'Mon',TUE:'Tue',WED:'Wed',THU:'Thr',FRI:'Fri'},
+        {index: '',MON:'Mon',TUE:'Tue',WED:'Wed',THU:'Thr',FRI:'Fri'},
         {index: 1,MON:'',TUE:'',WED:'',THU:'',FRI:''},
         {index: 2,MON:'',TUE:'',WED:'',THU:'',FRI:''},
         {index: 3,MON:'',TUE:'',WED:'',THU:'',FRI:''},
@@ -177,6 +177,7 @@ export default {
       ]
     };
   },
+
   methods: { //지역 변수 + 함수들 {{선언 공간
     // Server time
     time: function(){
