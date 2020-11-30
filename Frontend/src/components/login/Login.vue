@@ -33,7 +33,7 @@
         <div class="BPad"></div>
         <input type="button" v-on:click="btn_Login" value="Login" style="text-align:center; height:40px;">
         <div class="BPad"></div>
-        <a href="/login"><img src="../../assets/kakao.png" style="height:40px;"></a>
+        <p v-on:click="loginkakao"><a href="/Newaccount"><img src="../../assets/kakao.png" style="height:40px;"></a></p>
         <div class="BPad"></div>
       </div>
     </form>
@@ -54,6 +54,9 @@ export default {
   name: 'Bbox33',
   //메소드는 methods 객체 안에 정의
   methods : {
+    loginkakao() {
+      alert('Use to set data using from Kakao Data Server \n Click 카카오 계정으로 가입')
+    },
     btn_Login : function() {
       let bodyFormdata = new FormData();
       bodyFormdata.append('student_id',this.username)
@@ -68,7 +71,7 @@ export default {
       })
           .then(res=> {
             console.log(res);
-            this.$cookies.set("SuccessLogin")
+            this.$cookies.set("SuccessLogin",this.username)
             this.$router.push("/");
             this.$router.go()
           }, async function (error) {

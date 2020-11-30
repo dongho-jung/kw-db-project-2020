@@ -4,14 +4,14 @@
     <div class="Zbox1">
       <div class='Zbox11'>
         <div class='Zbox111'>
-         <img alt="Profile" src="../../assets/profile.png" height = "100" width="160">
+         <img alt="Profile" v-bind:src="kakao_profile_image" height = "100" width="160">
         </div>
 
         <div class='Zbox112'>
-          <font size="3em" face="bold">CHOO HO SUNG</font><br>
+          <font size="3em" face="bold">{{kakao_name}}</font><br>
           <font size="1.5em">
-          2016722049<br>
-          hosung0610@naver.com
+            {{ id }}<br>
+          {{kakao_email}}
           </font>
         </div>
       </div>
@@ -23,7 +23,7 @@
 
     <div class="Zbox2">
       <div class='Zbox21'>
-        <h3>ID : 2016722049</h3>
+        <h3>ID : {{id}}</h3>
       </div>
 
       <div class='Zbox22'>
@@ -127,11 +127,29 @@ export default{
         {index: 4,MON:'',TUE:'',WED:'',THU:'',FRI:''},
         {index: 5,MON:'',TUE:'',WED:'',THU:'',FRI:''},
         {index: 6,MON:'',TUE:'',WED:'',THU:'',FRI:''}
-      ]
+      ],
+      id: this.$cookies.get('SuccessLogin'),
+
+      kakao_name:'',
+      kakao_email:'',
+      kakao_profile_image:'',
+      kakao_gender:'',
+      kakao_birth:'',
     }
   },
   methods:{
     Make_2D_list() {
+      let URL = decodeURIComponent(this.$cookies.get('kakaoURL'))
+      let URL_ = URL.split('&')
+      this.kakao_name=URL_[1].split('=')[1]
+      console.log(this.kakao_name)
+      console.log('http:'+URL_[5].split(':')[1])
+      this.kakao_profile_image = 'http:'+URL_[5].split(':')[1]
+      this.kakao_email=URL_[2].split('=')[1]
+      this.kakao_gender=URL_[3].split('=')[1]
+      this.kakao_birth=URL_[4].split('=')[1]
+      this.$cookies.set('profile',this.kakao_profile_image)
+
       let a = this.$cookies.isKey('SuccessLogin')
       console.log('Session ' + a)
       axios.get("http://localhost:5000/timetable")
