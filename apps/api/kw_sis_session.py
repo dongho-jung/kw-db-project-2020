@@ -18,4 +18,4 @@ def load_user(user_id):
 
 @login_manager.unauthorized_handler
 def unauthorized_handler():
-    return '로그인 먼저 해주시기 바랍니다.', 403
+    return {'msg': '로그인 먼저 해주시기 바랍니다.'}, 403
