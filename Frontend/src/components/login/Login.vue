@@ -61,12 +61,12 @@ export default {
   name: 'Bbox33',
   //메소드는 methods 객체 안에 정의
   methods : {
-      btn_NewAccount : function (){
-        this.$router.push('/NewAccount')
-      }
-      ,btn_FindPW : function (){
-        this.$router.push('/Findpw')
-      }
+    btn_NewAccount : function (){
+      this.$router.push('/NewAccount')
+    }
+    ,btn_FindPW : function (){
+      this.$router.push('/Findpw')
+    }
   }
 }
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="Enrollment_part">
    <div class="Fbox1">
-    <div class="Fbox11" align="center">All class
+    <div class="Fbox11" align="center"> Class List " 2020 - 2 "
       <div class="Fbox111">
         <table border="1" bordercolor="black" width='560' height='580' align="center" font size="1em">
           <th width="220">Name</th><th width="120">Class Id</th><th width="160">Class Professor</th><th width="100">Period</th><th width="100">Place</th><th>Credit</th>
@@ -132,7 +132,8 @@ export default {
     return {
 
       // for first_api
-      class_list: null,
+      class_list: [],
+      all_data:[],
 
       // value_of_class_id_that_user_want_to_search
       search_class_id: null,
@@ -167,12 +168,12 @@ export default {
       // My Class List
       My_class_list: [
         {index: '',mon:'Mon',tue:'Tue',wed:'Wed',thr:'Thr',fri:'Fri'},
-        {index: 1,mon:'',tue:'',wed:'',thr:'',fri:''},
-        {index: 2,mon:'',tue:'',wed:'',thr:'',fri:''},
-        {index: 3,mon:'',tue:'',wed:'',thr:'',fri:''},
-        {index: 4,mon:'',tue:'',wed:'',thr:'',fri:''},
-        {index: 5,mon:'',tue:'',wed:'',thr:'',fri:''},
-        {index: 6,mon:'',tue:'',wed:'',thr:'',fri:''},
+        {index: 1,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 2,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 3,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 4,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 5,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 6,MON:'',TUE:'',WED:'',THU:'',FRI:''}
       ]
     };
   },
@@ -186,18 +187,25 @@ export default {
     },
 
 
+
+
     // 1. All class 를 보여줄 때 전체 ==> 전체 수강 시간표를 좌측 상단 Table에 가져오는 것
     //     api = http://0.0.0.0/timetable?get
     Set_all_class_list() {
-      axios
-          .get("http://localhost:5000/class")
-          .then(res => {
-            this.class_list = res.data;
-            console.log(res);
-          })
-          .catch(err => {
-            console.log(err);
-          });
+        axios
+        .get("http://localhost:5000/class")
+            .then(res => {
+              this.all_data = res.data;
+              for (let i =0 ; i<this.all_data.length; i++){
+                if (this.all_data[i].year == '2020' && this.all_data[i].quarter=='2'){
+                  this.class_list.push(this.all_data[i]);
+                }
+              }
+              console.log(this.class_list);
+            })
+            .catch(err => {
+              console.log(err);
+            });
     },
 
     // 2. 우측 상단 Search button ==> 학정번호 일치하는 것을 찾는 것
@@ -226,7 +234,7 @@ export default {
         if(this.favorite_table[i].class_id!=''){
            check_full = check_full+1;
         }
-      }12
+      }
       if (check_full == 9){
         alert('FULL')
         return
@@ -248,9 +256,7 @@ export default {
           alert('Success to push in "' + i + '" index');
           break;
         }
-
       }
-
     },
 
     // 4. 삭제 버튼을 누르면 해당 index에 있는 data 삭제
@@ -288,11 +294,19 @@ export default {
     //                21학점이 넘는지안넘는
     //
     Enrollment: function (){
-      this.My_class_list = this.favorite_table
-
-
-
-
+      let want_to_add_list = this.favorite_table;
+      for (let i=0; i<want_to_add_list.length;i++ ){
+        let want_period = want_to_add_list[i].period
+        want_period = want_period.split(' ')
+        // split date and class time
+        for (let j=0; j<want_period.length; j++){
+          let date = want_period[j].slice(3)
+          let class_time = want_period[j].slice(-1)
+          if(this.My_class_list[class_time][date] !=''){
+            this.My_class_list[class_time][date] = want_to_add_list[i].name;
+          }
+        }
+      }
     }
   },
   created() {
