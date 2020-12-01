@@ -44,7 +44,7 @@
     </div>
 
     <div class="Zbox3">
-      <h1>Credit Radar Chart</h1>
+      <h1>Credit Polar Area Chart</h1>
        <div class="columns">
           <div class="column">
             <polar-area-chart></polar-area-chart>
@@ -79,7 +79,6 @@
 
 <script>
 import PolarAreaChart from '@/components/PolarAreaChart'
-
 
 import axios from "axios";
 export default{

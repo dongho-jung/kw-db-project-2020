@@ -11,7 +11,7 @@ export default {
         labels: ['A+','A0','B+','B0','C+','C0','D+','D0','F'],
         datasets: [
           {
-            label: '2016_1',
+            label: '2018_1',
             backgroundColor: 'rgba(179, 181, 198, 0.2)',
             borderColor: 'rgba(179,181,198,1)',
             pointBackgroundColor: 'white',
@@ -21,7 +21,7 @@ export default {
             data: [1,3,3,0,0,3,1,0,3]
           },
           {
-            label: '2016_2',
+            label: '2018_2',
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 0.2)',
             pointBackgroundColor: 'white',

@@ -11,23 +11,23 @@ export default {
         labels: ['A+','A0','B+','B0','C+','C0','D+','D0','F'],
         datasets: [
           {
-            label: '2016_1',
+            label: '2017_1',
             backgroundColor: 'rgba(179, 181, 198, 0.2)',
             borderColor: 'rgba(179,181,198,1)',
             pointBackgroundColor: 'white',
             borderWidth: 3,
             pointBorderColor: '#249EBF',
  
-            data: [1,3,3,0,0,3,1,0,3]
+            data: [2,2,2,1,0,1,0,1]
           },
           {
-            label: '2016_2',
+            label: '2017_2',
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             borderColor: 'rgba(75, 192, 192, 0.2)',
             pointBackgroundColor: 'white',
             borderWidth: 3,
             pointBorderColor: '#149EBF',
-            data: [2,3,1,0,0,0,1,1,1]
+            data: [1,2,1,1,0,0,0,0]
           }
         ]
       },

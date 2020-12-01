@@ -7,7 +7,6 @@
 			<ul class="menu">
 			<li><router-link to="/board/list2">Author</router-link></li>
           <li><router-link to="/board/notice">Notice</router-link></li>
-          <li><router-link to="/board/list2">Author</router-link></li>
           <li><router-link to="/grade/result">Result of Degree</router-link></li>
           <li><router-link to="/grade/Scholarship">Scholarship</router-link></li>
           <li><router-link to="/timetable/prereq">Prereq</router-link></li>
