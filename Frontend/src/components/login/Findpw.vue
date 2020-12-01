@@ -7,7 +7,7 @@
         </a>
       </div>
       <legend>
-        <h1>Check if id exist</h1>
+        <h1>Check if id exists</h1>
       </legend>
 
 

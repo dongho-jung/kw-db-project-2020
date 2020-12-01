@@ -111,7 +111,7 @@
           <div class="JPad">
           </div>
 
-          <div class="JBox">Birth(YYMMDD) :
+          <div class="JBox">Birth(MMDD) :
           </div>
 
           <div class="JBox">
@@ -190,8 +190,8 @@ export default {
         let URL = decodeURIComponent(this.$cookies.get('kakaoURL'))
         let URL_ = URL.split('&')
         this.kakao_name=URL_[1].split('=')[1]
+        console.log(URL_)
         console.log(this.kakao_name)
-        console.log('http:'+URL_[5].split(':')[1])
         this.kakao_profile_image = 'http:'+URL_[5].split(':')[1]
         this.kakao_email=URL_[2].split('=')[1]
         this.kakao_gender=URL_[3].split('=')[1]

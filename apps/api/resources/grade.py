@@ -22,8 +22,8 @@ class Grade(Resource):
         student_id = current_user.id
 
         predicates = [f"student_id = '{student_id}'"]
-        if params['year']: predicates += [f"year = {params['year']}"]
-        if params['quarter']: predicates += [f"quarter = {params['quarter']}"]
+        if params['year']: predicates += [f"grade.year = {params['year']}"]
+        if params['quarter']: predicates += [f"grade.quarter = {params['quarter']}"]
         if params['retake']: predicates += [f"retake = {params['retake']}"]
         if params['grade']: predicates += [f"grade = {params['grade']}"]
 

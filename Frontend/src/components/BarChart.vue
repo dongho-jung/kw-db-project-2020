@@ -11,13 +11,31 @@ export default {
         labels: ['2016-1', '2016-2', '2019-1', '2019-2', '2020-1', '2020-2'],
         datasets: [
           {
-            label: '학습결과 취득 학점',
-            backgroundColor: '#f87979',
+            label: '전선',
+            backgroundColor: 'orange',
             pointBackgroundColor: 'white',
             borderWidth: 1,
             pointBorderColor: '#249EBF',
             //Data to be represented on y-axis
-            data: [18, 21, 21, 18, 21, 18]
+            data: [9, 6, 9, 9, 9, 9]
+          },
+          {
+            label: '전필',
+            backgroundColor: 'yellow',
+            pointBackgroundColor: 'white',
+            borderWidth: 1,
+            pointBorderColor: '#249EBF',
+            //Data to be represented on y-axis
+            data: [9, 6, 9, 9, 9, 9]
+          },
+          {
+            label: '교양',
+            backgroundColor: 'green',
+            pointBackgroundColor: 'white',
+            borderWidth: 1,
+            pointBorderColor: '#249EBF',
+            //Data to be represented on y-axis
+            data: [6, 6, 3, 6, 9, 6]
           }
         ]
       },
@@ -25,6 +43,7 @@ export default {
       options: {
         scales: {
           yAxes: [{
+            stacked:true,
             ticks: {
               beginAtZero: true
             },
@@ -33,15 +52,16 @@ export default {
             }
           }],
           xAxes: [ {
+            stacked:true,
             gridLines: {
               display: false
             }
           }]
         },
         legend: {
-            display: true
-          },
-        responsive: true,
+          display: true
+        },
+        responsive: false,
         maintainAspectRatio: false
       }
     }

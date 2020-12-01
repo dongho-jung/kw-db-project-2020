@@ -11,7 +11,7 @@
           <li><router-link to="/board/notice">Notice</router-link></li>
           <li><router-link to="/board/list2">Author</router-link></li>
           <li><router-link to="/grade/result">Result of Degree</router-link></li>
-          <li><router-link to="/grade/schlorship">Scholorship</router-link></li>
+          <li><router-link to="/grade/scholarship">Scholorship</router-link></li>
           <li><router-link to="/timetable/prereq">Prereq</router-link></li>
           <li><router-link to="/timetable/magic">Magic</router-link></li>
           <li><router-link to="/timetable/enrollment">Enrollment</router-link></li>

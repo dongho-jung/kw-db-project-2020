@@ -68,7 +68,7 @@ var routes = [
 		,component: Result
 	}
 	,{
-		path:"/grade/scholarship"
+		path:"/grade/Scholarship"
 		,name: Scholarship
 		,component:Scholarship
 	}

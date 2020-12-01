@@ -43,7 +43,7 @@
           </div>
 
           <div class="Lbox">
-            <button id = "Find PW" style = "color: white; width:100pt; background-color:#8fc400" v-on:click="btn_FindPW">Find PW</button>
+            <button id = "Check ID" style = "color: white; width:100pt; background-color:#8fc400" v-on:click="btn_FindPW">Check IDs</button>
           </div>
         </div>
 
