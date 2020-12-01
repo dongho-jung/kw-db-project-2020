@@ -33,7 +33,7 @@ db.execute(
 """
 )
 major_model = MajorModel()
-major_rows = list(itertools.islice(major_model, 15))
+major_rows = list(itertools.islice(major_model, 10))
 df_major = pd.DataFrame(major_rows, columns=["id", "name"])
 db.insert(df_major, "major")
 
@@ -102,8 +102,8 @@ class_model = ClassModel(
     db.fetch("SELECT id FROM professor"),
 )
 class_rows = list(
-    itertools.islice(class_model, 15 * 4 * 30)
-)  # 15 years, 30 classes per quarter
+    itertools.islice(class_model, 15 * 4 * 80)
+)  # 15 years, 80 classes per quarter
 df_class = pd.DataFrame(
     class_rows,
     columns=[
@@ -280,7 +280,7 @@ grade_model = GradeModel(
     db.fetch("SELECT id FROM student"),
 )
 grade_rows = list(
-    itertools.islice(grade_model, 48 * len(df_student))
+    itertools.islice(grade_model, 30 * len(df_student))
 )
 df_grade = pd.DataFrame(
     grade_rows,
@@ -300,7 +300,7 @@ db.execute(
 """
 )
 preclass_model = PreclassModel(
-    db.fetch("SELECT id FROM class WHERE year=2020 AND quarter=2")
+    db.fetch("SELECT id FROM class WHERE year=2020")
 )
 preclass_rows = list(preclass_model)
 df_preclass = pd.DataFrame(
