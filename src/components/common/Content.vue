@@ -42,21 +42,15 @@
       </div>
 
     </div>
-
     <div class="Zbox3">
       <div class='Zbox31'>
         <h3>Notice board</h3>
-      </div>
-
-  
-                     
-                <div class="columns">
-                    <div class="column">
-                    <polar-area-chart></polar-area-chart>
-                    </div>
-                </div>
-    
-
+      </div>       
+        <div class="columns">
+          <div class="column">
+            <polar-area-chart></polar-area-chart>
+          </div>
+         </div>
     </div>
 
     <div class="Zbox4">
