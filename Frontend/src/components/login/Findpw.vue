@@ -30,38 +30,40 @@ export default {
     }
   },
   methods: {
-    Check_email: function() {
-      if(this.kakao_email == ''){
-        alert('Empty Email!!')
-      }
-      let bodyFormdata = new FormData();
-      bodyFormdata.append('student_id',this.student_id)
-      axios.get('/student/check/email',{
-        baseURL: 'http://localhost:5000',
-        params: {
-          email: this.kakao_email
-        }
-      })
-          .then(res=>{ //못찾으면 error 출력하도록 유도
-            alert('You can use it')
-            console.log(res);
-            this.$cookies.set('CheckDuplicatedEmail');
-          })
-          .catch(error =>{
-            console.log(error);
-            alert('Already Presented Email')
-          })
-    },
     OK() {
       if(this.email!='')
         if(this.student_id!='')
             if(this.Name!=''){
-              alert('Success to Make New Account')
-              this.$router.push('/login')
+              axios.get('/student/check/id',{
+                baseURL: 'http://localhost:5000',
+                params: {
+                  student_id: this.student_id
+                }
+              })
+                  .then(res=>{ //못찾으면 error 출력하도록 유도
+                    alert("You don't have ID")
+                    console.log(res);
+                    this.$cookies.set('CheckDuplicatedEmail');
+                    this.$router.push('/login')
+                  })
+                  .catch(error =>{
+                    console.log(error);
+                    alert('You already have ID')
+                    this.$router.push('/login')
+                  })
             }
-            else alert('Please input Name')
-        else alert('Please input Student_id')
-      else alert('Please input Email')
+            else {
+                alert('Please input Name')
+                return
+              }
+        else {
+          alert('Please input Student_id')
+          return
+        }
+      else{
+        alert('Please input Email')
+        return
+      }
     },
     Cancel() {
       alert('Go to Login Page')
