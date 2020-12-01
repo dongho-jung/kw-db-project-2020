@@ -15,6 +15,9 @@ student_put_parser.add_argument('phone', type=str)
 student_put_parser.add_argument('email', type=str)
 student_put_parser.add_argument('process_id', type=str)
 
+student_check_email_parser = reqparse.RequestParser()
+student_check_email_parser.add_argument('email', required=True, type=str)
+
 
 @api.route('')
 class Student(Resource):
@@ -42,3 +45,21 @@ class Student(Resource):
             SET (name, major_id, year, semester, phone, email, professor_id) = ('{name}', '{major_id}', '{year}', '{semester}', '{phone}', '{email}', '{professor_id}')
             WHERE student_id = '{student_id}'
         ''')
+
+
+@api.route('/check/email')
+class StudentCheckEmail(Resource):
+    @api.expect(student_check_email_parser)
+    def get(self):
+        params = student_put_parser.parse_args()
+        email = params['email']
+
+        rows = db.fetch(f'''SELECT 1
+                            FROM student
+                            WHERE email = '{email}'
+               ''')
+
+        if rows:
+            return {'msg': '이미 존재하는 이메일입니다.'}, 409
+        else:
+            return 200
