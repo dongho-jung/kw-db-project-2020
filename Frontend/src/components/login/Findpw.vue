@@ -2,17 +2,17 @@
   <div class="box2">
     <a href="http://localhost:3000/Findpw">
       <img src="../../assets/password.png" height = "200" width="300">
-      <h1>Find Password</h1>
+      <h1>Check if id exists</h1>
     </a>
     <tr>
       <div class="box21">
-        Student ID : <input v-model="student_id" type="text" name="student_id" size = 48 style = "text-align:center;"><br><br><br>
+       * Student ID : <input v-model="student_id" type="text" name="student_id" size = 48 style = "text-align:center;"><br><br><br>
       </div>
       <div class="box21">
-        Name : <input v-model="Name" type="text" name="name" size = 53 style = "text-align:center;"><br><br><br>
+       * Name : <input v-model="Name" type="text" name="name" size = 53 style = "text-align:center;"><br><br><br>
       </div>
-      Phone : <input type="text" name="phone" size = 53 style = "text-align:center;"><br><br><br>
-      Email : <input v-model="email" type="text" name="email" size = 53 style = "text-align:center;"><br><br><br>
+       Phone : <input type="text" name="phone" size = 53 style = "text-align:center;"><br><br><br>
+      * Email : <input v-model="email" type="text" name="email" size = 53 style = "text-align:center;"><br><br><br>
       <input type="button" v-on:click="OK" value="OK" size=70 style = "width:100pt;height:20pt;text-align:center;">
       <input type="button" v-on:click="Cancel" value="Cancel" size=70 style = "width:100pt;height:20pt;text-align:center;">
     </tr>
@@ -36,29 +36,32 @@ export default {
       }
       let bodyFormdata = new FormData();
       bodyFormdata.append('student_id',this.student_id)
-      axios({
-        method: 'get',
+      axios.get('/student/check/email',{
         baseURL: 'http://localhost:5000',
-        url: '/student',
-        data: bodyFormdata,
-        headers: {'Content-Type': 'multipart/form-data' }
+        params: {
+          email: this.kakao_email
+        }
       })
           .then(res=>{ //못찾으면 error 출력하도록 유도
+            alert('You can use it')
             console.log(res);
+            this.$cookies.set('CheckDuplicatedEmail');
+          })
+          .catch(error =>{
+            console.log(error);
             alert('Already Presented Email')
-          }), async function (error){
-        console.log(error);
-        alert('You can use it')
-        this.$cookies.set('CheckDuplicatedEmail')
-      }
+          })
     },
     OK() {
-      if (this.email=='') {
-        alert('Success to Make New Account')
-        this.$router.push('/login')
-      } else {
-        alert('')
-      }
+      if(this.email!='')
+        if(this.student_id!='')
+            if(this.Name!=''){
+              alert('Success to Make New Account')
+              this.$router.push('/login')
+            }
+            else alert('Please input Name')
+        else alert('Please input Student_id')
+      else alert('Please input Email')
     },
     Cancel() {
       alert('Go to Login Page')

@@ -24,7 +24,11 @@ export default {
   methods: {
     fetchData(pageNum) {
       axios
-          .get("https://reqres.in/api/users?page=" + pageNum)
+          .get("https://reqres.in/api/users?page=" + pageNum,{
+            headers:{
+              "Access-Control-Allow-Origin": "*"
+            }
+          })
           .then(res => {
             this.users = res.data.data;
             this.totalPage = res.data.total_pages;

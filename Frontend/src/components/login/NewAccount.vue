@@ -19,7 +19,7 @@
       * Email : <input v-model="kakao_email" type="text" name="email" size = 38 style = "text-align:center;"><br><br><br>
       <input v-on:click="Check_email" type="button" value="중복체크" size = 50 style = "width:80pt;height:16pt;text-align:center;"><br><br><br>
       Birth(Month,Date) : <input type="text" v-model="kakao_birth" name="birth" size = 53 style = "text-align:center;"><br><br><br>
-      * PW :    <input type="text" name="PW" size = 56 maxlength=10><br><br><br>
+      * PW :    <input v-model="PW" type="text" name="PW" size = 56 maxlength=10><br><br><br>
       <div class="Bbox42"><!-- >버튼< -->
         <p v-on:click="KakaoLogin" ><a href="https://kauth.kakao.com/oauth/authorize?client_id=8d323fc0c13720cda59983912f875316&redirect_uri=http://localhost:5000/oauth&response_type=code"><img src="../../assets/kakaoNewAccount.png"></a></p>
       </div>
@@ -67,30 +67,37 @@ export default {
         alert('Empty Email!!')
       }
       let bodyFormdata = new FormData();
-      bodyFormdata.append('student_id',this.student_id)
-      axios({
-        method: 'get',
+      bodyFormdata.append('email',this.kakao_email)
+      axios.get('/student/check/email',{
         baseURL: 'http://localhost:5000',
-        url: '/student',
-        data: bodyFormdata,
-        headers: {'Content-Type': 'multipart/form-data' }
+        params: {
+          email: this.kakao_email
+        }
       })
       .then(res=>{ //못찾으면 error 출력하도록 유도
-        console.log(res);
-        alert('Already Presented Email')
-      }), async function (error){
-        console.log(error);
         alert('You can use it')
-        this.$cookies.set('CheckDuplicatedEmail')
-      }
+        console.log(res);
+        this.$cookies.set('CheckDuplicatedEmail');
+      })
+      .catch(error =>{
+        console.log(error);
+        alert('Already Presented Email')
+      })
     },
     OK (){
       if (this.$cookies.isKey('CheckDuplicatedEmail')==true){
-        alert('Success to Make New Account')
-        this.$router.push('/login')
+        if(this.student_id!='')
+          if(this.kakao_name!='')
+            if(this.PW!=''){
+              alert('Success to Make New Account')
+              this.$router.push('/login')
+            }
+            else alert('Please input PW')
+          else alert('Please input Name')
+        else alert('Please input Student_id')
       }
       else{
-        alert('')
+        alert('Check email first')
       }
     },
     Cancel(){
