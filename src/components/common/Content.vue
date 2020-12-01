@@ -42,15 +42,14 @@
       </div>
 
     </div>
+
     <div class="Zbox3">
-      <div class='Zbox31'>
-        <h3>Notice board</h3>
-      </div>       
-        <div class="columns">
+      <h1>Credit Radar Chart</h1>
+       <div class="columns">
           <div class="column">
             <polar-area-chart></polar-area-chart>
           </div>
-         </div>
+        </div> 
     </div>
 
     <div class="Zbox4">
@@ -80,13 +79,15 @@
 
 <script>
 import PolarAreaChart from '@/components/PolarAreaChart'
-import axios from "axios";
 
+
+import axios from "axios";
 export default{
   name: 'VueChartJS',
     components: {
         PolarAreaChart
   },
+
   data(){
     return{
       My_class_list: [
@@ -99,6 +100,7 @@ export default{
         {index: 6,MON:'',TUE:'',WED:'',THU:'',FRI:''}
       ],
       id: this.$cookies.get('SuccessLogin'),
+
       kakao_name:'',
       kakao_email:'',
       kakao_profile_image:'',
@@ -126,52 +128,66 @@ export default{
                }
              }
            })
+
       let URL = decodeURIComponent(this.$cookies.get('profile'))
       this.kakao_profile_image=URL
       let URL_ = decodeURIComponent(this.$cookies.get('name'))
       this.kakao_name=URL_
       let URL__ = decodeURIComponent(this.$cookies.get('email'))
-      this.kakao_emai=URL__
+      this.kakao_email=URL__
     }
   },
   created() {
     this.Make_2D_list();
   }
 }
+
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 .button {
   color: black;
+
   padding: 7px 60px;
+
   text-align: center;
+
   text-decoration: none;
+
   display: inline-block;
+
   cursor: pointer;
 }
+
 table, th, td {
   border: 1px solid #bcbcbc;
 }
+
 table {
   width: 100%;
   height: 100%;
 }
+
 .jb-th-1{
   width:40px;
 }
+
 a{text-decoration:none; color:black}
+
 .Main_part > div {
   border-radius: 5px;
   background-color: white;
   padding: 1em;
 }
+
 .Main_part{
   display: grid;
   grid-template-columns: 2fr 4fr 8fr 8fr 6fr 2fr;
   grid-template-rows: 700px;
   grid-gap: 10px;
 }
+
 .ZPad{
   
 }
@@ -181,103 +197,123 @@ a{text-decoration:none; color:black}
   grid-template-rows: 250px 350px;
   grid-gap: 50px;
 }
+
 .Zbox11{
   background-color: white;
   border: 1px solid;
+
   grid-template-columns: 1fr;
   grid-template-rows: 10px 10px 10px 10px;
   grid-gap: 10px;
 }
+
 .Zbox111{
   padding: 10px 0px;
 }
+
 .Zbox112{
   padding: 0px 0px;
   
 }
+
 .Zbox12{
   background-color: white;
 }
+
 .Zbox2{
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 60px 580px;
   grid-gap: 20px;
 }
+
 .Zbox21{
   text-align: center;
   background-color: white;
   border: 1px solid;
   padding: 0px 0px;
 }
+
 .Zbox22{
   background-color: white;
   border: 1px solid;
 }
+
 .Zbox3{
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 60px 580px;
   grid-gap: 20px;
 }
+
 .Zbox31{
   text-align: center;
   background-color: white;
   border: 1px solid;
   padding: 0px 0px 0px 0px;
 }
+
 .Zbox32{
   background-color: white;
   border: 1px solid;
+
   grid-template-columns: 1fr;
   grid-template-rows: 95px 95px 95px 95px 95px;
 }
+
 .Zbox321{
   background-color: white;
   border: 1px solid;
   grid-template-columns: 1fr 1fr;
   height:25%;
 }
+
 .Zbox322{
   background-color: white;
   border: 1px solid;
   height:25%;
 }
+
 .Zbox323{
   background-color: white;
   border: 1px solid;
   height:25%;
 }
+
 .Zbox324{
   background-color: white;
   border: 1px solid;
   height:24%;
 }
+
 .Zbox326{
   background-color: white;
   border: 1px solid;
 }
+
 .Zbox4{
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 200px 200px 200px;
   grid-gap: 20px;
 }
+
 .Zbox41{
   background-color: white;
-  border: 1px solid;
 }
+
 .Zbox42{
   background-color: white;
-  border: 1px solid;
 }
+
 .Zbox43{
   background-color: white;
-  border: 1px solid
 }
+
 th{
   width: 20px;
 }
+
 #header, #nav, #section, #footer { text-align:center; }
 #header, #footer { line-height:100px; }
 #nav, #section { line-height:240px; }

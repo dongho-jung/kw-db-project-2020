@@ -41,16 +41,14 @@
 </template>
 
 <script>
-
 import LineChart2 from '@/components/LineChart2'
   
-  export default {
+export default {
     name: 'VueChartJS2',
     components: {
       LineChart2
-     },
- 
-  }
+     }, 
+}
 </script>
 
 <style>

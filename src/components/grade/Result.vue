@@ -12,6 +12,7 @@
                 </div>
             </section>
         </div>
+        
         <div class="Dbox2">
             <section class="container">
                 <h1>취득 평점</h1>
@@ -35,49 +36,68 @@
                     <font size="3em">- 교양 : 120 / 140</font><br><br>
                 </div>
             </div>
+            
         </div>
                                 
                 <div class="columns">
                     <div class="column">
-                    <radar-chart></radar-chart>
-                    </div>
-                </div>
-                                
-                <div class="columns">
-                    <div class="column">
-                    <polar-area-chart></polar-area-chart>
+                    <radar-chart1></radar-chart1>
                     </div>
                 </div>
 
-                                                
+                <!-- >                
+                <div class="columns">
+                </div>
+                < -->
+
                 <div class="columns">
                     <div class="column">
-                    <bubble-chart></bubble-chart>
+                    <radar-chart2></radar-chart2>
                     </div>
                 </div>
 
+                <div class="columns">
+                    <div class="column">
+                    <radar-chart3></radar-chart3>
+                    </div>
+                </div>
+
+                <div class="columns">
+                    <div class="column">
+                    <radar-chart4></radar-chart4>
+                    </div>
+                </div>
+ 
+                <div class="columns">
+                    <div class="column">
+                    <radar-chart5></radar-chart5>
+                    </div>
+                </div>
     </div>
 </template>
                        
 <script>
 import BarChart from '@/components/BarChart'
 import LineChart from '@/components/LineChart'
-import RadarChart from '@/components/RadarChart'
-import PolarAreaChart from '@/components/PolarAreaChart'
-
+import RadarChart1 from '@/components/radarchart/RadarChart1'
+import RadarChart2 from '@/components/radarchart/RadarChart2'
+import RadarChart3 from '@/components/radarchart/RadarChart3'
+import RadarChart4 from '@/components/radarchart/RadarChart4'
+import RadarChart5 from '@/components/radarchart/RadarChart5'
 
 export default {
 name: 'VueChartJS',
     components: {
          BarChart,
         LineChart,
-
-        RadarChart,
-        PolarAreaChart
+        RadarChart1,
+        RadarChart2,
+        RadarChart3,
+        RadarChart4,
+        RadarChart5
     }
 }
 </script>
-        BubbleChart
 
                         <style>
                             ul {

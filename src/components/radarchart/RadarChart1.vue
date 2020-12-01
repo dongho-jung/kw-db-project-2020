@@ -11,14 +11,23 @@ export default {
         labels: ['A+','A0','B+','B0','C+','C0','D+','D0','F'],
         datasets: [
           {
-            label: '단계별 학점 개수',
+            label: '2016_1',
             backgroundColor: 'rgba(179, 181, 198, 0.2)',
             borderColor: 'rgba(179,181,198,1)',
             pointBackgroundColor: 'white',
             borderWidth: 3,
             pointBorderColor: '#249EBF',
-            //Data to be represented on y-axis
+ 
             data: [1,3,3,0,0,3,1,0,3]
+          },
+          {
+            label: '2016_2',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            borderColor: 'rgba(75, 192, 192, 0.2)',
+            pointBackgroundColor: 'white',
+            borderWidth: 3,
+            pointBorderColor: '#149EBF',
+            data: [2,3,1,0,0,0,1,1,1]
           }
         ]
       },
