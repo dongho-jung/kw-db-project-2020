@@ -5,7 +5,7 @@ import db
 api = Namespace('class', description='Class related operations')
 
 class_get_parser = reqparse.RequestParser()
-class_get_parser.add_argument('class_id', type=str)
+class_get_parser.add_argument('class_ids', type=str, action='split')
 class_get_parser.add_argument('year', type=int)
 class_get_parser.add_argument('quarter', type=int)
 class_get_parser.add_argument('class_name', type=str)
@@ -19,7 +19,7 @@ class Class_(Resource):
         params = class_get_parser.parse_args()
 
         predicates = []
-        if params['class_id']: predicates += [f"class_id = '{params['class_id']}'"]
+        if params['class_ids']: predicates += [f"class.id IN ({str(params['class_ids'])[1:-1]})"]
         if params['year']: predicates += [f"year = {params['year']}"]
         if params['quarter']: predicates += [f"quarter = {params['quarter']}"]
         if params['class_name']: predicates += [f"class.name = '{params['class_name']}'"]
