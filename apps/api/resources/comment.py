@@ -100,7 +100,7 @@ class CommentLike(Resource):
         comment_id = params['comment_id']
 
         if db.fetch(
-                f"SELECT * FROM comment_vote WHERE student_id='{comment_id}' AND post_id={comment_id} AND like_or_hate=TRUE"):
+                f"SELECT * FROM comment_vote WHERE student_id='{student_id}' AND post_id={comment_id} AND like_or_hate=TRUE"):
             return "이미 좋아요를 하셨습니다.", 400
 
         db.execute(f'''
@@ -126,7 +126,7 @@ class CommentHate(Resource):
         comment_id = params['comment_id']
 
         if db.fetch(
-                f"SELECT * FROM comment_vote WHERE student_id='{comment_id}' AND post_id={comment_id} AND like_or_hate=FALSE"):
+                f"SELECT * FROM comment_vote WHERE student_id='{student_id}' AND post_id={comment_id} AND like_or_hate=FALSE"):
             return "이미 싫어요 하셨습니다.", 400
 
         db.execute(f'''
