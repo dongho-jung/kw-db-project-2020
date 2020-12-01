@@ -19,6 +19,7 @@ import VueChartJS from '@/components/VueChartJS';
 import VueCookie from "vue-cookie";
 Vue.use(VueRouter); //vue 라우터
 Vue.use(VueCookie)
+
 var routes = [
 	{
 		path:'/'

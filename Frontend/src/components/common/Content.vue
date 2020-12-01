@@ -163,7 +163,7 @@ export default{
       let URL_ = decodeURIComponent(this.$cookies.get('name'))
       this.kakao_name=URL_
       let URL__ = decodeURIComponent(this.$cookies.get('email'))
-      this.kakao_emai=URL__
+      this.kakao_email=URL__
     }
   },
   created() {

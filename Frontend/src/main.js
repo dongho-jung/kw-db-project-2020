@@ -8,6 +8,7 @@ Vue.prototype.$axios = axios; //전역변수로 설정 컴포넌트에서 this.$
 import VueCookies from "vue-cookies";
 Vue.use(VueCookies);
 axios.defaults.withCredentials = true
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*';
 
 new Vue({
   render: h => h(App)

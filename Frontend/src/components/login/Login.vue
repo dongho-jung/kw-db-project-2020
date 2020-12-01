@@ -1,40 +1,70 @@
-<!-- 상단에 있는 로그 아웃 누르면 나오는 페이지 -->
 <template>
   <div class="simpleLogin">
     <form>
-      <img alt="DB1" src="@/assets/kw01.jpg" height="200" width="320">
+      <img alt="DB1" src="@/assets/kw01.jpg" height="400" width="760">
       <legend>
         <h1>DB MANMAN<br>Time Planner</h1>
       </legend>
-      <div class="Bbox40">
-        <div class="BPad"></div>
-        <input placeholder="Username" id="username" type="text" v-model="username" size=50 style = "text-align:center;"/>
-        <div class="BPad"></div>
 
-        <button id = "New Account" style = "width:80pt" v-on:click="btn_NewAccount">New Account</button>
+      <div class="Lbox1">
+        <div class="LPad">
+        </div>
 
-        <div class="BPad"></div>
-        <div class="BPad"></div>
-        <div class="BPad"></div>
-        <div class="BPad"></div>
-        <div class="BPad"></div>
-        <div class="BPad"></div>
-        <div class="BPad"></div>
+        <div class="Lbox11">
+          <div class="LPad">
+          </div>
 
-        <input id="password" type="psassword" placeholder="Password" v-model="password" name="ID" size=50 style = "text-align:center;">
+          <div class="LBox">ID :
+          </div>
 
-        <div class="BPad"></div>
+          <div class="Lbox">
+            <input placeholder="Username" id="username" type="text" v-model="username" size=50 style = "text-align:center;"/>
+          </div>
 
-        <button id = "Find PW" style = "width:80pt" v-on:click="btn_FindPW">Find PW
-        </button>
-        <div class="BPad"></div>
-      </div>
-      <div class="Bbox41" style="padding:10px;">
-        <div class="BPad"></div>
-        <input type="button" v-on:click="btn_Login" value="Login" style="text-align:center; height:40px;">
-        <div class="BPad"></div>
-        <p v-on:click="loginkakao"><a href="/Newaccount"><img src="../../assets/kakao.png" style="height:40px;"></a></p>
-        <div class="BPad"></div>
+          <div class="LPad">
+          </div>
+
+          <div class="Lbox">
+            <button id = "New Account" v-on:click="btn_NewAccount" style = "color: white; width:100pt; background-color:#8fc400">New Account</button>
+          </div>
+        </div>
+        <div class="Lbox11">
+          <div class="LPad">
+          </div>
+
+          <div class="LBox">PW :
+          </div>
+
+          <div class="Lbox">
+            <input id="password" type="psassword" placeholder="Password" v-model="password" name="ID" size=50 style= "text-align:center;"/>
+          </div>
+
+          <div class="LPad">
+          </div>
+
+          <div class="Lbox">
+            <button id = "Find PW" style = "color: white; width:100pt; background-color:#8fc400" v-on:click="btn_FindPW">Find PW</button>
+          </div>
+        </div>
+
+        <div class="Lbox12" style="padding:20px;">
+          <div class="LPad">
+          </div>
+
+          <div class="Lbox">
+            <input v-on:click="btn_Login" type="button" value="Login" style="width:140px; height:40px; background-color:#8fc400; color:white;">
+          </div>
+          <div class="LPad">
+          </div>
+
+          <div class="Lbox">
+            <p v-on:click="loginkakao"><a href="/Newaccount"><img src="../../assets/kakao.png" style="width:140px; height:40px;"></a></p>
+          </div>
+
+          <div class="LPad">
+          </div>
+        </div>
+
       </div>
     </form>
   </div>
@@ -54,6 +84,9 @@ export default {
   name: 'Bbox33',
   //메소드는 methods 객체 안에 정의
   methods : {
+    default(){
+      this.$cookies.set('student_id',this.username)
+    },
     loginkakao() {
       alert('Use to set data using from Kakao Data Server \n Click 카카오 계정으로 가입')
     },
@@ -92,15 +125,14 @@ export default {
 
 <style>
 .simpleLogin form {
-  width: 600px;
-  height: 500px;
+  max-width: 400px;
+  max-height: 100px;
   margin: auto;
   background: #fefefd;
   box-shadow: 0 10px 10px #222;
 }
 .simpleLogin form fieldset {
   display : grid;
-
   border: 0 none;
   margin: 0;
   padding: 50px;
@@ -182,7 +214,6 @@ a {
   display: grid;
   grid-template-columns: 10fr 3fr 3fr 10fr;
 }
-
 .Bbox40 {
   display: grid;
   grid-template-columns: 1fr 10fr 1fr 4fr 1fr;
@@ -210,7 +241,6 @@ a {
 #section {
   line-height: 240px;
 }
-
 :root {}
 * {
   padding: 0;
@@ -218,7 +248,6 @@ a {
   box-sizing: border-box;
   font-family: 'Alata', sans-serif;
 }
-
 .page-container {
   width: 100vw;
   height: 100vh;
@@ -226,7 +255,6 @@ a {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }
 .shadow {
   -webkit-box-shadow: 27px 43px 43px -26px rgba(89,89,89,0.39);
@@ -238,10 +266,8 @@ a {
 -webkit-box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
 -moz-box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
 box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
-
 }*/
 .login-form-container {
-
   background: #f5f5f5;
   width: 860px;
   height: 540px;
@@ -249,7 +275,6 @@ box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
   flex-direction: row;
   box-shadow: 10px black;
   border-radius: 10px;
-
 }
 .login-form-right-side {
   width: 50%;
@@ -267,7 +292,6 @@ box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
   width: 100%;
   text-align: right;
   opacity: 0.9;
-
 }
 .login-form-right-side p {
   padding-top: 50px;
@@ -279,7 +303,6 @@ box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
   width: 50%;
   border-radius: 0 10px 10px 0;
   display: flex;
-
   flex-direction: column;
   align-items: center;
   padding: 40px;
@@ -296,7 +319,6 @@ box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
   color: gray;
   font-size: 11px;
   padding-right: 20px;
-
 }
 .login-form-left-side .login-top-wrap .create-account-btn {
   background: white;
@@ -306,7 +328,6 @@ box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
   font-size: 11px;
   color: #2178ff;
   border-radius: 3px;
-
 }
 .login-input-container {
   padding-top: 120px;
@@ -318,16 +339,13 @@ box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
   margin-top: 20px;
   border-radius: 2px;
   border-bottom: solid 2px #2178ff;
-
 }
 .login-input-container .login-input-wrap i {
   color: #2178ff;
   line-height: 45px;
 }
-
 .login-input-container .login-input-wrap input {
   background: none;
-
   border: none;
   line-height: 45px;
   padding-left: 10px;
@@ -348,7 +366,6 @@ box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
   color: white;
   border: 0;
   border-radius: 4px;
-
   background: rgb(105,163,255);
   background: linear-gradient(162deg, rgba(105,163,255,1) 0%, rgba(43,125,254,1) 50%, rgba(43,125,254,1) 100%);
 }
@@ -357,6 +374,22 @@ box-shadow: 45px 45px 104px -33px rgba(38,38,38,0.92);
   text-decoration: none;
   font-size: 11px;
   color: gray;
-
+}
+.Lbox1{
+  display: grid;
+  grid-template-columns: 800px;
+  grid-template-rows: 100px 40px 80px 50px;
+}
+.Lbox11{
+  display: grid;
+  grid-template-columns: 100px 100px 250px 100px 100px;
+}
+.Lbox12{
+  display: grid;
+  grid-template-columns: 3fr 3fr 1fr 3fr 3fr;
+}
+.LPad{
+}
+.Lbox{
 }
 </style>
