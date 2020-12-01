@@ -4,14 +4,14 @@
     <div class="Zbox1">
       <div class='Zbox11'>
         <div class='Zbox111'>
-         <img alt="Profile" src="../../assets/profile.png" height = "100" width="160">
+         <img alt="Profile" v-bind:src="kakao_profile_image" height = "100" width="160">
         </div>
 
         <div class='Zbox112'>
-          <font size="3em" face="bold">CHOO HO SUNG</font><br>
+          <font size="3em" face="bold">{{kakao_name}}</font><br>
           <font size="1.5em">
-          2016722049<br>
-          hosung0610@naver.com
+            {{ id }}<br>
+          {{kakao_email}}
           </font>
         </div>
       </div>
@@ -23,23 +23,22 @@
 
     <div class="Zbox2">
       <div class='Zbox21'>
-        <h3>ID : 2016722049</h3>
+        <h3>ID : {{id}}</h3>
       </div>
 
       <div class='Zbox22'>
-          <div v-for = "(my_list,idx) in My_class_list" :key="idx">
-            <table border="1" bordercolor="black" width='460' height='580' align="center" font size="1em">
-              <tr>
-                <td width="100" style="word-break: break-all">aaa</td>
-                <td width="100" style="word-break: break-all">aaaaaaaa</td>
-                <td width="100" style="word-break: break-all">aaaaaa</td>
-                <td width="100" style="word-break: break-all">aaaaaa</td>
-                <td width="100" style="word-break: break-all">aaaaa</td>
-                <td width="100" style="word-break: break-all">aaaaaaa</td>
-              </tr>
-            </table>
-          </div>
-
+        <div v-for = "(my_list,idx) in My_class_list" :key="idx">
+          <table border="1" bordercolor="black" width='460' height='580' align="center" font size="1em">
+            <tr>
+              <td width="100" style="word-break: break-all">{{my_list.index}}</td>
+              <td width="100" style="word-break: break-all">{{ my_list.MON }}</td>
+              <td width="100" style="word-break: break-all">{{my_list.TUE}}</td>
+              <td width="100" style="word-break: break-all">{{my_list.WED}}</td>
+              <td width="100" style="word-break: break-all">{{my_list.THU}}</td>
+              <td width="100" style="word-break: break-all">{{my_list.FRI}}</td>
+            </tr>
+          </table>
+        </div>
       </div>
 
     </div>
@@ -117,7 +116,6 @@
 <script>
 
 import axios from "axios";
-
 export default{
   data(){
     return{
@@ -129,28 +127,43 @@ export default{
         {index: 4,MON:'',TUE:'',WED:'',THU:'',FRI:''},
         {index: 5,MON:'',TUE:'',WED:'',THU:'',FRI:''},
         {index: 6,MON:'',TUE:'',WED:'',THU:'',FRI:''}
-      ]
+      ],
+      id: this.$cookies.get('SuccessLogin'),
+
+      kakao_name:'',
+      kakao_email:'',
+      kakao_profile_image:'',
+      kakao_gender:'',
+      kakao_birth:'',
     }
   },
   methods:{
     Make_2D_list() {
+      let a = this.$cookies.isKey('SuccessLogin')
+      console.log('Session ' + a)
       axios.get("http://localhost:5000/timetable")
            .then(res=>{
              let all_data = res.data
-
-             console.log('start')
-
+             console.log(all_data)
              for (let i = 0 ; i<all_data.length; i++){
                let name = all_data[i].name;
-               for (let j= 0; j<all_data[i].period; j++){
+               console.log(name)
+               for (let j= 0; j<all_data[i].period.length; j++){
                  let period = all_data[i].period[j];
-                 let date = period.slice(3)
-                 let time = period.slice(-1)
+                 let date = period.slice(0,3)
+                 let time = period.slice(3,4)
+                 console.log(date,time)
                  this.My_class_list[time][date] = name;
                }
              }
-
            })
+
+      let URL = decodeURIComponent(this.$cookies.get('profile'))
+      this.kakao_profile_image=URL
+      let URL_ = decodeURIComponent(this.$cookies.get('name'))
+      this.kakao_name=URL_
+      let URL__ = decodeURIComponent(this.$cookies.get('email'))
+      this.kakao_emai=URL__
     }
   },
   created() {

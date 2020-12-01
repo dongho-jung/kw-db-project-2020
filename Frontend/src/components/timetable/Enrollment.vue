@@ -296,13 +296,25 @@ export default {
       for (let i=1; i<this.favorite_table.length; i++){
         if (this.favorite_table[i].class_id!=''){
           let favorite_class_id = this.favorite_table[i].class_id
+          let bodyFormdata = new FormData();
+          bodyFormdata.append('class_ids',favorite_class_id)
+          console.log(this.username, this.password)
           axios({
             method: 'post',
+            baseURL: 'http://localhost:5000',
             url: '/enroll',
-            data:{
-              class_ids: favorite_class_id
-            }
+            data: bodyFormdata,
+            headers: {'Content-Type': 'multipart/form-data' }
           })
+              .then(res=> {
+                console.log(res);
+                this.$cookies.set("SuccessLogin")
+                this.$router.push("/");
+                this.$router.go()
+              }, async function (error) {
+                console.log('에러일 경우', error.config);
+                alert('Worng ID or PW');
+              })
           alert('Success to enrollment' + favorite_class_id)
         }
       }

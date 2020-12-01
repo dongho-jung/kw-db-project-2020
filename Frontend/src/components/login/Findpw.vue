@@ -6,19 +6,69 @@
     </a>
     <tr>
       <div class="box21">
-        Student ID : <input type="text" name="student_id" size = 48 style = "text-align:center;"><br><br><br>
+        Student ID : <input v-model="student_id" type="text" name="student_id" size = 48 style = "text-align:center;"><br><br><br>
       </div>
       <div class="box21">
-        Name : <input type="text" name="name" size = 53 style = "text-align:center;"><br><br><br>
+        Name : <input v-model="Name" type="text" name="name" size = 53 style = "text-align:center;"><br><br><br>
       </div>
       Phone : <input type="text" name="phone" size = 53 style = "text-align:center;"><br><br><br>
-      Email : <input type="text" name="email" size = 38 style = "text-align:center;">
-      <input type="button" value="중복체크" size = 50 style = "width:80pt;height:16pt;text-align:center;"><br><br><br>
-      <input type="button" value="OK" size=70 style = "width:100pt;height:20pt;text-align:center;">
-      <input type="button" value="Cancel" size=70 style = "width:100pt;height:20pt;text-align:center;">
+      Email : <input v-model="email" type="text" name="email" size = 53 style = "text-align:center;"><br><br><br>
+      <input type="button" v-on:click="OK" value="OK" size=70 style = "width:100pt;height:20pt;text-align:center;">
+      <input type="button" v-on:click="Cancel" value="Cancel" size=70 style = "width:100pt;height:20pt;text-align:center;">
     </tr>
   </div>
 </template>
+<script>
+import axios from "axios";
+
+export default {
+  data() {
+    return {
+      student_id:'',
+      Name:'',
+      email:''
+    }
+  },
+  methods: {
+    Check_email: function() {
+      if(this.kakao_email == ''){
+        alert('Empty Email!!')
+      }
+      let bodyFormdata = new FormData();
+      bodyFormdata.append('student_id',this.student_id)
+      axios({
+        method: 'get',
+        baseURL: 'http://localhost:5000',
+        url: '/student',
+        data: bodyFormdata,
+        headers: {'Content-Type': 'multipart/form-data' }
+      })
+          .then(res=>{ //못찾으면 error 출력하도록 유도
+            console.log(res);
+            alert('Already Presented Email')
+          }), async function (error){
+        console.log(error);
+        alert('You can use it')
+        this.$cookies.set('CheckDuplicatedEmail')
+      }
+    },
+    OK() {
+      if (this.email=='') {
+        alert('Success to Make New Account')
+        this.$router.push('/login')
+      } else {
+        alert('')
+      }
+    },
+    Cancel() {
+      alert('Go to Login Page')
+      this.$router.push('/login')
+    }
+  }
+}
+
+</script>
+
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>

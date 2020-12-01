@@ -1,29 +1,56 @@
 <template>
 	<header>
-		<h1><router-link to="/"><img alt="Vue logo" src="../../assets/KWLOGO.jpg" width="80">
-		</router-link></h1>
-		<div class="menuWrap">
-			<ul class="menu">
-        <li><router-link to="/test/webtoon">Test_Webtoon</router-link></li>
-				<li><router-link to="/board/list2">호에엥</router-link></li>
-				<li><router-link to="/board/notice">과목별 공지사항</router-link></li>
-				<li><router-link to="/board/list">게시판 바로가기</router-link></li>
-				<li><router-link to="/grade/result">학습 결과</router-link></li>
-				<li><router-link to="/grade/schlorship">장학 제도</router-link></li>
-				<li><router-link to="/timetable/prereq">선후수과목 확인</router-link></li>
-				<li><router-link to="/timetable/magic">시간표 마법사</router-link></li>
-				<li><router-link to="/timetable/enrollment">수강 신청</router-link></li>
-				<li><router-link to="/login">로그아웃</router-link></li>
-				
-			</ul>
-		</div>
-		
+      <div class="menuWrap">
+        <ul v-if="success_login === true" class="menu">
+          <h1>
+            <router-link to="/">
+              <img alt="Vue logo" src="../../assets/KWLOGO.jpg" width="80">
+            </router-link>
+          </h1>
+          <li><router-link to="/board/list2">Author</router-link></li>
+          <li><router-link to="/board/notice">Notice</router-link></li>
+          <li><router-link to="/board/list">List</router-link></li>
+          <li><router-link to="/grade/result">Result of Degree</router-link></li>
+          <li><router-link to="/grade/schlorship">Scholorship</router-link></li>
+          <li><router-link to="/timetable/prereq">Prereq</router-link></li>
+          <li><router-link to="/timetable/magic">Magic</router-link></li>
+          <li><router-link to="/timetable/enrollment">Enrollment</router-link></li>
+          <li v-on:click="logout"><router-link to="/login">Log Out</router-link></li>
+        </ul>
+        <u1 v-else>
+        </u1>
+      </div>
+
 	</header>
 </template>
 
 <script>
 export default {
-	
+  data(){
+    return {
+      success_login: ''
+    }
+  },
+  methods:{
+    deleteCookie: function(name) {
+      var date = new Date();
+      document.cookie = name + "= " + "; expires=" + date.toUTCString() + "; path=/";
+    },
+    logout: function (){
+      this.deleteCookie('SuccessLogin')
+      this.$router.go()
+    },
+    A() {
+      let a = this.$cookies.isKey('SuccessLogin')
+      if (a == true){
+        this.success_login = a;
+        console.log('aaa')
+      }
+    }
+  },
+  created() {
+    this.A();
+  }
 }
 
 </script>
