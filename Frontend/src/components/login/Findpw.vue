@@ -7,10 +7,17 @@
         </a>
       </div>
       <legend>
-        <h1>Find Password</h1>
+        <h1>Check if id exist</h1>
       </legend>
 
+
       <div class="Kbox1" >
+        <div class="KPad">
+        </div>
+        <div class="KPad">
+        </div>
+        <div class="KPad">
+        </div>
         <div class="KPad">
         </div>
 
@@ -67,7 +74,7 @@
           <div class="KPad">
           </div>
         </div>
-
+        <br>
         <div class="Kbox11">
           <div class="KPad">
           </div>

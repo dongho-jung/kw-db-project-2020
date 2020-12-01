@@ -329,17 +329,14 @@ a{text-decoration:none; color:black}
 
 .Zbox41{
   background-color: white;
-  border: 1px solid;
 }
 
 .Zbox42{
   background-color: white;
-  border: 1px solid;
 }
 
 .Zbox43{
   background-color: white;
-  border: 1px solid
 }
 
 th{

@@ -126,10 +126,10 @@
        <div class="Fbox221">
          <font size="5em" face="bold"><p>Current Server Time: {{now}}</p></font>
        </div>
-       <div class="Pad">
+       <div class="Pad" style="padding: 25px 0px 0px 0px">
          <p><input type="button" v-on:click="time" value="Update current server time" width="70" style = "width:280pt; height:30pt; text-align:center;"></p>
        </div>
-       <div class="Fbox222">
+       <div class="Fbox222" style="padding: 25px 0px 0px 0px">
          <p><input type="button" v-on:click="Enrollment" value="Enrollment all" width=70 style = "width:280pt; height:30pt; text-align:center;"></p>
        </div>
      </div>
@@ -370,7 +370,7 @@ a{text-decoration:none; color:black}
 .Enrollment_part{
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr 1fr;
+  grid-template-rows: 400px 1fr;
   grid-gap: 10px;
 }
 
