@@ -89,10 +89,10 @@ db.execute(
         capacity        SMALLINT,                   -- 최대 인원
         is_pass         BOOLEAN       NOT NULL,     -- pass/nonpass 구분
         classification  TEXT          NOT NULL,     -- 이수구분(일선/…)
-        department      INT           NOT NULL,     -- 개설학과(소프트웨어학과..)
+        department_id   INT           NOT NULL,     -- 개설학과(소프트웨어학과..)
         PRIMARY KEY (id, year, quarter),
         FOREIGN KEY (professor_id) REFERENCES professor(id),
-        FOREIGN KEY (department) REFERENCES department(id)
+        FOREIGN KEY (department_id) REFERENCES department(id)
     );
 """
 )
@@ -119,7 +119,7 @@ df_class = pd.DataFrame(
         "capacity",
         "is_pass",
         "classification",
-        "department",
+        "department_id",
     ],
 )
 db.insert(df_class, "class")
