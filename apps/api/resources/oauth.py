@@ -62,7 +62,7 @@ class Ouath(Resource):
         query_string = urlencode(OrderedDict(**{'unique_id': unique_id, 'nickname': nickname, 'email': email, 'gender': gender, 'birthday': birthday,
                 'profile_image': profile_image}))
 
-        url = 'http://localhost:3000/login?' + query_string
+        url = 'http://localhost:3000/NewAccount?' + query_string
 
         return redirect(url, code=302)
         #
