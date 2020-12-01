@@ -35,7 +35,7 @@
 ### NOTE:
 - 테스트가 많아지면 postman 권장
 
-김준현
+
 
 ## kakao login with flask and pyqt
 https://github.com/leesk212/kakao_login_api_by_python
