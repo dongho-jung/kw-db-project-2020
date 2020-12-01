@@ -4,14 +4,14 @@
     <div class="Zbox1">
       <div class='Zbox11'>
         <div class='Zbox111'>
-         <img alt="Profile" src="../../assets/profile.png" height = "100" width="160">
+         <img alt="Profile" v-bind:src="kakao_profile_image" height = "100" width="160">
         </div>
 
         <div class='Zbox112'>
-          <font size="3em" face="bold">CHOO HO SUNG</font><br>
+          <font size="3em" face="bold">{{kakao_name}}</font><br>
           <font size="1.5em">
-          2016722049<br>
-          hosung0610@naver.com
+            {{ id }}<br>
+          {{kakao_email}}
           </font>
         </div>
       </div>
@@ -23,62 +23,28 @@
 
     <div class="Zbox2">
       <div class='Zbox21'>
-        <h3>ID : 2016722049</h3>
+        <h3>ID : {{id}}</h3>
       </div>
 
       <div class='Zbox22'>
-        <table border="1" bordercolor="black" width="540" align="center" font size="1em">
-          <th width="40"></th><th width="100">Mon</th><th width="100">Tue</th><th width="100">Wed</th><th width="100">Thr</th><th width="100">Fri</th>
-          <tr>
-            <td width="40">1</td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all"></td>
-          </tr>
-          <tr>
-            <td width="40">2</td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all"></td>
-          </tr>
-          <tr>
-            <td width="40">3</td>
-            <td width="100" style="word-break:break-all">Data Structure</td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all">Algorithm</td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all">Understanding<br>of music</td>
-          </tr>
-          <tr>
-            <td width="40">4</td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all">Data<br>Structure</td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all">Algorithm</td>
-            <td width="100" style="word-break:break-all">Understanding<br>of music</td>
-          </tr>
-          <tr>
-            <td width="40">5</td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all">Understanding<br>of movie</td>
-            <td width="100" style="word-break:break-all"></td>
+        <table border="1" bordercolor="black" width='460' height='580' align="center" font size="1em">
+          <th width="40" height="30"></th>
+          <th width="100" height="30" style="word-break:break-all">Mon</th>
+          <th width="100" height="30" style="word-break:break-all">Tue</th>
+          <th width="100" height="30" style="word-break:break-all">Wed</th>
+          <th width="100" height="30" style="word-break:break-all">Thr</th>
+          <th width="100" height="30" style="word-break:break-all">Fri</th>
+          <div v-for = "(my_list,idx) in My_class_list" :key="idx">
+            <tr>
+              <td width="100" height="80" style="word-break: break-all; font-size: 0.8em;">{{my_list.index}}</td>
+              <td width="100" height="80" style="word-break: break-all; font-size: 0.8em;">{{my_list.MON}}</td>
+              <td width="100" height="80" style="word-break: break-all; font-size: 0.8em;">{{my_list.TUE}}</td>
+              <td width="100" height="80" style="word-break: break-all; font-size: 0.8em;">{{my_list.WED}}</td>
+              <td width="100" height="80" style="word-break: break-all; font-size: 0.8em;">{{my_list.THU}}</td>
+              <td width="100" height="80" style="word-break: break-all; font-size: 0.8em;">{{my_list.FRI}}</td>
             </tr>
-          <tr>
-            <td width="40">6</td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all">Understanding<br>of movie</td>
-            <td width="100" style="word-break:break-all"></td>
-            <td width="100" style="word-break:break-all"></td>
-          </tr>
-        </table>
-
+          </table>
+        </div>
       </div>
 
     </div>
@@ -90,7 +56,7 @@
 
       <div class='Zbox32'>
         <div class ='Zbox321'>
-          <a href="/board/list/1">
+          <a href="http://localhost:8080/#/board/list/1">
            <p style="font-size:1em;  font-weight:bold; text-align:left; ">도서관</p>
            <p style="font-size:0.8em; text-align:left;">자료실은 언제 열고 닫나요?</p>
            <p style="font-size:0.8em; text-align:left;">2020/11/22/13:11</p>
@@ -99,7 +65,7 @@
         </div>
 
         <div class ='Zbox322'>
-          <a href="/board/list/2">
+          <a href="http://localhost:8080/#/board/list/2">
             <p style="font-size:1em; font-weight:bold; text-align:left; ">다음주가 몇주차인지 아시는 분?</p>
             <p style="font-size:0.8em; text-align:left;">ㅈㄱㄴ</p>
             <p style="font-size:0.8em; text-align:left;">2020/11/22/15:27</p>
@@ -108,7 +74,7 @@
         </div>
 
         <div class ='Zbox323'>
-          <a href="/board/list/3">
+          <a href="http://localhost:8080/#/board/list/3">
             <p style="font-size:1em; font-weight:bold; text-align:left; ">민초</p>
             <p style="font-size:0.8em; text-align:left;">민초 좋아하면 좋아요 눌러라</p>
             <p style="font-size:0.8em; text-align:left;">2020/11/22/15:54</p>
@@ -117,7 +83,7 @@
         </div>
 
         <div class ='Zbox324'>
-          <a href="/board/list/4">
+          <a href="http://localhost:8080/#/board/list/4">
             <p style="font-size:1em; font-weight:bold; text-align:left; ">컴공 이기훈 교수님</p>
             <p style="font-size:0.8em; text-align:left;">이기훈 교수님 강의 잘하시더라. 조교님들도 좋으시고</p>
             <p style="font-size:0.8em; text-align:left;">2020/11/22/17:24</p>
@@ -154,6 +120,62 @@
 </template>
 
 <script>
+
+import axios from "axios";
+export default{
+  data(){
+    return{
+      My_class_list: [
+        {index: '',MON:'Mon',TUE:'Tue',WED:'Wed',THU:'Thr',FRI:'Fri'},
+        {index: 1,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 2,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 3,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 4,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 5,MON:'',TUE:'',WED:'',THU:'',FRI:''},
+        {index: 6,MON:'',TUE:'',WED:'',THU:'',FRI:''}
+      ],
+      id: this.$cookies.get('SuccessLogin'),
+
+      kakao_name:'',
+      kakao_email:'',
+      kakao_profile_image:'',
+      kakao_gender:'',
+      kakao_birth:'',
+    }
+  },
+  methods:{
+    Make_2D_list() {
+      let a = this.$cookies.isKey('SuccessLogin')
+      console.log('Session ' + a)
+      axios.get("http://localhost:5000/timetable")
+           .then(res=>{
+             let all_data = res.data
+             console.log(all_data)
+             for (let i = 0 ; i<all_data.length; i++){
+               let name = all_data[i].name;
+               console.log(name)
+               for (let j= 0; j<all_data[i].period.length; j++){
+                 let period = all_data[i].period[j];
+                 let date = period.slice(0,3)
+                 let time = period.slice(3,4)
+                 console.log(date,time)
+                 this.My_class_list[time][date] = name;
+               }
+             }
+           })
+
+      let URL = decodeURIComponent(this.$cookies.get('profile'))
+      this.kakao_profile_image=URL
+      let URL_ = decodeURIComponent(this.$cookies.get('name'))
+      this.kakao_name=URL_
+      let URL__ = decodeURIComponent(this.$cookies.get('email'))
+      this.kakao_email=URL__
+    }
+  },
+  created() {
+    this.Make_2D_list();
+  }
+}
 
 </script>
 
@@ -196,7 +218,7 @@ a{text-decoration:none; color:black}
 
 .Main_part{
   display: grid;
-  grid-template-columns: 2fr 4fr 560px 8fr 6fr 2fr;
+  grid-template-columns: 2fr 4fr 8fr 8fr 6fr 2fr;
   grid-template-rows: 700px;
   grid-gap: 10px;
 }
@@ -236,7 +258,7 @@ a{text-decoration:none; color:black}
 .Zbox2{
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: 60px 580px;
   grid-gap: 20px;
 }
 
