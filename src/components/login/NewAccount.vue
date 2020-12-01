@@ -9,6 +9,7 @@
       <legend>
         <h1>New Account</h1>
       </legend>
+      <br><input type="text" name="student_id" size = 48 style = "width:200pt;height:200pt;text-align:center;"><br><br>
       
       <div class="Jbox1" >
         <div class="JPad">
@@ -171,7 +172,7 @@
 <style>
 .simpleLogin form {
   min-width: 760px;
-  min-height: 650px;
+  min-height: 1000px;
   margin: auto;
   background: #fefefd;
   box-shadow: 0 10px 10px #222;

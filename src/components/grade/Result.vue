@@ -8,19 +8,16 @@
                 <div class="columns">
                     <div class="column">
                         <bar-chart></bar-chart>
-                        <!--BarChart example-->
                     </div>
                 </div>
             </section>
         </div>
-
         <div class="Dbox2">
             <section class="container">
                 <h1>취득 평점</h1>
                 <div class="columns">
                     <div class="column">
                         <line-chart></line-chart>
-                        <!--Line Chart example-->
                     </div>
                 </div>
             </section>
@@ -33,50 +30,54 @@
             </div>
             <div class="Dbox2n" align="left">
                 <div class="Dbox21" align="left">
-                    <font size="3em">- 학년 : 4</font>
-                    <br>
-                        <br>
-                            <font size="3em">- 전공 : 48 / 60</font>
-                            <br>
-                                <br>
-                                    <font size="3em">- 교양 : 120 / 140</font>
-                                    <br>
-                                        <br></div>
-                                    </div>
-                                </div>
+                    <font size="3em">- 학년 : 4</font><br><br>
+                    <font size="3em">- 전공 : 48 / 60</font><br><br>
+                    <font size="3em">- 교양 : 120 / 140</font><br><br>
+                </div>
+            </div>
+        </div>
                                 
-                                <div class="columns">
-                                    <div class="column">
-                                        <radar-chart></radar-chart>
-                                        <!--RadarChart example-->
-                                    </div>
-                                </div>
+                <div class="columns">
+                    <div class="column">
+                    <radar-chart></radar-chart>
+                    </div>
+                </div>
                                 
-                                <div class="columns">
-                                    <div class="column">
-                                        <polar-area-chart></polar-area-chart>
+                <div class="columns">
+                    <div class="column">
+                    <polar-area-chart></polar-area-chart>
+                    </div>
+                </div>
 
-                                    </div>
-                                </div>
+                                                
+                <div class="columns">
+                    <div class="column">
+                    <bubble-chart></bubble-chart>
+                    </div>
+                </div>
 
-                            </div>
-                        </template>
-                        <script>
-                            import BarChart from '@/components/BarChart'
-                            import LineChart from '@/components/LineChart'
-                            import RadarChart from '@/components/RadarChart'
-                            import PolarAreaChart from '@/components/PolarAreaChart'
+    </div>
+</template>
+                       
+<script>
+import BarChart from '@/components/BarChart'
+import LineChart from '@/components/LineChart'
+import RadarChart from '@/components/RadarChart'
+import PolarAreaChart from '@/components/PolarAreaChart'
 
-                            export default {
-                                name: 'VueChartJS',
-                                components: {
-                                    BarChart,
-                                    LineChart,
-                                    RadarChart,
-                                    PolarAreaChart
-                                }
-                            }
-                        </script>
+
+export default {
+name: 'VueChartJS',
+    components: {
+         BarChart,
+        LineChart,
+
+        RadarChart,
+        PolarAreaChart
+    }
+}
+</script>
+        BubbleChart
 
                         <style>
                             ul {

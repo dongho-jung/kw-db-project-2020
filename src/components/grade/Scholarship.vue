@@ -21,7 +21,7 @@
 
   <div class="Dbox2">
       <div class="DboxBorder">
-        <a href="http://localhost:8080/grade/scholarship">
+        <a href="http://localhost:8080/grade/Scholarship">
         <h3>장학제도</h3>
         </a>
       </div>

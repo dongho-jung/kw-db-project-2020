@@ -102,7 +102,6 @@
 }
 .simpleLogin form fieldset {
     display : grid;
-
     border: 0 none;
     margin: 0;
     padding: 50px;

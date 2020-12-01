@@ -48,43 +48,14 @@
         <h3>Notice board</h3>
       </div>
 
-      <div class='Zbox32'>
-        <div class ='Zbox321'>
-          <a href="http://localhost:8080/#/board/list/1">
-           <p style="font-size:1em;  font-weight:bold; text-align:left; ">도서관</p>
-           <p style="font-size:0.8em; text-align:left;">자료실은 언제 열고 닫나요?</p>
-           <p style="font-size:0.8em; text-align:left;">2020/11/22/13:11</p>
-           <p style="font-size:0.7em; text-align:right;">Like 1  Hate 1  comment 1</p>
-          </a>
-        </div>
-
-        <div class ='Zbox322'>
-          <a href="http://localhost:8080/#/board/list/2">
-            <p style="font-size:1em; font-weight:bold; text-align:left; ">다음주가 몇주차인지 아시는 분?</p>
-            <p style="font-size:0.8em; text-align:left;">ㅈㄱㄴ</p>
-            <p style="font-size:0.8em; text-align:left;">2020/11/22/15:27</p>
-            <p style="font-size:0.7em; text-align:right;">Like 1  Hate 2 comment 2</p>
-          </a>
-        </div>
-
-        <div class ='Zbox323'>
-          <a href="http://localhost:8080/#/board/list/3">
-            <p style="font-size:1em; font-weight:bold; text-align:left; ">민초</p>
-            <p style="font-size:0.8em; text-align:left;">민초 좋아하면 좋아요 눌러라</p>
-            <p style="font-size:0.8em; text-align:left;">2020/11/22/15:54</p>
-            <p style="font-size:0.7em; text-align:right;">Like 0  Hate 127  comment 2 </p>
-          </a>
-        </div>
-
-        <div class ='Zbox324'>
-          <a href="http://localhost:8080/#/board/list/4">
-            <p style="font-size:1em; font-weight:bold; text-align:left; ">컴공 이기훈 교수님</p>
-            <p style="font-size:0.8em; text-align:left;">이기훈 교수님 강의 잘하시더라. 조교님들도 좋으시고</p>
-            <p style="font-size:0.8em; text-align:left;">2020/11/22/17:24</p>
-            <p style="font-size:0.7em; text-align:right;">Like 324  Hate 2  comment 29</p>
-          </a>
-        </div>
-      </div>
+  
+                     
+                <div class="columns">
+                    <div class="column">
+                    <polar-area-chart></polar-area-chart>
+                    </div>
+                </div>
+    
 
     </div>
 
@@ -114,8 +85,14 @@
 </template>
 
 <script>
+import PolarAreaChart from '@/components/PolarAreaChart'
 import axios from "axios";
+
 export default{
+  name: 'VueChartJS',
+    components: {
+        PolarAreaChart
+  },
   data(){
     return{
       My_class_list: [

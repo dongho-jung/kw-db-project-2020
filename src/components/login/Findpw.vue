@@ -164,13 +164,6 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-.simpleLogin form {
-  width: 600px;
-  height: 500px;
-  margin: auto;
-  background: #fefefd;
-  box-shadow: 0 10px 10px #222;
-}
 .simpleLogin form fieldset {
   display : grid;
   border: 0 none;
