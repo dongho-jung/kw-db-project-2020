@@ -2,31 +2,31 @@
   <div class="simpleLogin">
     <form>
     <a href="http://localhost:3000/NewAccount">
-      <img src="../../assets/time.png" height = "200" width="300">
+      <legend>
       <h1>New Account</h1>
-      <input type="text" name="student_id" size = 48 style = "width:200pt;height:200pt;text-align:center;"><br><br><br>
+      </legend>
+      <input type="text" name="student_id" size = 48 style = "width:100pt;height:100pt;text-align:center;">
     </a>
     <tr>
       <img v-bind:src="kakao_profile_image">
-
       <div class="box21">
-        * Student ID : <input v-model="student_id" type="text" name="student_id" size = 48 style = "text-align:center;"><br><br><br>
+        * Student ID : <input v-model="student_id" type="text" name="student_id" size = 48 style = "text-align:center;"><br><br>
       </div>
 
       <div class="box21">
-        * Name : <input v-model="kakao_name" type="text" name="name" size = 53 style = "text-align:center;"><br><br><br>
+        * Name : <input v-model="kakao_name" type="text" name="name" size = 53 style = "text-align:center;"><br><br>
       </div>
-      Phone : <input type="text" name="phone" size = 53 style = "text-align:center;"><br><br><br>
-      Gender : <input v-model="kakao_gender" type="text" name="gender" size = 53 style = "text-align:center;"><br><br><br>
+      Phone : <input type="text" name="phone" size = 55 style = "text-align:center;"><br><br>
+      Gender : <input v-model="kakao_gender" type="text" name="gender" size = 54 style = "text-align:center;"><br><br>
       * Email : <input v-model="kakao_email" type="text" name="email" size = 38 style = "text-align:center;">
-      <input v-on:click="Check_email" type="button" value="중복체크" size = 50 style = "width:80pt;height:16pt;text-align:center;"><br><br><br>
-      Birth(Month,Date) : <input type="text" v-model="kakao_birth" name="birth" size = 53 style = "text-align:center;"><br><br><br>
-      * PW :    <input type="text" name="PW" size = 56 maxlength=10><br><br><br>
-      <div class="Bbox42"><!-- >버튼< -->
-        <p v-on:click="KakaoLogin" ><a href="https://kauth.kakao.com/oauth/authorize?client_id=8d323fc0c13720cda59983912f875316&redirect_uri=http://localhost:5000/oauth&response_type=code"><img src="../../assets/kakaoNewAccount.png"></a></p>
-      </div>
+      <input v-on:click="Check_email" type="button" value="중복체크" size = 50 style = "width:80pt;height:16pt;text-align:center;"><br><br>
+      Birth(M,D) : <input type="text" v-model="kakao_birth" name="birth" size = 53 style = "text-align:center;"><br><br>
+      * PW :    <input type="text" name="PW" size = 56 maxlength=10><br><br>
       <input type="button" v-on:click="OK" value="OK" size=70 style = "width:100pt;height:20pt;text-align:center;">
       <input type="button" v-on:click="Cancel" value="Cancel" size=70 style = "width:100pt;height:20pt;text-align:center;">
+       <div class="Bbox42"><!-- >버튼< -->
+        <p v-on:click="KakaoLogin" ><a href="https://kauth.kakao.com/oauth/authorize?client_id=8d323fc0c13720cda59983912f875316&redirect_uri=http://localhost:5000/oauth&response_type=code"><img src="../../assets/kakaoNewAccount.png"></a></p>
+      </div>
       <div class="Apad"><!-- >버튼< --></div>
 
     </tr>
@@ -36,8 +36,8 @@
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
 .simpleLogin form {
-  width: 800px;
-  height: 800px;
+  width: 1000px;
+  height: 1000px;
   margin: auto;
   background: #fefefd;
   box-shadow: 0 10px 10px #222;
