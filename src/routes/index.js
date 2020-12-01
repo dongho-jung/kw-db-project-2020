@@ -1,4 +1,4 @@
- // routers 속에 있음. 다른 페이지 연결
+// routers 속에 있음. 다른 페이지 연결
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Content from '@/components/common/Content';
@@ -16,7 +16,9 @@ import Magic from '@/components/timetable/Magic';
 import Enrollment from '@/components/timetable/Enrollment';
 
 import VueChartJS from '@/components/VueChartJS';
+import VueCookie from "vue-cookie";
 Vue.use(VueRouter); //vue 라우터
+Vue.use(VueCookie)
 
 var routes = [
 	{

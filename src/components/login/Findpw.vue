@@ -1,31 +1,112 @@
 <template>
   <div class="simpleLogin">
     <form>
-    <a href="http://localhost:3000/Findpw">
-      <img src="../../assets/password.png" height = "200" width="300">
+        <div class="KBox" style="align:center;padding : 10px;">
+            <a href="http://localhost:3000/Findpw">
+            <img alt="DB1" src="@/assets/password.png" height="200" width="270">
+            </a>
+        </div>
       <legend>
-      <h1>Find Password</h1>
+        <h1>Find Password</h1>
       </legend>
-    </a>
-    <tr>
-      <div class="box21">
-      * Student ID : <input v-model="student_id" type="text" name="student_id" size = 48 style = "text-align:center;"><br><br>
-      </div>
-      <div class="box21">
-      * Name : <input v-model="Name" type="text" name="name" size = 53 style = "text-align:center;"><br><br>
-      </div>
-        Phone : <input type="text" name="phone" size = 55 style = "text-align:center;"><br><br>
-      * Email : <input v-model="email" type="text" name="email" size = 54 style = "text-align:center;"><br><br>
+      
+      <div class="Kbox1" >
+        <div class="KPad">
+        </div>
 
-      <div class="Bbox41" style="padding:10px;">
-        <div class="BPad"></div>
-      <input type="button" v-on:click="OK" value="OK" size=70 style = "width:100pt;height:20pt;text-align:center;">
-       <div class="BPad"></div>
-      <input type="button" v-on:click="Cancel" value="Cancel" size=70 style = "width:100pt;height:20pt;text-align:center;">
-       <div class="BPad"></div>
-      </div>
+        <div class="Kbox11">
+            <div class="KPad">
+            </div>
 
-    </tr>
+            <div class="Kbox">* Student ID : 
+            </div>
+
+            <div class="Kbox">
+                <input v-model="student_id" type="text" name="student_id" size = 50 style = "text-align:center;">
+            </div>
+
+            <div class="Kbox">
+            </div>
+
+            <div class="KPad">
+            </div>
+        </div>
+
+        <div class="Kbox11">
+            <div class="KPad">
+            </div>
+
+            <div class="Kbox">* Name : 
+            </div>
+
+            <div class="Kbox">
+                <input v-model="Name" type="text" name="name" size = 50 style = "text-align:center;">
+            </div>
+
+            <div class="Kbox">
+            </div>
+
+            <div class="KPad">
+            </div>
+        </div>
+
+        <div class="Kbox11">
+            <div class="KPad">
+            </div>
+
+            <div class="Kbox">Phone :
+            </div>
+
+            <div class="Kbox">
+                <input type="text" name="phone" size = 50 style = "text-align:center;">
+            </div>
+
+            <div class="Kbox">
+            </div>
+
+            <div class="KPad">
+            </div>
+        </div>
+
+        <div class="Kbox11">
+            <div class="KPad">
+            </div>
+
+            <div class="Kbox">* Email : 
+            </div>
+
+            <div class="Kbox">
+                <input v-model="email" type="text" name="email" size = 50 style = "text-align:center;">
+            </div>
+
+            <div class="KPad">
+            </div>
+
+            <div class="KPad">
+            </div>
+        </div>
+
+        <div class="Kbox12" style="padding:20px;">
+            <div class="KPad">
+            </div>
+
+            <div class="Kbox">
+                <input type="button" v-on:click="OK" value="OK" size=70 style = "width:100pt; height:25pt; text-align:center; color: white; background-color:#8fc400">
+            </div>
+
+            <div class="KPad">
+            </div>
+
+            <div class="Kbox">
+                <input type="button" v-on:click="Cancel" value="Cancel" size=70 style = "width:100pt; height:25pt; text-align:center; color: white; background-color:#8fc400">
+            </div>
+
+            <div class="KPad">
+            </div>
+        </div>
+
+      </div>
+    
     </form>
   </div>
 </template>
@@ -169,4 +250,27 @@ export default {
   grid-gap: 1px;
   border: 1px solid;
 }
+
+.Kbox1{
+    display: grid;
+    grid-template-columns: 800px;
+    grid-template-rows: 60px 50px 50px 50px 50px 50px;
+}
+
+.Kbox11{
+    display: grid;
+    grid-template-columns: 100px 100px 400px 150px 50px;
+}
+
+.Kbox12{
+    display: grid;
+    grid-template-columns: 3fr 3fr 1fr 3fr 3fr;
+}
+
+.KPad{
+}
+
+.Kbox{
+}
+
 </style>

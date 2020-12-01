@@ -143,6 +143,7 @@
 </template>
 
 <script>
+
 </script>
 
 <style>
@@ -154,30 +155,38 @@
   display: inline-block;
   cursor: pointer;
 }
+
 a{text-decoration:none; color:black}
+
 .Hotlist_part > div {
   border-radius: 5px;
   background-color: white;
   padding: 1em;
 }
+
 .Hotlist_part{
   display: grid;
   grid-template-columns: 2fr 4fr 2fr 2fr;
   grid-template-rows: 800px;
   grid-gap: 10px;
 }
+
 .GPad{
   
 }
+
 .Gbox{
   
 }
+
 .GboxBorder{
   border: 1px solid;
 }
+
 .GboxPad{
   padding:9px;
 }
+
 .GboxPad15{
   padding:15px;
 }
@@ -185,19 +194,23 @@ a{text-decoration:none; color:black}
   padding:15px;
   border: 1px solid;
 }
+
 .GboxMar{
   margin:5px;
 }
+
 .Gbox1{
   display: grid;
   grid-template-rows: 1fr 7fr;
   grid-gap: 10px;
 }
+
 .Gbox12{
   display: grid;
   grid-template-rows: 1fr 3fr 3fr 3fr 1fr;
   grid-gap: 0px;
 }
+
 .Gbox121{
   display: grid;
   grid-template-columns: 2fr 12fr 3fr;
@@ -210,23 +223,29 @@ a{text-decoration:none; color:black}
   grid-gap: 10px;
   border: 1px solid;
 }
+
 .Gbox12n{
   display: grid;
   grid-template-rows: 1fr 2fr 1fr;
   grid-gap: 1px;
   border: 1px solid;
+
 }
+
 .Gbox2{
   display: grid;
   grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 9fr;
   grid-gap: 0px;
 }
+
 .Gbox2n{
   display: grid;
   grid-template-columns: 2fr 1fr;
   grid-gap: 1px;
   border: 1px solid;
 }
+
+
 #header, #nav, #section, #footer { text-align:center; }
 #header, #footer { line-height:100px; }
 #nav, #section { line-height:240px; }
