@@ -139,17 +139,6 @@ export default{
   },
   methods:{
     Make_2D_list() {
-      let URL = decodeURIComponent(this.$cookies.get('kakaoURL'))
-      let URL_ = URL.split('&')
-      this.kakao_name=URL_[1].split('=')[1]
-      console.log(this.kakao_name)
-      console.log('http:'+URL_[5].split(':')[1])
-      this.kakao_profile_image = 'http:'+URL_[5].split(':')[1]
-      this.kakao_email=URL_[2].split('=')[1]
-      this.kakao_gender=URL_[3].split('=')[1]
-      this.kakao_birth=URL_[4].split('=')[1]
-      this.$cookies.set('profile',this.kakao_profile_image)
-
       let a = this.$cookies.isKey('SuccessLogin')
       console.log('Session ' + a)
       axios.get("http://localhost:5000/timetable")
@@ -168,6 +157,13 @@ export default{
                }
              }
            })
+
+      let URL = decodeURIComponent(this.$cookies.get('profile'))
+      this.kakao_profile_image=URL
+      let URL_ = decodeURIComponent(this.$cookies.get('name'))
+      this.kakao_name=URL_
+      let URL__ = decodeURIComponent(this.$cookies.get('email'))
+      this.kakao_emai=URL__
     }
   },
   created() {

@@ -58,6 +58,8 @@ export default {
         this.kakao_gender=URL_[3].split('=')[1]
         this.kakao_birth=URL_[4].split('=')[1]
         this.$cookies.set('profile',this.kakao_profile_image)
+        this.$cookies.set('name',this.kakao_name)
+        this.$cookies.set('email',this.kakao_email)
       }
     },
     Check_email: function() {
@@ -107,7 +109,6 @@ export default {
     this.default_()
   }
 }
-
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
