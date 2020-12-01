@@ -4,20 +4,20 @@
     <div class="Zbox1">
       <div class='Zbox11'>
         <div class='Zbox111'>
-         <img alt="Profile" v-bind:src="kakao_profile_image" height = "100" width="160">
+          <img alt="Profile" v-bind:src="kakao_profile_image" height = "100" width="160">
         </div>
 
         <div class='Zbox112'>
           <font size="3em" face="bold">{{kakao_name}}</font><br>
           <font size="1.5em">
             {{ id }}<br>
-          {{kakao_email}}
+            {{kakao_email}}
           </font>
         </div>
       </div>
-      
+
       <div class='Zbox12'>
-        </div>
+      </div>
 
     </div>
 
@@ -49,41 +49,12 @@
       </div>
 
       <div class='Zbox32'>
-        <div class ='Zbox321'>
-          <a href="http://localhost:8080/#/board/list/1">
-           <p style="font-size:1em;  font-weight:bold; text-align:left; ">도서관</p>
-           <p style="font-size:0.8em; text-align:left;">자료실은 언제 열고 닫나요?</p>
-           <p style="font-size:0.8em; text-align:left;">2020/11/22/13:11</p>
-           <p style="font-size:0.7em; text-align:right;">Like 1  Hate 1  comment 1</p>
-          </a>
+        <div class="columns">
+          <div class="column">
+            <polar-area-chart></polar-area-chart>
+          </div>
         </div>
 
-        <div class ='Zbox322'>
-          <a href="http://localhost:8080/#/board/list/2">
-            <p style="font-size:1em; font-weight:bold; text-align:left; ">다음주가 몇주차인지 아시는 분?</p>
-            <p style="font-size:0.8em; text-align:left;">ㅈㄱㄴ</p>
-            <p style="font-size:0.8em; text-align:left;">2020/11/22/15:27</p>
-            <p style="font-size:0.7em; text-align:right;">Like 1  Hate 2 comment 2</p>
-          </a>
-        </div>
-
-        <div class ='Zbox323'>
-          <a href="http://localhost:8080/#/board/list/3">
-            <p style="font-size:1em; font-weight:bold; text-align:left; ">민초</p>
-            <p style="font-size:0.8em; text-align:left;">민초 좋아하면 좋아요 눌러라</p>
-            <p style="font-size:0.8em; text-align:left;">2020/11/22/15:54</p>
-            <p style="font-size:0.7em; text-align:right;">Like 0  Hate 127  comment 2 </p>
-          </a>
-        </div>
-
-        <div class ='Zbox324'>
-          <a href="http://localhost:8080/#/board/list/4">
-            <p style="font-size:1em; font-weight:bold; text-align:left; ">컴공 이기훈 교수님</p>
-            <p style="font-size:0.8em; text-align:left;">이기훈 교수님 강의 잘하시더라. 조교님들도 좋으시고</p>
-            <p style="font-size:0.8em; text-align:left;">2020/11/22/17:24</p>
-            <p style="font-size:0.7em; text-align:right;">Like 324  Hate 2  comment 29</p>
-          </a>
-        </div>
       </div>
 
     </div>
@@ -91,21 +62,21 @@
     <div class="Zbox4">
       <div class='Zbox41'>
         <a href="http://www.kw.ac.kr">
-         <img alt="KW01" src="../../assets/kw01.jpg" height = "190" width="320">
+          <img alt="KW01" src="../../assets/kw01.jpg" height = "190" width="320">
         </a>
 
       </div>
 
       <div class='Zbox42'>
         <a href="http://sw.kw.ac.kr">
-         <img alt="KW02" src="../../assets/kw02.png" height = "190" width="320">
+          <img alt="KW02" src="../../assets/kw02.png" height = "190" width="320">
         </a>
-        </div>
+      </div>
 
       <div class='Zbox43'>
-       <a href="http://datasci.kw.ac.kr">
-        <img alt="KW03" src="../../assets/kw03.png" height = "190" width="200">
-      </a>
+        <a href="http://datasci.kw.ac.kr">
+          <img alt="KW03" src="../../assets/kw03.png" height = "190" width="200">
+        </a>
       </div>
     </div>
 
@@ -114,9 +85,15 @@
 </template>
 
 <script>
+import PolarAreaChart from '@/components/PolarAreaChart'
 
 import axios from "axios";
 export default{
+  name: 'VueChartJS',
+  components: {
+    PolarAreaChart
+  },
+
   data(){
     return{
       My_class_list: [
@@ -142,21 +119,21 @@ export default{
       let a = this.$cookies.isKey('SuccessLogin')
       console.log('Session ' + a)
       axios.get("http://localhost:5000/timetable")
-           .then(res=>{
-             let all_data = res.data
-             console.log(all_data)
-             for (let i = 0 ; i<all_data.length; i++){
-               let name = all_data[i].name;
-               console.log(name)
-               for (let j= 0; j<all_data[i].period.length; j++){
-                 let period = all_data[i].period[j];
-                 let date = period.slice(0,3)
-                 let time = period.slice(3,4)
-                 console.log(date,time)
-                 this.My_class_list[time][date] = name;
-               }
-             }
-           })
+          .then(res=>{
+            let all_data = res.data
+            console.log(all_data)
+            for (let i = 0 ; i<all_data.length; i++){
+              let name = all_data[i].name;
+              console.log(name)
+              for (let j= 0; j<all_data[i].period.length; j++){
+                let period = all_data[i].period[j];
+                let date = period.slice(0,3)
+                let time = period.slice(3,4)
+                console.log(date,time)
+                this.My_class_list[time][date] = name;
+              }
+            }
+          })
 
       let URL = decodeURIComponent(this.$cookies.get('profile'))
       this.kakao_profile_image=URL
@@ -218,7 +195,7 @@ a{text-decoration:none; color:black}
 }
 
 .ZPad{
-  
+
 }
 .Zbox1{
   display: grid;
@@ -242,7 +219,7 @@ a{text-decoration:none; color:black}
 
 .Zbox112{
   padding: 0px 0px;
-  
+
 }
 
 .Zbox12{
@@ -284,7 +261,6 @@ a{text-decoration:none; color:black}
 
 .Zbox32{
   background-color: white;
-  border: 1px solid;
 
   grid-template-columns: 1fr;
   grid-template-rows: 95px 95px 95px 95px 95px;
@@ -329,17 +305,14 @@ a{text-decoration:none; color:black}
 
 .Zbox41{
   background-color: white;
-  border: 1px solid;
 }
 
 .Zbox42{
   background-color: white;
-  border: 1px solid;
 }
 
 .Zbox43{
   background-color: white;
-  border: 1px solid
 }
 
 th{
