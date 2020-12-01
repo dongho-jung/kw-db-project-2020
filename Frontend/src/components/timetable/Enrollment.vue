@@ -82,9 +82,11 @@
    <div class="Fbox2">
      <div class="Fbox21">
         <div class="Fbox211">
-          <hn>Select index number</hn>
-          <hn>that you want to Earse</hn>
-          <select @change="Remove_Favorite" v-model="selected_index">
+          <div class="Fbox">
+            Select index number<br>that you want to Earse
+          </div>
+          <div class="Fbox">
+          <select @change="Remove_Favorite" v-model="selected_index" style="width:50px;margin:10px 0px 0px 0px;">
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -94,21 +96,23 @@
             <option>7</option>
             <option>8</option>
           </select>
-          <p></p>
-          <span>Your selected number: </span>
-          <hn> {{ selected_index }}</hn>
+          </div>
+          <div class="Fbox" >
+          Your selected number:<br>
+          {{ selected_index }}
+          </div>
         </div>
         <div class="Fbox212">
-          <table border="1" bordercolor="black" width='560' height='580' align="center" font size="1em">
+          <table border="1" bordercolor="black" align="center" font size="1em">
             <div v-for="(item,idx) in favorite_table" :key="idx">
                 <tr>
-                    <td width="100" height='30'>{{ item.index }}</td>
-                    <td width="400" height='30'>{{ item.name }}</td>
-                    <td width="160" height='30'>{{ item.class_id }}</td>
-                    <td width="160" height='30'>{{ item.class_professor }}</td>
-                    <td width="100" height='30'>{{ item.period }}</td>
-                    <td width="100" height='30'>{{ item.place }}</td>
-                    <td width="100" height='30'>{{ item.credit }}</td>
+                    <td width="60" height="34" style="word-break:break-all">{{ item.index }}</td>
+                    <td width="20%" height="34" style="word-break:break-all">{{ item.name }}</td>
+                    <td width="20%" height="34" style="word-break:break-all">{{ item.class_id }}</td>
+                    <td width="20%" height="34" style="word-break:break-all">{{ item.class_professor }}</td>
+                    <td width="15%" height="34" style="word-break:break-all">{{ item.period }}</td>
+                    <td width="15%" height="34" style="word-break:break-all">{{ item.place }}</td>
+                    <td width="6%"  height="34" style="word-break:break-all">{{ item.credit }}</td>
                 </tr>
             </div>
           </table>
@@ -366,8 +370,12 @@ a{text-decoration:none; color:black}
 .Enrollment_part{
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 400px 400px;
+  grid-template-rows: 1fr 1fr;
   grid-gap: 10px;
+}
+
+.Fbox{
+  border: 1px solid;
 }
 
 .Fbox1{
@@ -446,20 +454,20 @@ a{text-decoration:none; color:black}
 .Fbox2{
   display: grid;
   grid-template-columns: 7fr 3fr;
-  grid-template-rows: 350px;
+  grid-template-rows: 1fr;
   grid-gap: 20px;
 }
 
 .Fbox21{
   display: grid;
-  grid-template-columns: 1fr 10fr;
+  grid-template-columns: 100px 1200px;
   grid-gap: 10px;
   border: 1px solid;
 }
 
 .Fbox211{
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
   grid-gap: 1px;
   border: 1px solid;
 
@@ -498,7 +506,7 @@ a{text-decoration:none; color:black}
 }
 
 .Fbox212{
-  border: 1px solid;
+  
 }
 
 .Fbox213{
@@ -537,9 +545,6 @@ a{text-decoration:none; color:black}
 }
 
 .Fbox2138{
-  border: 1px solid;
-}
-.Fbox212{
   border: 1px solid;
 }
 
