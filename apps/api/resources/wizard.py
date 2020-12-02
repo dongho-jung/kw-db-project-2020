@@ -70,6 +70,11 @@ class Wizard(Resource):
         result = []
         for n in range(desired_credit // 2 + 2, desired_credit + 2):
             for case in itertools.combinations(classes, n):
+                s = set()
+                for c in case:
+                    p = set(c.period.split())
+                    if p & s: continue
+                    s |= p
                 if is_subset_sum(case, desired_credit):
                     tmp = [[(c.name, W[p[:-1]], int(p[-1])) for p in c.period.split()] for c in case]
                     result += [list(itertools.chain.from_iterable(tmp))]
