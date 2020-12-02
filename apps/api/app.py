@@ -37,7 +37,7 @@ api.add_namespace(scholarship_api)
 api.add_namespace(enroll_api)
 api.add_namespace(timetable_api)
 api.add_namespace(prereq_api)
-api.add_namespace(grade_api
+api.add_namespace(grade_api)
 api.add_namespace(class_api)
 api.add_namespace(comment_api)
 api.add_namespace(student_api)
