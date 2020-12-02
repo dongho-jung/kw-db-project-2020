@@ -13,28 +13,28 @@ export default{
   },
   data () {
     return {
-      sixteen_f : '',
-      sixteen_s : '',
+      sixteen_f : 21,
+      sixteen_s : 19,
 
-      seventeen_f : '',
-      seventeen_s : '',
+      seventeen_f : 15,
+      seventeen_s : 12,
 
-      eightteen_f : '',
-      eightteen_s : '',
+      eightteen_f : 18,
+      eightteen_s : 21,
 
-      nineteen_f : '',
-      nineteen_s : '',
+      nineteen_f : 17,
+      nineteen_s : 12,
 
-      twenty_f : '',
-      twenty_s : '',
+      twenty_f : 15,
+      twenty_s : 18,
 
       datacollection: {
         //Data to be represented on x-axis
         labels: ['2016.1', '2016.2', '2017.1', '2017.2', '2018.1', '2018.2', '2019.1', '2019.2', '2020.1', '2020.2'],
         datasets: [{
           label: '# of Votes',
-          data: [ this.sixteen_f, this.sixteen_s, this.seventeen_f, this.seventeen_s, this.eightteen_f,
-            this.eightteen_s, this.nineteen_f, this.nineteen_s,  this.twenty_f, this.twenty_s],
+          data: [ 21, 19, 15, 12, 18,
+            21, 17, 12,  15, 18],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -230,13 +230,10 @@ export default{
     }
   },
    mounted () {
-    this.set_api()
     //renderChart function renders the chart with the datacollection and options object.
     this.renderChart(this.datacollection, this.options)
-    this.set_api()
   },
   created(){
-    this.set_api()
   }
 }
 </script>

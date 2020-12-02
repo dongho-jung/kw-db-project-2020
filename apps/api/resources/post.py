@@ -64,7 +64,7 @@ class Post(Resource):
         if params['quarter']: predicates += [f"quarter = {params['quarter']}"]
 
         res = db.fetch(f'''
-            SELECT id
+            SELECT like_, content, title, id, hits
             FROM post
             WHERE {db.join_params_for_where(predicates)}
         ''')

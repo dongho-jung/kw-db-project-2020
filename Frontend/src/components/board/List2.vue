@@ -45,7 +45,7 @@
         <tr style="height: 131px;">
           <td style="width: 43.9656%; height: 131px;">
             <p></p>
-            <p><img src="https://lh3.googleusercontent.com/ADshzu37r6g2ZQgk6YstQeICy12z5UCaDfFHQvV5u0ghc3gj9KksIWjBLtZkb7vI-ecMYgif6eigshivo9WNUEkYZ76DMTjHMQKugmi04ZVk6xZJNbYK=w1280" alt="" width="263" height="305" /></p>
+            <p><img src="@/assets/sm.jpg" alt="" width="263" height="305" /></p>
           </td>
           <td style="width: 48.0979%; height: 131px;">
             <div class="oKdM2c Kzv0Me">

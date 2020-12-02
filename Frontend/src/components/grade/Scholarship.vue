@@ -1,12 +1,18 @@
+<!-- > 왼쪽 화면에 선 그래프를 어떻게 구현하면 좋을까?< -->
+<!-- 상단에 있는 장학 제도 누르면 나오는 페이지 -->
 <template>
   <div class="Schlorship_part">
     <div class="DPad"></div>
+
     <div class="Dbox1">
+      <!-- ><li><router-link to="/chartjs">장학제도</router-link></li>< -->
+
       <section class="container">
         <h1>장학제도</h1>
         <div class="columns">
           <div class="column">
             <line-chart2></line-chart2>
+            <!--Line Chart2 example-->
           </div>
         </div>
       </section>
@@ -35,7 +41,6 @@
 </template>
 
 <script>
-
 import LineChart2 from '@/components/LineChart2'
 
 export default {
@@ -60,7 +65,6 @@ li {
 a {
   color: #42b983;
 }
-
 .button {
   color: black;
   padding: 7px 60px;

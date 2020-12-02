@@ -143,6 +143,7 @@ export default{
     }
   },
   created() {
+    PolarAreaChart.methods.set_api()
     this.Make_2D_list();
   }
 }

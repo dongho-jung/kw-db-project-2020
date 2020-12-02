@@ -1,4 +1,3 @@
-
 <script>
 //Importing Line class from the vue-chartjs wrapper
 import {Line} from 'vue-chartjs'
@@ -8,8 +7,8 @@ export default {
   data () {
     return {
       datacollection: {
-//Data to be represented on x-axis
-        labels: ['2016.1', '2016.2', '2019.1', '2019.2', '2020.1', '2020.2'],
+        //Data to be represented on x-axis
+        labels: ['2018.1', '2018.2', '2019.1', '2019.2', '2020.1', '2020.2', '2021.1', '2021.2', '2022.1', '2022.2'],
         datasets: [
           {
             label: '본인 학점',
@@ -53,7 +52,7 @@ export default {
           },
         ]
       },
-//Chart.js options that controls the appearance of the chart
+      //Chart.js options that controls the appearance of the chart
       options: {
         scales: {
           yAxes: [{
@@ -81,14 +80,7 @@ export default {
     }
   },
   mounted () {
-//renderChart function renders the chart with the datacollection and options object.
-
-
-
-
-
-  },
-  created(){
+    //renderChart function renders the chart with the datacollection and options object.
     this.renderChart(this.datacollection, this.options)
   }
 }
