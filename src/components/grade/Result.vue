@@ -4,7 +4,7 @@
         <div class="DboxPad"></div>
         <div class="Dbox1">
             <section class="container">
-                <h1>취득 학점</h1>
+                <h1>Credits acquired</h1>
                 <div class="columns">
                     <div class="column">
                         <bar-chart></bar-chart>
@@ -15,7 +15,7 @@
         
         <div class="Dbox2">
             <section class="container">
-                <h1>취득 평점</h1>
+                <h1>Grade acquired</h1>
                 <div class="columns">
                     <div class="column">
                         <line-chart></line-chart>
@@ -26,14 +26,14 @@
         <div class="Dbox3">
             <div class="DboxBorder">
                 <a href="http://localhost:8080/grade/result">
-                    <h3>학습결과</h3>
+                    <h3>Result of Degree</h3>
                 </a>
             </div>
             <div class="Dbox2n" align="left">
                 <div class="Dbox21" align="left">
-                    <font size="3em">- 학년 : 4</font><br><br>
-                    <font size="3em">- 전공 : 48 / 60</font><br><br>
-                    <font size="3em">- 교양 : 120 / 140</font><br><br>
+                    <font size="3em">- grade : 4</font><br><br>
+                    <font size="3em">- Magor : 63</font><br><br>
+                    <font size="3em">- General subject : 78</font><br><br>
                 </div>
             </div>
             
@@ -67,12 +67,7 @@
                     <radar-chart4></radar-chart4>
                     </div>
                 </div>
- 
-                <div class="columns">
-                    <div class="column">
-                    <radar-chart5></radar-chart5>
-                    </div>
-                </div>
+
     </div>
 </template>
                        
@@ -83,7 +78,6 @@ import RadarChart1 from '@/components/radarchart/RadarChart1'
 import RadarChart2 from '@/components/radarchart/RadarChart2'
 import RadarChart3 from '@/components/radarchart/RadarChart3'
 import RadarChart4 from '@/components/radarchart/RadarChart4'
-import RadarChart5 from '@/components/radarchart/RadarChart5'
 
 export default {
 name: 'VueChartJS',
@@ -93,8 +87,7 @@ name: 'VueChartJS',
         RadarChart1,
         RadarChart2,
         RadarChart3,
-        RadarChart4,
-        RadarChart5
+        RadarChart4
     }
 }
 </script>
