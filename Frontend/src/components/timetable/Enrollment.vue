@@ -2,7 +2,7 @@
 <template>
   <div class="Enrollment_part">
     <div class="Fbox1">
-      <div class="Fbox11" align="center">All class
+      <div class="Fbox11" align="center">All class of 2020-2
         <div class="Fbox111">
           <table border="1" bordercolor="black" width='560' height='580' align="center">
             <tr>
@@ -46,7 +46,7 @@
         </div>
 
         <div class="Fbox1312">
-          <p><input v-model="search_class_id" placeholder="Class ID를 입력하시오" size=50 style = "text-align:center;"></p>
+          <p><input v-model="search_class_id" placeholder="Input Class ID" size=50 style = "text-align:center;"></p>
         </div>
 
         <div class="Fbox1313">

@@ -1,3 +1,4 @@
+
 <script>
 //Importing Bar class from the vue-chartjs wrapper
 import {Bar} from 'vue-chartjs'
@@ -8,34 +9,34 @@ export default {
     return {
       datacollection: {
         //Data to be represented on x-axis
-        labels: ['2016-1', '2016-2', '2019-1', '2019-2', '2020-1', '2020-2'],
+        labels: ['2016.1', '2016.2', '2017.1', '2017.2','2019.1', '2019.2', '2020.1', '2020.2'],
         datasets: [
           {
-            label: '전선',
+            label: 'ME(전선)',
             backgroundColor: 'orange',
             pointBackgroundColor: 'white',
             borderWidth: 1,
             pointBorderColor: '#249EBF',
             //Data to be represented on y-axis
-            data: [9, 6, 9, 9, 9, 9]
+            data: [0,0,6,6,9,6,6,3]
           },
           {
-            label: '전필',
+            label: 'MR(전필)',
             backgroundColor: 'yellow',
             pointBackgroundColor: 'white',
             borderWidth: 1,
             pointBorderColor: '#249EBF',
             //Data to be represented on y-axis
-            data: [9, 6, 9, 9, 9, 9]
+            data: [0,0,6,6,3,6,3,3]
           },
           {
-            label: '교양',
+            label: 'GR(교양)',
             backgroundColor: 'green',
             pointBackgroundColor: 'white',
             borderWidth: 1,
             pointBorderColor: '#249EBF',
             //Data to be represented on y-axis
-            data: [6, 6, 3, 6, 9, 6]
+            data: [21, 21, 9, 6, 6, 6, 3, 6]
           }
         ]
       },
@@ -72,4 +73,3 @@ export default {
   }
 }
 </script>
- 

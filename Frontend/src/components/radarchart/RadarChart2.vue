@@ -12,21 +12,20 @@ export default {
         datasets: [
           {
             label: '2017_1',
-            backgroundColor: 'rgba(179, 181, 198, 0.2)',
-            borderColor: 'rgba(179,181,198,1)',
+            backgroundColor: 'rgba(255, 0, 221, 0.2)',
+            borderColor: 'rgba(255, 0, 221, 0.2)',
             pointBackgroundColor: 'white',
-            borderWidth: 3,
-            pointBorderColor: '#249EBF',
- 
+            borderWidth: 5,
+            pointBorderColor: 'rgba(255, 0, 221, 0.2)',
             data: [2,2,2,1,0,1,0,1]
           },
           {
             label: '2017_2',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 0.2)',
+            backgroundColor: 'rgba(54, 162, 235, 0.2)',
+            borderColor: 'rgba(54, 162, 235, 0.2)',
             pointBackgroundColor: 'white',
-            borderWidth: 3,
-            pointBorderColor: '#149EBF',
+            borderWidth: 5,
+            pointBorderColor: 'rgba(54, 162, 235, 0.2)',
             data: [1,2,1,1,0,0,0,0]
           }
         ]
@@ -34,8 +33,8 @@ export default {
       //Chart.js options that controls the appearance of the chart
       options: {
         legend: {
-            display: true
-          },
+          display: true
+        },
         responsive: true,
         maintainAspectRatio: false
       }

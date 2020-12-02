@@ -11,31 +11,30 @@ export default {
         labels: ['A+','A0','B+','B0','C+','C0','D+','D0','F'],
         datasets: [
           {
-            label: '2019_1',
-            backgroundColor: 'rgba(179, 181, 198, 0.2)',
-            borderColor: 'rgba(179,181,198,1)',
+            label: '2020_1',
+            backgroundColor: 'rgba(0, 84, 255, 0.2)',
+            borderColor: 'rgba(0, 84, 255, 0.2)',
             pointBackgroundColor: 'white',
             borderWidth: 3,
-            pointBorderColor: '#249EBF',
- 
-            data: [1,3,3,0,0,3,1,0,3]
+            pointBorderColor: 'rgba(0, 84, 255, 0.2)',
+            data: [1,0,2,1,0,0,0,0,0]
           },
           {
-            label: '2019_2',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            borderColor: 'rgba(75, 192, 192, 0.2)',
+            label: '2020_2',
+            backgroundColor:'rgba(255, 159, 64, 0.2)',
+            borderColor: 'rgba(255, 159, 64, 0.2)',
             pointBackgroundColor: 'white',
             borderWidth: 3,
-            pointBorderColor: '#149EBF',
-            data: [2,3,1,0,0,0,1,1,1]
+            pointBorderColor: 'rgba(255, 159, 64, 0.2)',
+            data: [1,1,1,0,1,0,0,0,0]
           }
         ]
       },
       //Chart.js options that controls the appearance of the chart
       options: {
         legend: {
-            display: true
-          },
+          display: true
+        },
         responsive: true,
         maintainAspectRatio: false
       }
@@ -47,4 +46,4 @@ export default {
   }
 }
 </script>
- 
+

@@ -23,7 +23,7 @@
 
     <div class="Zbox2">
       <div class='Zbox21'>
-        <h2>Student ID : {{id}}</h2>
+        <h2>Student ID : {{id}}</h2><br>
       </div>
 
       <div class='Zbox22'>
@@ -143,7 +143,6 @@ export default{
     }
   },
   created() {
-    PolarAreaChart.methods.set_api()
     this.Make_2D_list();
   }
 }
