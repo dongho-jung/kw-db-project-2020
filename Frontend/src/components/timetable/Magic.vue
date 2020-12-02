@@ -7,17 +7,17 @@
         <h2>Time table Maker</h2>
       </div>
       <div class="Ebox112">
-        <div style="overflow-x:auto; overflow-y:auto; height:280px;">
+        <div style="overflow-x:auto; overflow-y:auto; height:590px;">
           <table @change="Make" border="1" bordercolor="black" width='670' height='590' text-align="center" font size="1em">
             <div v-for="(item,idx) in Time_table" :key="idx">
               <tr>
-                <td width="10%" style="word-break:break-all">{{item[0]}}</td>
-                <td width="18%" style="word-break:break-all">{{item[1]}}</td>
-                <td width="18%" style="word-break:break-all">{{item[2]}}</td>
-                <td width="18%" style="word-break:break-all">{{item[3]}}</td>
-                <td width="18%" style="word-break:break-all">{{item[4]}}</td>
-                <td width="18%" style="word-break:break-all">{{item[5]}}</td>
-                <td width="18%" style="word-break:break-all">{{item[6]}}</td>
+                <td width="100" height=81 style="word-break:break-all">{{item[0]}}</td>
+                <td width="100" height=81 style="word-break:break-all">{{item[1]}}</td>
+                <td width="100" height=81 style="word-break:break-all">{{item[2]}}</td>
+                <td width="100" height=81 style="word-break:break-all">{{item[3]}}</td>
+                <td width="100" height=81 style="word-break:break-all">{{item[4]}}</td>
+                <td width="100" height=81 style="word-break:break-all">{{item[5]}}</td>
+                <td width="100" height=81 style="word-break:break-all">{{item[6]}}</td>
               </tr>
             </div>
           </table>

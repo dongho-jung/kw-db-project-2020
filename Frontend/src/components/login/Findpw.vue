@@ -147,7 +147,7 @@ export default {
                   })
                   .catch(error =>{
                     console.log(error);
-                    alert('You already have ID')
+                    alert("You don't have ID")
                     this.$router.push('/login')
                   })
             }
