@@ -8,7 +8,7 @@
       <!-- ><li><router-link to="/chartjs">장학제도</router-link></li>< -->
 
       <section class="container">
-        <h1>장학제도</h1>
+        <h1>Scholarship System</h1>
         <div class="columns">
           <div class="column">
             <line-chart2></line-chart2>
@@ -22,7 +22,7 @@
     <div class="Dbox2">
       <div class="DboxBorder">
         <a href="http://localhost:8080/grade/Scholarship">
-          <h3>장학제도</h3>
+          <h3>Condition of Scholarship System </h3>
         </a>
       </div>
       <div class="Dbox2n" align="left">
