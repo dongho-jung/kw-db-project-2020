@@ -206,7 +206,6 @@ a{text-decoration:none; color:black}
 
 .Zbox11{
   background-color: white;
-  border: 1px dashed;
 
   grid-template-columns: 1fr;
   grid-template-rows: 10px 10px 10px 10px;
