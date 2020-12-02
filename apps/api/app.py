@@ -17,6 +17,7 @@ from resources.prereq import api as prereq_api
 from resources.scholarship import api as scholarship_api
 from resources.student import api as student_api
 from resources.timetable import api as timetable_api
+from resources.wizard import api as wizard_api
 
 app = Flask(__name__)
 cors = CORS(app, supports_credentials=True)
@@ -41,7 +42,7 @@ api.add_namespace(grade_api)
 api.add_namespace(class_api)
 api.add_namespace(comment_api)
 api.add_namespace(student_api)
-
+api.add_namespace(wizard_api)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
