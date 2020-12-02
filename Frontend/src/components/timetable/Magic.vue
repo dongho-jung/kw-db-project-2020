@@ -8,16 +8,16 @@
       </div>
       <div class="Ebox112">
         <div style="overflow-x:auto; overflow-y:auto; height:280px;">
-          <table border="1" bordercolor="black" width='670' height='590' text-align="center" font size="1em">
+          <table @change="Make" border="1" bordercolor="black" width='670' height='590' text-align="center" font size="1em">
             <div v-for="(item,idx) in Time_table" :key="idx">
               <tr>
-                <td width="10%" style="word-break:break-all">{{item.index}}</td>
-                <td width="18%" style="word-break:break-all">{{item.first_class}}</td>
-                <td width="18%" style="word-break:break-all">{{item.second_class}}</td>
-                <td width="18%" style="word-break:break-all">{{item.third_class}}</td>
-                <td width="18%" style="word-break:break-all">{{item.forth_class}}</td>
-                <td width="18%" style="word-break:break-all">{{item.fifth_class}}</td>
-                <td width="18%" style="word-break:break-all">{{item.sixth_class}}</td>
+                <td width="10%" style="word-break:break-all">{{item[0]}}</td>
+                <td width="18%" style="word-break:break-all">{{item[1]}}</td>
+                <td width="18%" style="word-break:break-all">{{item[2]}}</td>
+                <td width="18%" style="word-break:break-all">{{item[3]}}</td>
+                <td width="18%" style="word-break:break-all">{{item[4]}}</td>
+                <td width="18%" style="word-break:break-all">{{item[5]}}</td>
+                <td width="18%" style="word-break:break-all">{{item[6]}}</td>
               </tr>
             </div>
           </table>
@@ -111,21 +111,13 @@ export default {
 
       // for making favorite table
       Time_table: [
-        {
-          index: '○',
-          first_class: 'MON',
-          second_class: 'TUE',
-          third_class: 'WED',
-          forth_class: 'THR',
-          fifth_class: 'FRI',
-          sixth_class: 'SAT'
-        },
-        {index: 1, first_class: '', second_class: '', third_class: '', forth_class: '', fifth_class: '', sixth_class: ''},
-        {index: 2, first_class: '', second_class: '', third_class: '', forth_class: '', fifth_class: '', sixth_class: ''},
-        {index: 3, first_class: '', second_class: '', third_class: '', forth_class: '', fifth_class: '', sixth_class: ''},
-        {index: 4, first_class: '', second_class: '', third_class: '', forth_class: '', fifth_class: '', sixth_class: ''},
-        {index: 5, first_class: '', second_class: '', third_class: '', forth_class: '', fifth_class: '', sixth_class: ''},
-        {index: 6, first_class: '', second_class: '', third_class: '', forth_class: '', fifth_class: '', sixth_class: ''},
+        ['○', 'MON', 'TUE', 'WED', 'THR', 'FRI', 'SAT'],
+        [1, '', '', '', '', '', ''],
+        [2, '', '', '', '', '','',],
+        [3, '', '', '', '', '','',],
+        [4, '', '', '', '', '','',],
+        [5, '', '', '', '', '','',],
+        [6, '', '', '', '', '','',],
       ],
 
 
@@ -163,12 +155,21 @@ export default {
         }
       })
           .then(res=>{ //못찾으면 error 출력하도록 유도
-            console.log(res.data.data)
+            console.log(res.data)
             alert('You can use it')
-
-
-
-
+            let table = res.data
+            for(let j=0; j<table.length;j++) {
+              let table_ = table[j]
+              console.log(table[j])
+              for (let i = 0; i < table_.length; i++) {
+                let date = table_[i][2]
+                let time = table_[i][1]
+                console.log(date, time)
+                console.log(this.Time_table[time][date])
+                this.Time_table[time][date] = table_[i][0]
+                console.log(this.Time_table)
+              }
+            }
           })
           .catch(error =>{
             console.log(error)
