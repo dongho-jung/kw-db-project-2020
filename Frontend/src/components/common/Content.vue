@@ -23,19 +23,19 @@
 
     <div class="Zbox2">
       <div class='Zbox21'>
-        <h3>ID : {{id}}</h3>
+        <h2>Student ID : {{id}}</h2>
       </div>
 
       <div class='Zbox22'>
         <div v-for = "(my_list,idx) in My_class_list" :key="idx">
           <table border="1" bordercolor="black" width='460' height='580' align="center" font size="1em">
             <tr>
-              <td width="100" style="word-break: break-all">{{my_list.index}}</td>
-              <td width="100" style="word-break: break-all">{{ my_list.MON }}</td>
-              <td width="100" style="word-break: break-all">{{my_list.TUE}}</td>
-              <td width="100" style="word-break: break-all">{{my_list.WED}}</td>
-              <td width="100" style="word-break: break-all">{{my_list.THU}}</td>
-              <td width="100" style="word-break: break-all">{{my_list.FRI}}</td>
+              <td width="100" height="80" style="word-break:break-all;font-size: 0.8em;">{{my_list.index}}</td>
+              <td width="100" height="80" style="word-break:break-all;font-size: 0.8em;">{{my_list.MON }}</td>
+              <td width="100" height="80" style="word-break:break-all;font-size: 0.8em;">{{my_list.TUE}}</td>
+              <td width="100" height="80" style="word-break:break-all;font-size: 0.8em;">{{my_list.WED}}</td>
+              <td width="100" height="80" style="word-break:break-all;font-size: 0.8em;">{{my_list.THU}}</td>
+              <td width="100" height="80" style="word-break:break-all;font-size: 0.8em;">{{my_list.FRI}}</td>
             </tr>
           </table>
         </div>
@@ -45,7 +45,7 @@
 
     <div class="Zbox3">
       <div class='Zbox31'>
-        <h3>Notice board</h3>
+        <h1>Credit Polar Area Chart</h1>
       </div>
 
       <div class='Zbox32'>
@@ -93,11 +93,10 @@ export default{
   components: {
     PolarAreaChart
   },
-
   data(){
     return{
       My_class_list: [
-        {index: '',MON:'Mon',TUE:'Tue',WED:'Wed',THU:'Thr',FRI:'Fri'},
+        {index:'●',MON:'Mon',TUE:'Tue',WED:'Wed',THU:'Thr',FRI:'Fri'},
         {index: 1,MON:'',TUE:'',WED:'',THU:'',FRI:''},
         {index: 2,MON:'',TUE:'',WED:'',THU:'',FRI:''},
         {index: 3,MON:'',TUE:'',WED:'',THU:'',FRI:''},
@@ -144,6 +143,7 @@ export default{
     }
   },
   created() {
+    PolarAreaChart.methods.set_api()
     this.Make_2D_list();
   }
 }
@@ -206,7 +206,6 @@ a{text-decoration:none; color:black}
 
 .Zbox11{
   background-color: white;
-  border: 1px solid;
 
   grid-template-columns: 1fr;
   grid-template-rows: 10px 10px 10px 10px;
@@ -236,13 +235,11 @@ a{text-decoration:none; color:black}
 .Zbox21{
   text-align: center;
   background-color: white;
-  border: 1px solid;
   padding: 0px 0px;
 }
 
 .Zbox22{
   background-color: white;
-  border: 1px solid;
 }
 
 .Zbox3{
@@ -255,7 +252,6 @@ a{text-decoration:none; color:black}
 .Zbox31{
   text-align: center;
   background-color: white;
-  border: 1px solid;
   padding: 0px 0px 0px 0px;
 }
 

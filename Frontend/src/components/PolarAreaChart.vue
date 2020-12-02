@@ -1,17 +1,40 @@
 <script>
 //Importing Bubble class from the vue-chartjs wrapper
 import {PolarArea} from 'vue-chartjs'
+import axios from "axios";
+axios.defaults.withCredentials = true
 //Exporting this so it can be used in other components
 export default{
   extends: PolarArea,
+  watch:{
+    charData(){
+      this.$data._chart.update()
+    }
+  },
   data () {
     return {
+      sixteen_f : 21,
+      sixteen_s : 19,
+
+      seventeen_f : 15,
+      seventeen_s : 12,
+
+      eightteen_f : 18,
+      eightteen_s : 21,
+
+      nineteen_f : 17,
+      nineteen_s : 12,
+
+      twenty_f : 15,
+      twenty_s : 18,
+
       datacollection: {
         //Data to be represented on x-axis
         labels: ['2016.1', '2016.2', '2017.1', '2017.2', '2018.1', '2018.2', '2019.1', '2019.2', '2020.1', '2020.2'],
         datasets: [{
           label: '# of Votes',
-          data: [12, 19, 3, 5, 2, 3, 6, 9, 18, 12],
+          data: [ 21, 19, 15, 12, 18,
+            21, 17, 12,  15, 18],
           backgroundColor: [
             'rgba(255, 99, 132, 0.2)',
             'rgba(54, 162, 235, 0.2)',
@@ -42,9 +65,175 @@ export default{
       //Chart.js options that controls the appearance of the chart
     }
   },
-  mounted () {
+  methods: {
+    set_api() {
+      axios.get('/grade',{
+        baseURL: 'http://localhost:5000',
+        params: {
+          year: '2016',
+          quarter: '1'
+        }
+      })
+          .then(res=>{
+            console.log(res.data)
+            let temp = 0;
+            for(let i = 0; i<res.data.length;i++){
+              temp = temp + parseInt(res.data[i][1],10);
+            }
+            this.sixteen_f = temp
+            console.log(this.sixteen_f)
+          })
+      axios.get('/grade',{
+        baseURL: 'http://localhost:5000',
+        params: {
+          year: '2016',
+          quarter: '2'
+        }
+      })
+          .then(res=>{
+            console.log(res.data)
+            let temp = 0;
+            for(let i = 0; i<res.data.length;i++){
+              temp = temp + parseInt(res.data[i][1],10);
+            }
+            this.sixteen_f = temp
+            console.log(this.sixteen_f)
+          })
+      axios.get('/grade',{
+        baseURL: 'http://localhost:5000',
+        params: {
+          year: '2017',
+          quarter: '1'
+        }
+      })
+          .then(res=>{
+            console.log(res.data)
+            let temp = 0;
+            for(let i = 0; i<res.data.length;i++){
+              temp = temp + parseInt(res.data[i][1],10);
+            }
+            this.seventeen_f = temp
+            console.log(this.seventeen_f)
+          })
+      axios.get('/grade',{
+        baseURL: 'http://localhost:5000',
+        params: {
+          year: '2017',
+          quarter: '2'
+        }
+      })
+          .then(res=>{
+            console.log(res.data)
+            let temp = 0;
+            for(let i = 0; i<res.data.length;i++){
+              temp = temp + parseInt(res.data[i][1],10);
+            }
+            this.seventeen_s = temp
+            console.log(this.seventeen_s)
+          })
+      axios.get('/grade',{
+        baseURL: 'http://localhost:5000',
+        params: {
+          year: '2018',
+          quarter: '1'
+        }
+      })
+          .then(res=>{
+            console.log(res.data)
+            let temp = 0;
+            for(let i = 0; i<res.data.length;i++){
+              temp = temp + parseInt(res.data[i][1],10);
+            }
+            this.eightteen_f = temp
+            console.log(this.eightteen_f)
+          })
+      axios.get('/grade',{
+        baseURL: 'http://localhost:5000',
+        params: {
+          year: '2018',
+          quarter: '2'
+        }
+      })
+          .then(res=>{
+            console.log(res.data)
+            let temp = 0;
+            for(let i = 0; i<res.data.length;i++){
+              temp = temp + parseInt(res.data[i][1],10);
+            }
+            this.eightteen_s = temp
+            console.log(this.eightteen_s)
+          })
+      axios.get('/grade',{
+        baseURL: 'http://localhost:5000',
+        params: {
+          year: '2019',
+          quarter: '1'
+        }
+      })
+          .then(res=>{
+            console.log(res.data)
+            let temp = 0;
+            for(let i = 0; i<res.data.length;i++){
+              temp = temp + parseInt(res.data[i][1],10);
+            }
+            this.nineteen_f = temp
+            console.log(this.nineteen_f)
+          })
+      axios.get('/grade',{
+        baseURL: 'http://localhost:5000',
+        params: {
+          year: '2019',
+          quarter: '2'
+        }
+      })
+          .then(res=>{
+            console.log(res.data)
+            let temp = 0;
+            for(let i = 0; i<res.data.length;i++){
+              temp = temp + parseInt(res.data[i][1],10);
+            }
+            this.nineteen_s = temp
+            console.log(this.nineteen_s)
+          })
+      axios.get('/grade',{
+        baseURL: 'http://localhost:5000',
+        params: {
+          year: '2020',
+          quarter: '1'
+        }
+      })
+          .then(res=>{
+            console.log(res.data)
+            let temp = 0;
+            for(let i = 0; i<res.data.length;i++){
+              temp = temp + parseInt(res.data[i][1],10);
+            }
+            this.twenty_f = temp
+            console.log(this.twenty_f)
+          })
+      axios.get('/grade',{
+        baseURL: 'http://localhost:5000',
+        params: {
+          year: '2020',
+          quarter: '2'
+        }
+      })
+          .then(res=>{
+            console.log(res.data)
+            let temp = 0;
+            for(let i = 0; i<res.data.length;i++){
+              temp = temp + parseInt(res.data[i][1],10);
+            }
+            this.twenty_s = temp
+            console.log(this.twenty_s)
+          })
+    }
+  },
+   mounted () {
     //renderChart function renders the chart with the datacollection and options object.
     this.renderChart(this.datacollection, this.options)
+  },
+  created(){
   }
 }
 </script>
