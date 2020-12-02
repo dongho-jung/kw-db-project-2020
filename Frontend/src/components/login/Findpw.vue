@@ -140,14 +140,14 @@ export default {
                 }
               })
                   .then(res=>{ //못찾으면 error 출력하도록 유도
-                    alert("You don't have ID")
+                    alert("Already exists ID")
                     console.log(res);
                     this.$cookies.set('CheckDuplicatedEmail');
                     this.$router.push('/login')
                   })
                   .catch(error =>{
                     console.log(error);
-                    alert("You don't have ID")
+                    alert("Already exists ID")
                     this.$router.push('/login')
                   })
             }
