@@ -1,5 +1,5 @@
 import itertools
-from collections import namedtuple
+from collections import namedtuple, defaultdict
 
 from flask_restx import Namespace, Resource, reqparse
 
@@ -17,16 +17,11 @@ wizard_get_parser.add_argument('prefer_cap', type=str, help="NULL->don't care, s
 wizard_get_parser.add_argument('offset', type=int, help='default 0')
 
 
-def is_subset_sum(classes, desired_credit):
-    if desired_credit == 0:
-        return True
-    if (not classes) and (desired_credit != 0):
-        return False
-
-    if classes[-1].credit > desired_credit:
-        return is_subset_sum(classes[:-1], desired_credit)
-    return is_subset_sum(classes[:-1], desired_credit) or is_subset_sum(classes[:-1],
-                                                                        desired_credit - classes[-1].credit)
+def gen_periods(period_classes, desired_credit):
+    for n in range(desired_credit // 3, desired_credit):
+        for case in itertools.combinations(period_classes, n):
+            if len(' '.join(case).split()) == desired_credit:
+                yield case
 
 
 @api.route('')
@@ -46,16 +41,16 @@ class Wizard(Resource):
         ''')
         Class = namedtuple('Class', ['name', 'period', 'credit', 'capacity'])
 
+        invalid_pred = lambda x: any(str(i) in x.period for i in (7, 8)) or any(i in x.period for i in ('SAT', 'SUN'))
         classes = [Class(*row) for row in rows]
-        classes = [c for c in classes if not any(str(i) in c.period for i in (7, 8))]
-        classes = [c for c in classes if not any(i in c.period for i in ('SAT', 'SUN'))]
+        classes = [c for c in classes if not invalid_pred(c)]
 
         if prefer_time:
             if '_' not in prefer_time:
                 invalid_range = {'early': range(3, 7), 'late': range(1, 5)}[prefer_time]
             else:
                 invalid_range = [params['prefer_time'].split('_')[-1]]
-            classes = [c for c in classes if not any(str(i) in c.period for i in invalid_range)]
+            classes = [c for c in classes if not any(str(i) in ''.join(c.period) for i in invalid_range)]
 
         if prefer_cap:
             if prefer_cap == 'small':
@@ -66,19 +61,15 @@ class Wizard(Resource):
                 return {'msg': 'prefer_cap을 제대로 입력해주세요.'}, 400
             classes = [c for c in classes if pred_cap(c.capacity)]
 
+        period_classes = defaultdict(list)
+        for c in classes:
+            period_classes[c.period] += [c]
+
         W = {'MON': 1, 'TUE': 2, 'WED': 3, 'THU': 4, 'FRI': 5, 'SAT': 6, 'SUN': 7}
         result = []
-        for n in range(desired_credit // 2 + 2, desired_credit + 2):
-            for case in itertools.combinations(classes, n):
-                s = set()
-                for c in case:
-                    p = set(c.period.split())
-                    if p & s: continue
-                    s |= p
-                if is_subset_sum(case, desired_credit):
-                    tmp = [[(c.name, W[p[:-1]], int(p[-1])) for p in c.period.split()] for c in case]
-                    result += [list(itertools.chain.from_iterable(tmp))]
-                    if len(result) >= CHUNK_SIZE:
-                        break
-
-        return result[offset:offset + CHUNK_SIZE]
+        for periods in gen_periods(period_classes, desired_credit):
+            for case in itertools.product(*[period_classes[p] for p in periods]):
+                tmp = [[(c.name, W[p[:-1]], int(p[-1])) for p in c.period.split()] for c in case]
+                result += [list(itertools.chain.from_iterable(tmp))]
+                if len(result) >= CHUNK_SIZE:
+                    return result[offset:offset + CHUNK_SIZE]
