@@ -1,6 +1,10 @@
 # kw-db-project-2020
 광운대 디비만만팀 데이터베이스및응용 프로젝트 
 
+# Overview
+
+![스크린샷 2021-09-04 오후 3 04 37](https://user-images.githubusercontent.com/67637935/132084610-a00e56e3-b2ce-40e1-bb46-6856b4770f5c.png)
+
 
 
 
